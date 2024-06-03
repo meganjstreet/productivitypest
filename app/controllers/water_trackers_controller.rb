@@ -1,0 +1,2 @@
+class WaterTrackersController < ApplicationController
+end
