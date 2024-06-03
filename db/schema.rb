@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_125726) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_144443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,10 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_125726) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
-    t.bigint "day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_lists_on_day_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "pomodoros", force: :cascade do |t|
@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_125726) do
 
   add_foreign_key "days", "users"
   add_foreign_key "list_items", "lists"
-  add_foreign_key "lists", "days"
+  add_foreign_key "lists", "users"
   add_foreign_key "pomodoros", "days"
   add_foreign_key "schedule_tasks", "schedules"
   add_foreign_key "schedules", "days"
