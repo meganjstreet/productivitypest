@@ -10,3 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body.work-period {
+  background-color: #f4f4f4;
+}
+
+body.short-break-period {
+  background-color: #d4edda;
+}
+
+body.long-break-period {
+  background-color: #d1ecf1;
+}

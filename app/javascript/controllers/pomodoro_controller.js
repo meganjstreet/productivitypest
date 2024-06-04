@@ -12,8 +12,6 @@ export default class extends Controller {
     this.timeLeft = this.workTimeValue * 60;
     // initialise pomodoro count as 0
     this.pomodoroCount = 0;
-    // initialise paused as false
-    this.isPaused = false;
     // updating the display
     this.updateDisplay();
   }
@@ -41,9 +39,47 @@ export default class extends Controller {
     this.pomodoroCount = 0;
     this.timeLeft = this.workTimeValue * 60;
     this.updateDisplay()
+    document.body.classList.add('work-period')
+    document.body.classList.remove('short-break-period', 'long-break-period')
 
   }
 
-  pause()
+
+
+  switchPeriod() {
+    if(this.isWorkPeriod){
+      //increment pomodoroCount if this is the end of a work period
+      this.pomodoroCount++
+      console.log(this.pomodoroCount)
+      if (this.pomodoroCount % 4 === 0) {
+        this.isWorkPeriod = false;
+        this.timeLeft = this.longBreakTimeValue * 60
+        console.log("long break")
+        console.log(this.timeLeft)
+        document.body.classList.remove('work-period', 'short-break-period')
+        document.body.classList.add('long-break-period')
+      } else {
+        this.isWorkPeriod = false;
+        this.timeLeft = this.shortBreakTimeValue * 60
+        console.log("short break")
+        console.log(this.timeLeft)
+        document.body.classList.remove('work-period', 'long-break-period')
+        document.body.classList.add('short-break-period')
+      }
+    } else {
+      this.isWorkPeriod = true
+      this.timeLeft = this.workTimeValue * 60
+      document.body.classList.remove('short-break-period', 'long-break-period')
+      document.body.classList.add('work-period')
+    }
+
+    this.updateDisplay()
+  }
+
+  updateDisplay() {
+    const minutes = Math.floor(this.timeLeft / 60)
+    const seconds = this.timeLeft % 60
+    this.displayTarget.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`
+  }
 
 }
