@@ -1,0 +1,77 @@
+
+.container-pomodoro {
+  position: fixed;
+  bottom: 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #D9D9D9;
+
+}
+
+.long-break-period {
+  background-color: #4B7EFF;
+}
+
+.short-break-period {
+  background-color: #80C1FE;
+}
+
+.work-period {
+  background-color: #FF4F4F;
+}
+
+button {
+  border: none;
+  text-align: center;
+  background-color: transparent;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+#button-tomato {
+  display: flex;
+  justify-content: center;
+  background: image_url('tomato.png');
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
+
+#button-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button-pause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button-start-break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#display-pomodoro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+}
