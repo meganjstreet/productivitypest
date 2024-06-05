@@ -1,0 +1,12 @@
+<div class='container'>
+  <h1>Water tracker</h1>
+
+  <% water_trackers.each do|water_tracker| %>
+      <div class='progess'>
+        <div>Your target is <%= water_tracker.goal_amount %>ml</div>
+        <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
+      </div>
+      <%= link_to 'drink', take_glass_of_water_water_tracker_path(water_tracker), method: :patch, class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
