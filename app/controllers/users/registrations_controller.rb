@@ -50,7 +50,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # The path used after sign up.
   def after_sign_up_path_for(resource)
     super(resource)
     day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
