@@ -11,7 +11,8 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    WaterTracker.find_or_create_by(day_id: day.id)
   end
 
   # DELETE /resource/sign_out

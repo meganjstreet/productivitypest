@@ -1,12 +1,22 @@
 <div class='container'>
   <h1>Water tracker</h1>
 
-  <% water_trackers.each do|water_tracker| %>
-      <div class='progess'>
+  <%# water_trackers.each do|water_tracker| %>
+    <div class='water-tracker-card' data-controller="edit-water-tracker" data-edit-water-tracker="card">
+      <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
+        <div>You will drink in frequencies of <%= water_tracker.frequency%> minutes</div>
+        <div>You increment amount is<%=water_tracker.increment_amount%></div>
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
-      </div>
       <%= link_to 'drink', take_glass_of_water_water_tracker_path(water_tracker), method: :patch, class: 'btn btn-primary' %>
-  <% end %>
+      </div>
+        <%= simple_form_for water-tracker,html: {class: "d-none",data: {edit_tracker_target: "form",action: "submit->edit-water-tracker#update"}} do |f| %>
+          <%= f.input :goal_amount %>
+          <%= f.input :frequency %>
+          <%= f.input :increment_amount %>
+          <%= f.submit, 'submit'  %>
+        <% end %>
+    </div>
+
 
 </div>

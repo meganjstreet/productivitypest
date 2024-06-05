@@ -1,10 +1,12 @@
 <h1>Productivity Pest</h1>
-<div>
-  <%= render 'water_trackers/water_tracker', water_trackers: @water_trackers %>
-</div>
-<div>
-  <%= render "lists/lists"%>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+  </div>
+  <div>
+    <%= render "lists/lists"%>
+  </div>
 
-<%= render 'pomodoros/pomodoro' %>
-<%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
+  <%= render 'pomodoros/pomodoro' %>
+  <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
+<% end %>
