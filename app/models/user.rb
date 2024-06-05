@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :days
   has_many :lists
+
+  has_many :schedules, through: :days
   has_many :water_trackers
 end

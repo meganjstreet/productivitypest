@@ -10,11 +10,11 @@
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
       <%= link_to 'drink', take_glass_of_water_water_tracker_path(water_tracker), method: :patch, class: 'btn btn-primary' %>
       </div>
-        <%= simple_form_for water-tracker,html: {class: "d-none",data: {edit_tracker_target: "form",action: "submit->edit-water-tracker#update"}} do |f| %>
+        <%= simple_form_for water_tracker do |f| %>
           <%= f.input :goal_amount %>
           <%= f.input :frequency %>
           <%= f.input :increment_amount %>
-          <%= f.submit, 'submit'  %>
+          <%= f.submit 'submit'  %>
         <% end %>
     </div>
 
