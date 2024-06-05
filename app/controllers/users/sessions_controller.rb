@@ -12,6 +12,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
     day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    Schedule.find_or_create_by(date: Date.today, day_id: day.id)
     WaterTracker.find_or_create_by(day_id: day.id)
   end
 

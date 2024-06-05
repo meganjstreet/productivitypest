@@ -1,0 +1,33 @@
+
+<div class="container-schedule" data-controller="schedule" data-schedule-target="container">
+  <h4><%= schedule.date.strftime("%A%e %B") %></h4>
+
+  <div class="container-times-tasks">
+    <div class="container-times">
+      <% times.each do |time| %>
+        <p><%= time %></p>
+      <% end %>
+    </div>
+
+    <div class="container-tasks" data-schedule-target="tasks">
+      <% @schedule.schedule_tasks.each do |task| %>
+        <div><%= task.name %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-task p-3">
+    <%= simple_form_for [schedule, schedule_task], html: { class: "d-flex", data: { schedule_target: "form", action: "submit->schedule#create"}} do |f| %>
+      <%= f.input :name %>
+      <div class="time-inputs">
+        <%= f.input :start_time, as: :time %>
+        <%= f.input :end_time, as: :time %>
+      </div>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+
+
+
+</div>
