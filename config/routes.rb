@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
-  resources :water_trackers, only: [:new, :create, :update, :destroy, :reset] do
+
+  get 'pages/home'
+  resources :water_trackers, only: [:new, :create, :update ] do
     member do
       get :take_glass_of_water
       patch :take_glass_of_water
@@ -28,10 +30,11 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
-    resources :list_items, only: [:create]
-    
+    resources :list_items, only: [:create] 
   end
 
-    # Defines the root path route ("/")
-    # root "posts#index"
+  resources :schedule do
+    resources :schedule_tasks, only: [:create, :update]
+  end
+
 end
