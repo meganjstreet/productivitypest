@@ -1,12 +1,8 @@
-<h1>Productivity Pest</h1>
-<div>
-  <%= render 'water_trackers/water_tracker', water_trackers: @water_trackers %>
+<div class="schedule" id="schedule-container">
+  <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
 </div>
-<div>
-  <%= render "lists/lists"%>
+<div class="pomorodo mt-3">
+  <%= render 'pomodoros/pomodoro' %>
 </div>
-
-<%= render 'pomodoros/pomodoro' %>
-
 <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
 <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>

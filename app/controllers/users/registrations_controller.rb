@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    Schedule.find_or_create_by(date: Date.today, day_id: day.id)
   end
 
   # GET /resource/edit
