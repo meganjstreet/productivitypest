@@ -11,6 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
+    Schedule.find_or_create_by(day_id: day.id, date: Date.today)
+    WaterTracker.find_or_create_by(day_id: day.id)
 
   end
 
@@ -50,12 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  def after_sign_up_path_for(resource)
-    super(resource)
-    day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
-    Schedule.find_or_create_by(day_id: day.id, date: Date.today)
-    WaterTracker.find_or_create_by(day_id: day.id)
-  end
+
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

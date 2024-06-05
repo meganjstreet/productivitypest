@@ -1,7 +1,6 @@
 class WaterTrackersController < ApplicationController
   before_action :set_tracker, only: [:update, :take_glass_of_water]
 
-
   def new
     @water_tracker = WaterTracker.new
   end
