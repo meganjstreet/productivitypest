@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_144443) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_110553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_144443) do
   create_table "list_items", force: :cascade do |t|
     t.string "name"
     t.string "priority"
-    t.string "status"
+    t.boolean "status", default: false
     t.bigint "list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_144443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "day_id", null: false
+    t.index ["day_id"], name: "index_lists_on_day_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
@@ -104,6 +106,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_144443) do
 
   add_foreign_key "days", "users"
   add_foreign_key "list_items", "lists"
+  add_foreign_key "lists", "days"
   add_foreign_key "lists", "users"
   add_foreign_key "pomodoros", "days"
   add_foreign_key "schedule_tasks", "schedules"

@@ -2,8 +2,10 @@
 <div>
   <%= render 'water_trackers/water_tracker', water_trackers: @water_trackers %>
 </div>
+
 <div>
-  <%= render "lists/lists"%>
+  <%= render "lists/lists", lists: @lists, list_item: @list_item%>
+
 </div>
 
 <%= render 'pomodoros/pomodoro' %>

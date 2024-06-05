@@ -1,5 +1,6 @@
 <div class="container shadow mt-3 mb-5">
   <div class="container d-flex">
+    <%# Need to iterate over all the lists %>
     <div class="container shadow-lg p-5 mb-4 mt-3 bg-warning rounded ">
     <h2>Morning Routine</h2>
   <br>
@@ -33,11 +34,24 @@
       <label class="form-check-label" for="checkboxExample5">  Go to class </label>
       </li>
       <label class="container d-flex justify-content-sm-end ">
-  <button class="btn btn-dark rounded  ">
+  <%# <button class="btn btn-dark rounded  ">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
     </svg>
-  </button>
+  </button> %>
+
+  <% lists.each do |list| %>
+    <%= list.name %>
+    <p>New list item: </p>
+    <%= simple_form_for [list, list_item] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :priority %>
+    <%= f.submit "+" %>
+  <% end %>
+<% end %>
+
+
+
 <br>
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
