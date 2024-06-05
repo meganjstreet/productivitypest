@@ -8,16 +8,22 @@ class PagesController < ApplicationController
     # find todays Day instance
     @day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
     
-    
-    @water_tracker = WaterTracker.where(day_id: @day.id).first # returns array of WT with this date
+    # returns array of WT with this date
+    @water_tracker = WaterTracker.where(day_id: @day.id).first 
     
     #find current user
     @user = current_user
-    
+
+    # LISTS
+    @lists = @user.lists
+    # LIST ITEMS
+    @list_item = ListItem.new
+
     #find schedule for the day
     @schedule = current_user.schedules.find_by(date: Date.today)
     
     #instantiate new task for task form
     @schedule_task = ScheduleTask.new
+
   end
 end

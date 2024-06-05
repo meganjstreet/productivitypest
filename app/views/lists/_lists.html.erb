@@ -1,48 +1,42 @@
 <div class="container shadow mt-3 mb-5">
   <div class="container d-flex">
+    <%# Need to iterate over all the lists %>
     <div class="container shadow-lg p-5 mb-4 mt-3 bg-warning rounded ">
     <h2>Morning Routine</h2>
-  <br>
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample1" />
-      <label class="form-check-label" for="checkboxExample1">  6 min meditation </label>
-    </li>
 
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample2" />
-      <label class="form-check-label" for="checkboxExample2">  Drink salt water </label>
-    </li>
+    <input type="checkbox" id="" name="" checked />
+    <label for=""></label>
 
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample3" />
-      <label class="form-check-label" for="checkboxExample3"> 10 min yoga </label>
-    </li>
 
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample4" />
-      <label class="form-check-label" for="checkboxExample4"> Shower </label>
-    </li>
+<% lists.each do |list| %>
+    <%= list.name %>
+    <p>New list item: </p>
+    <%= simple_form_for [list, list_item] do |f| %>
 
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample5" />
-      <label class="form-check-label" for="checkboxExample5">  Eat breakfast </label>
-    </li>
+    <%= f.input :name %>
+    <%= f.input :priority %>
+    <%= f.submit "+" %>
+  <% end %>
+<% end %>
+<input class="styled" type="button" value="Add to favorites" />
 
-    <li class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" id="checkboxExample5" />
-      <label class="form-check-label" for="checkboxExample5">  Go to class </label>
-      </li>
-      <label class="container d-flex justify-content-sm-end ">
-  <button class="btn btn-dark rounded  ">
+<%= link_to "back to all list", lists_path %>
+
+  <label class="container d-flex justify-content-sm-end ">
+
+
+  <%# <button class="btn btn-dark rounded  ">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
     </svg>
-  </button>
+  </button> %>
+
 <br>
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-      </svg>
+<%= content_tag :button, :type => :submit, class: 'btn btn-dark rounded' do %>
+          Submit
+        <%end%>
+
+
 </div>
 
 
@@ -50,30 +44,23 @@
     <div class="col shadow-lg mt-3 mb-5 ">
     <h3>Morning Routine</h3>
 
-  <div class="container shadow-lg p-3 mb-4 bg-body rounded ">Packing List
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-      </svg>
-    </div>
+<div class="container shadow-lg p-3 mb-4 bg-body rounded">
 
-<div class="container shadow-lg p-3 mb-4 bg-body rounded">Data idea
+    <% lists.each do |list| %>
+      <div class="card">
+      <%= list.name %>
+      </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-    </svg>
+    <% end %>
 
-  </div>
+</div>
 
-
+  <div class="container shadow-lg p-3 mb-4 bg-body rounded ">
 <div class="container d-flex justify-content-sm-end ">
-  <button class="btn btn-dark rounded">
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-    </svg>
-  </button>
+  <%= content_tag :button, :type => :submit, class: 'btn btn-dark rounded' do %>
+          Submit
+        <%end%>
       </div>
       </div>
     </div>

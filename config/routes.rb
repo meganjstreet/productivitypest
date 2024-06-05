@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
+
   get 'pages/home'
-  resources :water_trackers, only: [:new, :create, :update, ] do
+  resources :water_trackers, only: [:new, :create, :update ] do
     member do
       get :take_glass_of_water
       patch :take_glass_of_water
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :users do
+  resources :users, only: [] do
     resources :days, only: [:create]
   end
 
@@ -28,10 +29,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :lists do
+    resources :list_items, only: [:create] 
+  end
+
   resources :schedule do
     resources :schedule_tasks, only: [:create, :update]
   end
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
