@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
   get 'pages/home'
-  resources :water_trackers, only: [:new, :create, :update, :destroy, :reset] do
+  resources :water_trackers, only: [:new, :create, :update, ] do
     member do
       get :take_glass_of_water
       patch :take_glass_of_water

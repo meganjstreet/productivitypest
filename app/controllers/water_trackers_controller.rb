@@ -1,6 +1,7 @@
 class WaterTrackersController < ApplicationController
   before_action :set_tracker, only: [:update, :take_glass_of_water]
 
+
   def new
     @water_tracker = WaterTracker.new
   end
@@ -28,10 +29,11 @@ class WaterTrackersController < ApplicationController
 
   def update
     @water_tracker = WaterTracker.find(params[:id])
-    if @water_tracker.update(water_tracker_params)
-      render json: @water_tracker, status: :ok
-    else
-      render json: { errors: @water_tracker.errors.full_messages }, status: :unprocessable_entity
+    @water_tracker.update(water_tracker_params)
+
+    respond_to do |format|
+      format.html { redirect_to root_path_path }
+      format.text { render partial: "water_strackers/water_tracker_infos", locals: {water_tracker: @water_tracker}, formats: [:html] }
     end
   end
 
@@ -61,6 +63,6 @@ class WaterTrackersController < ApplicationController
   end
 
   def water_tracker_params
-    params.require(:water_tracker).permit(:goal_amount, :increment_amount, :frequency, :current_amount, :notification, :status)
+    params.require(:water_tracker).permit(:goal_amount, :increment_amount, :frequency, :notification)
   end
 end
