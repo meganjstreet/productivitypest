@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
-    resources :list_item, only: [:create]
+    resources :list_items, only: [:create]
+    
   end
 
     # Defines the root path route ("/")
