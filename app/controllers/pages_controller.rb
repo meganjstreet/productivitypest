@@ -16,7 +16,9 @@ class PagesController < ApplicationController
 
     # LISTS
     @lists = @user.lists
+    @list = List.new
     # LIST ITEMS
+
     @list_item = ListItem.new
 
     #find schedule for the day

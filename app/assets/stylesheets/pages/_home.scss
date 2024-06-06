@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+
+.page-container {
+  position: relative;
+}
+
+.morning-routine {
+  position: absolute;
+  right: 10px;
+}
+
+.lists-container {
+  display: flex;
+}
+
+.options {
+  background-color: beige;
+}
+
+.options-btn {
+  width: 200px;
+  padding: 5px;
+  background-color: gray;
+  margin: 10px;
+  border-radius: 8px;
+}

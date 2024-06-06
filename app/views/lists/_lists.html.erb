@@ -1,68 +1,42 @@
-<div class="container shadow mt-3 mb-5">
-  <div class="container d-flex">
-    <%# Need to iterate over all the lists %>
-    <div class="container shadow-lg p-5 mb-4 mt-3 bg-warning rounded ">
-    <h2>Morning Routine</h2>
-
-    <input type="checkbox" id="" name="" checked />
-    <label for=""></label>
-
-
-<% lists.each do |list| %>
-    <%= list.name %>
-    <p>New list item: </p>
-    <%= simple_form_for [list, list_item] do |f| %>
-
-    <%= f.input :name %>
-    <%= f.input :priority %>
-    <%= f.submit "+" %>
+<div class="container lists-container">
+<div>
+  <ol>
+  <% @lists.each do |list| %>
+  <h4><%= list.name%></h4>
+  <% list.list_item.each do |item|%>
+    <% if item.status %>
+    <% checked = "checked"%>
+    <%else%>
+    <% checked = ""%>
+    <%end%>
+    <li>
+      <input type="checkbox" <%= checked %>><%= item.name %></input>
+    </li>
   <% end %>
+  <% end %>
+  </ol>
+<div class= "container">
+<div id="lists">
+
+</div>
+</div>
+<%= form_with(url: "/lists", method: :post) do |f| %>
+  <%= f.text_field :name, name: 'list[name]' %>
+  <%= f.submit 'submit' %>
 <% end %>
-<input class="styled" type="button" value="Add to favorites" />
-
-<%= link_to "back to all list", lists_path %>
-
-  <label class="container d-flex justify-content-sm-end ">
-
-
-  <%# <button class="btn btn-dark rounded  ">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-    </svg>
-  </button> %>
-
-<br>
-<%= content_tag :button, :type => :submit, class: 'btn btn-dark rounded' do %>
-          Submit
-        <%end%>
-
-
 </div>
 
 
-<div class="container d-flex">
-    <div class="col shadow-lg mt-3 mb-5 ">
-    <h3>Morning Routine</h3>
-
-
-<div class="container shadow-lg p-3 mb-4 bg-body rounded">
-
-    <% lists.each do |list| %>
-      <div class="card">
-      <%= list.name %>
-      </div>
-
-    <% end %>
+<div class="options">
+  <%= link_to lists_path do %>
+  <%@lists.each do |list|%>
+  <button class="options-btn"><%= list.name %></button>
+  <br>
+  <% end %>
+  <button class="options-btn">Add list</button>
+  <br>
+  <button class="options-btn">Date Ideas</button>
+  <%end%>
 
 </div>
-
-  <div class="container shadow-lg p-3 mb-4 bg-body rounded ">
-<div class="container d-flex justify-content-sm-end ">
-  <%= content_tag :button, :type => :submit, class: 'btn btn-dark rounded' do %>
-          Submit
-        <%end%>
-      </div>
-      </div>
     </div>
-  </div>
-</div>
