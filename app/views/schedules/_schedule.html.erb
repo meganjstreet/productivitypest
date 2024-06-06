@@ -1,9 +1,9 @@
 
 <div class="container m-3">
   <div class="container-schedule" data-controller="schedule" data-schedule-target="container">
-  <h4 class="date"><%= schedule.date.strftime("%A%e %B") %></h4>
 
   <div class="container-tasks" data-schedule-target="tasks">
+  <h4 class="date"><%= schedule.date.strftime("%A%e %B") %></h4>
     <% @schedule.schedule_tasks.order(:start_time).each do |task| %>
       <div class="div-task">
         <div class="div-time-name d-flex">
