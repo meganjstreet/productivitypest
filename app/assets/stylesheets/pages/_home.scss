@@ -1,4 +1,21 @@
-// Specific CSS for your home-page
+.page-container {
+  position: relative;
+}
+
+.morning-routine {
+  position: absolute;
+  right: 10px;
+}
+
+.lists-container {
+  display: flex;
+}
+
+.options {
+  background-color: beige;
+}
+
+
 
 .head-container {
   display: flex;
@@ -16,4 +33,5 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 12px;
+
 }

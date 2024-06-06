@@ -16,7 +16,6 @@ Day.destroy_all
 User.destroy_all
 
 user = User.create!(username: "Nolu", email: "nolu@gmail.com", password: "1234567")
-
 days = (0..7).map do |i|
   Day.create!(date: Date.today + i.days, user_id: user.id)
 end
@@ -37,5 +36,7 @@ days.each do |day|
   )
 end
 
+
 puts "seeds complete"
+
 
