@@ -1,19 +1,20 @@
-
-<h1>Productivity Pest</h1>
 <% if user_signed_in? %>
+<div class="home-container">
 
   <div class="schedule" id="schedule-container">
-    <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
+      <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
   </div>
 
+  <div>
     <div>
       <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
     </div>
 
-
-  <div>
-    <%= render "lists/lists", lists: @lists, list_item: @list_item%>
+    <div>
+      <%= render "lists/lists", lists: @lists, list_item: @list_item%>
+    </div>
   </div>
+</div>
 
   <div class="pomorodo mt-3">
     <%= render 'pomodoros/pomodoro' %>
