@@ -31,7 +31,7 @@ class WaterTrackersController < ApplicationController
     @water_tracker.update(water_tracker_params)
 
     respond_to do |format|
-      format.html { redirect_to root_path_path }
+      format.html { redirect_to root_path }
       format.text { render partial: "water_strackers/water_tracker_infos", locals: {water_tracker: @water_tracker}, formats: [:html] }
     end
   end
