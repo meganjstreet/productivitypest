@@ -1,22 +1,51 @@
-<div class='container'>
-  <h1>Water tracker</h1>
-
-  <%# water_trackers.each do|water_tracker| %>
-    <div class='water-tracker-card' data-controller="edit-water-tracker" data-edit-water-tracker="card">
-      <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
+<div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card">
+  <button id="toggle-tracker" class="btn btn-secondary">
+    <i class="fa-solid fa-glass-water-droplet" data-action="click->edit-water-tracker#displayTracker"></i>
+  </button>
+  <div class='toggle-tracker-card d-none' data-edit-water-tracker-target="tracker">
+  <div class="toggle-tracker-infos">
+    <h1>Water tracker</h1>
+    <div class='water-tracker-card'>
+      <div class="water-tracker-infos"<%= 'd-none' if water_tracker.errors.any? %> data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
         <div>You will drink in frequencies of <%= water_tracker.frequency%> minutes</div>
         <div>You increment amount is<%=water_tracker.increment_amount%></div>
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
-      <%= link_to 'drink', take_glass_of_water_water_tracker_path(water_tracker), method: :patch, class: 'btn btn-primary' %>
-      </div>
-        <%= simple_form_for water_tracker do |f| %>
-          <%= f.input :goal_amount %>
-          <%= f.input :frequency %>
-          <%= f.input :increment_amount %>
-          <%= f.submit 'submit'  %>
+        <div class="water-tracker-buttons d-flex">
+        <button aria-label="Edit tracker">
+          <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
+        </button>
+
+        <% if water_tracker.current_amount >= water_tracker.goal_amount %>
+          <%= render "shared/flashes", notice: "You have reached your water goal for the day! Increase your goal if you want to keep going!" %>
+        <% else %>
+          <%= simple_form_for water_tracker,
+            html: {
+              data: {
+                add_glass_water_tracker_target: "form",
+                action: "submit->add-glass-water-tracker#take_glass_of_water" }
+                  } do |f| %>
+                    <%= f.submit 'Drink'  %>
+          <% end %>
+
         <% end %>
+
+
+
+      </div>
     </div>
-
-
+    <%= simple_form_for water_tracker,
+    html: {
+      class: water_tracker.errors.any? ? "" : "d-none",
+      data: {
+        edit_water_tracker_target: "form",
+        action: "submit->edit-water-tracker#update" }
+    } do |f| %>
+      <%= f.input :goal_amount %>
+      <%= f.input :frequency %>
+      <%= f.input :increment_amount %>
+      <%= f.submit 'submit'  %>
+    <% end %>
+  </div>
+  </div>
 </div>

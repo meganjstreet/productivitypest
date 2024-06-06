@@ -7,16 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
 Pomodoro.destroy_all
 ScheduleTask.destroy_all
 Schedule.destroy_all
 WaterTracker.destroy_all
 Day.destroy_all
 User.destroy_all
+
 user = User.create!(username: "Nolu", email: "nolu@gmail.com", password: "1234567")
 days = (0..7).map do |i|
   Day.create!(date: Date.today + i.days, user_id: user.id)
 end
+
 days.each do |day|
   Schedule.create!(
     date: day.date,
@@ -34,6 +37,6 @@ days.each do |day|
 end
 
 
-
+puts "seeds complete"
 
 

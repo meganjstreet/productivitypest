@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-water-tracker"
 export default class extends Controller {
-  static targets = ["infos", "form", "card"]
+  static targets = ["infos", "form", "card", "tracker"]
 
   displayForm() {
     this.infosTarget.classList.add("d-none")
@@ -17,9 +17,22 @@ export default class extends Controller {
       headers: { "Accept": "text/plain" },
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
-      .then((data) => {
-        console.log(data)
-      })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then((data) => {
+      this.cardTarget.outerHTML = data;
+      console.log(this.trackerTarget)
+    })
+    .catch(error => console.error('Error:', error));
+  }
+
+
+  displayTracker() {
+    // event.preventDefault()
+    this.trackerTarget.classList.toggle("d-none")
   }
 }

@@ -1,6 +1,5 @@
 class WaterTrackersController < ApplicationController
-  before_action :set_tracker, only: [:update, :take_glass_of_water]
-
+  before_action :set_tracker, only: [:update]
 
   def new
     @water_tracker = WaterTracker.new
@@ -32,8 +31,8 @@ class WaterTrackersController < ApplicationController
     @water_tracker.update(water_tracker_params)
 
     respond_to do |format|
-      format.html { redirect_to root_path_path }
-      format.text { render partial: "water_strackers/water_tracker_infos", locals: {water_tracker: @water_tracker}, formats: [:html] }
+      format.html
+      format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker}, formats: [:html] }
     end
   end
 
@@ -47,11 +46,17 @@ class WaterTrackersController < ApplicationController
     @water_tracker = WaterTracker.find(params[:id])
     @water_tracker.current_amount += @water_tracker.increment_amount
 
-    if @water_tracker.current_amount >= @water_tracker.goal_amount
-      redirect_to root_path, notice: 'You have drank enough, no more'
+    if @water_tracker.current_amount > @water_tracker.goal_amount
+      respond_to do |format|
+        format.html
+        format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker, notice: 'You have drank enough, no more'}, formats: [:html] }
+      end
     else
-      @water_tracker.save
-      redirect_to root_path, notice: 'You just had a glass'
+      @water_tracker.save!
+      respond_to do |format|
+        format.html
+        format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker}, formats: [:html] }
+      end
     end
   end
 
