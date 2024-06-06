@@ -3,15 +3,17 @@
 .head-container {
   display: flex;
   justify-content: space-between;
-  
+
   padding: 8px;
   h1 {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
+    margin-bottom: 0;
   }
 }
 
 .home-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 12px;
 }

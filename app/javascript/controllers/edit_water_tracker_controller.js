@@ -4,16 +4,13 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["infos", "form", "card", "tracker"]
 
-  connect() {
-    console.log('SOMETHING')
-  }
   displayForm() {
     this.infosTarget.classList.add("d-none")
     this.formTarget.classList.remove("d-none")
   }
 
   update(event) {
-    // event.preventDefault()
+    event.preventDefault()
     const url = this.formTarget.action
     fetch(url, {
       method: "PATCH",
@@ -26,7 +23,8 @@ export default class extends Controller {
       })
   }
 
-  displayTraker(event) {
+
+  displayTracker(event) {
     event.preventDefault()
     this.trackerTarget.classList.toggle("d-none")
   }

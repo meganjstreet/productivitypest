@@ -1,11 +1,11 @@
-<div data-controller="edit-water-tracker">
-  <button id="toggle-tracker">
-    <i class="fa-solid fa-glass-water-droplet" data-action="click->edit-water-tracker#displayTraker"></i>
+<div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card">
+  <button id="toggle-tracker" class="btn btn-secondary">
+    <i class="fa-solid fa-glass-water-droplet" data-action="click->edit-water-tracker#displayTracker"></i>
   </button>
   <div class='toggle-tracker-card d-none' data-edit-water-tracker-target="tracker">
   <div class="toggle-tracker-infos">
     <h1>Water tracker</h1>
-    <div class='water-tracker-card' data-edit-water-tracker="card">
+    <div class='water-tracker-card'>
       <div class="water-tracker-infos"<%= 'd-none' if water_tracker.errors.any? %> data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
         <div>You will drink in frequencies of <%= water_tracker.frequency%> minutes</div>
@@ -15,7 +15,17 @@
         <button aria-label="Edit tracker">
           <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
         </button>
-        <%= link_to 'drink', take_glass_of_water_water_tracker_path(water_tracker), method: :patch, class: 'btn btn-primary' %>
+
+        <%= simple_form_for water_tracker,
+          html: {
+            data: {
+              add_glass_water_tracker_target: "form",
+              action: "submit->add-glass-water-tracker#take_glass_of_water" }
+                } do |f| %>
+                  <%= f.submit 'Drink'  %>
+        <% end %>
+
+
       </div>
     </div>
     <%= simple_form_for water_tracker,

@@ -2,9 +2,10 @@
 .container-schedule {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+
   align-items: start;
-  height: fit-content;
+  height: 68vh;
   background-color: white;
   border-radius: 8px;
 
