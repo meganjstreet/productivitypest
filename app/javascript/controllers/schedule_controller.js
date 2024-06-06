@@ -13,18 +13,20 @@ export default class extends Controller {
   }
 
   deleteTask(event) {
-    event.preventDefault()
-    const url = this.deleteFormTarget.action
+    event.preventDefault();
+    const form = event.target.closest('form');
+    const url = form.action;
     fetch(url, {
       method: "DELETE",
       headers: {  "X-CSRF-Token": document.querySelector("[name='csrf-token']").content,
         "Accept": "text/plain" },
-      body: new FormData(this.deleteFormTarget)
+      body: new FormData(form)
     })
     .then(response => response.text())
       .then((data) => {
-        this.containerTarget.outerHTML = data
+        this.containerTarget.outerHTML = data;
       })
+      .catch(error => console.error('Error:', error));
   }
 
 
@@ -36,9 +38,15 @@ export default class extends Controller {
       headers: { "Accept": "text/plain" },
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
-      .then((data) => {
-        this.containerTarget.outerHTML = data
-      })
+    .then(response => response.text().then(text => ({ ok: response.ok, text })))
+    .then(({ ok, text }) => {
+      if (ok) {
+        this.containerTarget.outerHTML = text;
+      } else {
+        this.modalTarget.innerHTML = text;
+        this.openModal();
+      }
+    })
+    .catch(error => console.error('Error:', error));
   }
 }

@@ -1,13 +1,16 @@
 class ScheduleTasksController < ApplicationController
-
   def create
     @schedule_task = ScheduleTask.new(schedule_task_params)
     @schedule = Schedule.find(params[:schedule_id])
     @schedule_task.schedule = @schedule
-    @schedule_task.save
     respond_to do |format|
-      format.html
-      format.text { render partial: "schedules/schedule", locals: { schedule: @schedule, schedule_task: ScheduleTask.new}, formats: [:html] }
+      if @schedule_task.save
+        format.html { render partial: "schedules/schedule", locals: { schedule: @schedule, schedule_task: ScheduleTask.new }, formats: [:html] }
+        format.text { render partial: "schedules/schedule", locals: { schedule: @schedule, schedule_task: ScheduleTask.new }, formats: [:html] }
+      else
+        format.html { render partial: "schedules/form", locals: { schedule: @schedule, schedule_task: @schedule_task }, formats: [:html], status: :unprocessable_entity }
+        format.text { render partial: "schedules/form", locals: { schedule: @schedule, schedule_task: @schedule_task }, formats: [:html], status: :unprocessable_entity }
+      end
     end
   end
 
