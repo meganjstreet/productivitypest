@@ -1,4 +1,16 @@
 // Specific CSS for your home-page
+
+.head-container {
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 8px;
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+}
+
 .home-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

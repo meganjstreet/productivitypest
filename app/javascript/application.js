@@ -5,16 +5,4 @@ import "@popperjs/core"
 import "bootstrap"
 import "@rails/request.js"
 
-import Rails from "@rails/ujs"
 
-Rails.start()
-
-// Ensure CSRF token is included in all AJAX requests
-document.addEventListener("turbolinks:load", () => {
-  const token = document.querySelector('meta[name="csrf-token"]').content;
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-Token': token
-    }
-  });
-});

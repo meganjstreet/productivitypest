@@ -1,24 +1,28 @@
 <% if user_signed_in? %>
-<div class="home-container">
-
-  <div class="schedule" id="schedule-container">
-      <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
+  <div class="head-container">
+    <h1>ProductivityPest</h1>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
   </div>
+  <div class="home-container">
 
-  <div>
-    <div>
-      <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+    <div class="schedule" id="schedule-container">
+        <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
 
     <div>
-      <%= render "lists/lists", lists: @lists, list_item: @list_item%>
+      <div>
+        <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+      </div>
+
+      <div>
+        <%= render "lists/lists", lists: @lists, list_item: @list_item%>
+      </div>
     </div>
   </div>
-</div>
 
-  <div class="pomorodo mt-3">
-    <%= render 'pomodoros/pomodoro' %>
-  </div>
+    <div class="pomorodo mt-3">
+      <%= render 'pomodoros/pomodoro' %>
+    </div>
 <% end %>
-  <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
-  <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>
+<%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
+<%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>
