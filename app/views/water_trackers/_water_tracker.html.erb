@@ -16,14 +16,20 @@
           <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
         </button>
 
-        <%= simple_form_for water_tracker,
-          html: {
-            data: {
-              add_glass_water_tracker_target: "form",
-              action: "submit->add-glass-water-tracker#take_glass_of_water" }
-                } do |f| %>
-                  <%= f.submit 'Drink'  %>
+        <% if water_tracker.current_amount >= water_tracker.goal_amount %>
+          <%= render "shared/flashes", notice: "You have reached your water goal for the day! Increase your goal if you want to keep going!" %>
+        <% else %>
+          <%= simple_form_for water_tracker,
+            html: {
+              data: {
+                add_glass_water_tracker_target: "form",
+                action: "submit->add-glass-water-tracker#take_glass_of_water" }
+                  } do |f| %>
+                    <%= f.submit 'Drink'  %>
+          <% end %>
+
         <% end %>
+
 
 
       </div>
