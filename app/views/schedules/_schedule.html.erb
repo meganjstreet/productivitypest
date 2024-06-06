@@ -1,6 +1,6 @@
 
-<div class="container m-3">
-  <div class="container-schedule" data-controller="schedule" data-schedule-target="container">
+
+  <div class="container-schedule mx-3" data-controller="schedule" data-schedule-target="container">
 
   <div class="container-tasks" data-schedule-target="tasks">
   <h4 class="date"><%= schedule.date.strftime("%A%e %B") %></h4>
@@ -14,9 +14,9 @@
           <p><%= task.name %> (<%= ((task.end_time - task.start_time)/3600).floor%> hours <%=  ((task.end_time - task.start_time)%3600 / 60).floor  %>  minutes)</p>
         </div>
       <div class="m-1">
-        <%= simple_form_for task, html: { data: { schedule_target: "deleteForm", action: "submit->schedule#deleteTask"}} do |f| %>
-              <%= f.button :submit, "", class: "btn btn-close" %>
-          <% end %>
+        <%= simple_form_for task, url: schedule_task_path(task), method: :delete, html: { data: { schedule_target: "deleteForm", action: "submit->schedule#deleteTask" } } do |f| %>
+          <%= f.button :submit, "", class: "btn btn-close" %>
+        <% end %>
       </div>
       </div>
 
@@ -28,19 +28,10 @@
       <div class="flex">
         <div class="btn btn-close" data-action="click->schedule#closeModal"></div>
         <div class="form-task p-3">
-          <%= simple_form_for [schedule, schedule_task], html: { data: { schedule_target: "form", action: "submit->schedule#create"}} do |f| %>
-            <%= f.input :name, placeholder: "What's up next?", label: false %>
-            <div class="time-inputs">
-              <%= f.input :start_time, as: :time %>
-              <%= f.input :end_time, as: :time %>
-            </div>
-            <%= f.button :submit, "Add New Task", class: "btn btn-primary" %>
-          <% end %>
+          <%= render partial: "schedules/form", locals: { schedule: schedule, schedule_task: ScheduleTask.new } %>
         </div>
       </div>
     </section>
     <div class="overlay hidden"></div>
     <button class="btn btn-open btn-primary" data-action="schedule#openModal">Add Task</button>
-
   </div>
-</div>
