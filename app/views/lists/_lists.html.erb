@@ -1,42 +1,17 @@
-<div class="lists-container">
-<div>
-  <ol>
-  <% @lists.each do |list| %>
-  <h4><%= list.name%></h4>
-  <% list.list_item.each do |item|%>
-    <% if item.status %>
-    <% checked = "checked"%>
-    <%else%>
-    <% checked = ""%>
-    <%end%>
-    <li>
-      <input type="checkbox" <%= checked %>><%= item.name %></input>
-    </li>
+
+<div class="container-list-outer">
+  <div class="options" data-controller="addlist" data-addlist-target="container">
+    <h3>All Lists</h3>
+    <ul>
+      <% lists.each do |list|%>
+        <li>
+          <button class="options-btn" data-action="addlist#showListItems"><%= list.name %></button>
+        </li>
+      <% end %>
+    </ul>
+  <%=  simple_form_for new_list, html: { data: { addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
+    <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
+    <%= f.button :submit, class: "btn btn-primary text-white" %>
   <% end %>
-  <% end %>
-  </ol>
-<div class= "container">
-<div id="lists">
-
+  </div>
 </div>
-</div>
-<%= form_with(url: "/lists", method: :post) do |f| %>
-  <%= f.text_field :name, name: 'list[name]' %>
-  <%= f.submit 'submit' %>
-<% end %>
-</div>
-
-
-<div class="options">
-  <%= link_to lists_path do %>
-  <%@lists.each do |list|%>
-  <button class="options-btn"><%= list.name %></button>
-  <br>
-  <% end %>
-  <button class="options-btn">Add list</button>
-  <br>
-  <button class="options-btn">Date Ideas</button>
-  <%end%>
-
-</div>
-    </div>

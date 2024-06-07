@@ -17,15 +17,20 @@ class ListsController < ApplicationController
   end
 
   def create
+    @lists = List.all
     @list = List.new(list_params)
     day_id = Day.last.id
     user_id = current_user.id
     @list.day_id = day_id
     @list.user_id = user_id
-   if @list.save
-    redirect_to root_path
-    else
-      render :home
+    respond_to do |format|
+      if @list.save
+        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new }, formats: [:html] }
+        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new }, formats: [:html] }
+      else
+        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: @list }, formats: [:html], status: :unprocessable_entity }
+        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: @list }, formats: [:html], status: :unprocessable_entity }
+      end
     end
   end
 
