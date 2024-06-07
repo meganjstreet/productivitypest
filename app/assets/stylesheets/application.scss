@@ -13,3 +13,7 @@
 @import "components/whitenoise";
 @import "components/schedule";
 @import "pages/index";
+
+body {
+  background-color: $secondary;
+}

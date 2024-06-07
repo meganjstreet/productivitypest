@@ -1,8 +1,8 @@
 
 <% if user_signed_in? %>
   <div class="head-container">
-    <h1>ProductivityPest</h1>
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+    <h1>productivityPEST</h1>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary text-white" %>
   </div>
   <div class="home-container">
 
@@ -15,7 +15,7 @@
       <div>
         <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
       </div>
-      
+
       </div>
       <div class="morning-routine">
         <%= render "lists/lists", lists: @lists, list_item: @list_item%>
@@ -30,4 +30,3 @@
 <% end %>
 <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
 <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>
-
