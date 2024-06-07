@@ -1,16 +1,16 @@
 class ListItemsController < ApplicationController
-  before_action :set_list_item, only: [ :new, :create, :update, :destroy]
+  # before_action :set_list_item, only: [ :new, :create, :update, :destroy]
 
   def new
     @list= list_items.new
   end
 
   def create
-    @list_item = List_item.new(list_params)
-   if @list_item.save
-    redirect_to list_item_path(@list)
-    else
-      render "new"
+    @list_item = ListItem.new(list_item_params)
+    list_id = params[:list_id]
+    @list_item.list_id = list_id
+    if @list_item.save
+      redirect_to root_path
     end
   end
 
@@ -35,6 +35,6 @@ def update
   private
 
   def list_item_params
-    params.require(:list).permit(:morning_routine)
+    params.require(:list_item).permit(:name, :list_id)
   end
 end

@@ -13,7 +13,8 @@
 }
 
 .options {
-  background-color: beige;
+  background-color: rgb(198, 198, 194);
+  border-radius: 15px;
 }
 
 
@@ -37,4 +38,11 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 12px;
 
+}
+
+.list-container {
+  background-color:rgb(220, 215, 215);
+  margin-right: 40px;
+  border-radius: 8px;
+  width: 400px;
 }

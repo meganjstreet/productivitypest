@@ -1,4 +1,4 @@
 class List < ApplicationRecord
   belongs_to :user
-  has_many :list_item
+  has_many :list_items
 end

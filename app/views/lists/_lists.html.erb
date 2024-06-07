@@ -1,31 +1,33 @@
 <div class="container lists-container">
-<div>
+<div class="list-container">
+  <div>
   <ol>
   <% @lists.each do |list| %>
   <h4><%= list.name%></h4>
-  <% list.list_item.each do |item|%>
+  <% list.list_items.each do |item|%>
     <% if item.status %>
-    <% checked = "checked"%>
+      <% checked = "checked"%>
     <%else%>
     <% checked = ""%>
-    <%end%>
+  <%end%>
     <li>
       <input type="checkbox" <%= checked %>><%= item.name %></input>
     </li>
   <% end %>
+<%= form_with(url: list_list_items_path(list), method: :post) do |f| %>
+  <%= f.text_field :name, name: 'list_item[name]' %>
+  <%= f.hidden_field :list_id, value: list.id%>
+  <%= f.submit 'ADD' %>
+<% end %>
   <% end %>
   </ol>
+</div>
 <div class= "container">
 <div id="lists">
 
 </div>
 </div>
-<%= form_with(url: "/lists", method: :post) do |f| %>
-  <%= f.text_field :name, name: 'list[name]' %>
-  <%= f.submit 'submit' %>
-<% end %>
 </div>
-
 
 <div class="options">
   <%= link_to lists_path do %>
@@ -35,8 +37,14 @@
   <% end %>
   <button class="options-btn">Add list</button>
   <br>
-  <button class="options-btn">Date Ideas</button>
+  <button class="options-btn ">Date Ideas</button>
   <%end%>
 
+  <div class= "container mt-5">
+<%= form_with(url: "/lists", method: :post) do |f| %>
+  <%= f.text_field :name, name: 'list[name]' %>
+  <%= f.submit 'Add List' %>
+<% end %>
+</div>
 </div>
     </div>
