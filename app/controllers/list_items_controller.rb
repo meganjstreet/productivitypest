@@ -2,7 +2,7 @@ class ListItemsController < ApplicationController
   # before_action :set_list_item, only: [ :new, :create, :update, :destroy]
 
   def new
-    @list= list_items.new
+    @list = list_items.new
   end
 
   def create

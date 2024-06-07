@@ -19,9 +19,8 @@ class ListsController < ApplicationController
   def create
     @lists = List.all
     @list = List.new(list_params)
-    day_id = Day.last.id
     user_id = current_user.id
-    @list.day_id = day_id
+
     @list.user_id = user_id
     respond_to do |format|
       if @list.save
