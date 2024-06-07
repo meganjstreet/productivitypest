@@ -6,23 +6,19 @@
   </div>
   <div class="home-container">
 
-    <div class="schedule" id="schedule-container">
-        <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
+    <div class="schedule col-12" id="schedule-container">
+      <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
-
-
-    <div>
-      <div>
+    <div class="btn-options">
+      <div class="water-tracker">
         <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
       </div>
 
-      </div>
       <div class="morning-routine">
         <%= render "lists/lists", lists: @lists, new_list: @new_list%>
       </div>
     </div>
   </div>
-
 
   <div class="pomorodo mt-3">
     <%= render 'pomodoros/pomodoro' %>

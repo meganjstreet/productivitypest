@@ -1,5 +1,4 @@
 
-
 .lists-container {
   display: flex;
 }
@@ -12,7 +11,16 @@
   width: 50%;
 }
 
-
+.water-tracker {
+  flex: 1;
+  padding: 20px;
+  // margin: ;
+}
+.morning-routine {
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
+}
 
 .head-container {
   display: flex;
@@ -28,9 +36,14 @@
   }
 }
 
+.btn-options {
+  display: flex;
+
+}
 .home-container {
+  display: flex;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   grid-gap: 12px;
   height: 62vh;
   padding: 8px;

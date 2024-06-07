@@ -1,6 +1,6 @@
 <div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card">
   <button id="toggle-tracker" class="btn btn-primary text-white">
-    <i class="fa-solid fa-glass-water-droplet" data-action="click->edit-water-tracker#displayTracker"></i>
+    <i class="fa-solid fa-glass-water-droplet ml-5" data-action="click->edit-water-tracker#displayTracker"></i>
   </button>
   <div class='toggle-tracker-card d-none' data-edit-water-tracker-target="tracker">
   <div class="toggle-tracker-infos">
@@ -11,7 +11,7 @@
         <div>You will drink in frequencies of <%= water_tracker.frequency%> minutes</div>
         <div>You increment amount is<%=water_tracker.increment_amount%></div>
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
-        <div class="water-tracker-buttons d-flex">
+        <div class="water-tracker-buttons d-flex ">
         <button aria-label="Edit tracker">
           <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
         </button>

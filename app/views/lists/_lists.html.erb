@@ -1,3 +1,4 @@
+
 <div class="container-list-outer">
   <div class="options" data-controller="addlist" data-addlist-target="container">
     <h3>All Lists</h3>
@@ -7,7 +8,6 @@
           <button class="options-btn" data-action="addlist#showListItems"><%= list.name %></button>
         </li>
       <% end %>
-
     </ul>
   <%=  simple_form_for new_list, html: { data: { addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
     <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
