@@ -1,19 +1,15 @@
 
-.page-container {
-  position: relative;
-}
-
-.morning-routine {
-  position: absolute;
-  right: 10px;
-}
 
 .lists-container {
   display: flex;
 }
 
 .options {
-  background-color: beige;
+  background-color: white;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  width: 50%;
 }
 
 
@@ -36,5 +32,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 12px;
+  height: 62vh;
+  padding: 8px;
 
 }
