@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
     # LISTS
     @lists = @user.lists
-    @list = List.new
+    @new_list = List.new
     # LIST ITEMS
 
     @list_item = ListItem.new
