@@ -4,11 +4,8 @@
 }
 
 .options {
-  background-color: white;
-  padding: 8px;
-  margin: 8px;
+  background-color: rgb(198, 198, 194);
   border-radius: 8px;
-  width: 50%;
 }
 
 .water-tracker {
@@ -48,4 +45,11 @@
   height: 62vh;
   padding: 8px;
 
+}
+
+.list-container {
+  background-color:rgb(220, 215, 215);
+  margin-right: 40px;
+  border-radius: 8px;
+  width: 400px;
 }

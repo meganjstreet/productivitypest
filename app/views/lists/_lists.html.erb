@@ -1,3 +1,38 @@
+<div class="container lists-container">
+<div class="list-container">
+  <div>
+  <ol>
+  <% @lists.each do |list| %>
+  <h4><%= list.name%></h4>
+  <% list.list_items.each do |item|%>
+    <% if item.status %>
+      <% checked = "checked"%>
+    <%else%>
+    <% checked = ""%>
+  <%end%>
+    <li>
+      <input type="checkbox" <%= checked %>><%= item.name %>
+    </li>
+  <% end %>
+<%= form_with(url: list_list_items_path(list), method: :post) do |f| %>
+  <%= f.text_field :name, name: 'list_item[name]' %>
+  <%= f.hidden_field :list_id, value: list.id%>
+  <%= f.submit 'ADD' %>
+<% end %>
+  <% end %>
+  </ol>
+</div>
+
+
+<div class= "container">
+<div id="lists">
+</div>
+</div>
+</div>
+
+
+
+    </div>
 
 <div class="container-list-outer">
   <div class="options" data-controller="addlist" data-addlist-target="container">
