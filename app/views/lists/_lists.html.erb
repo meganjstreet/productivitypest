@@ -22,12 +22,14 @@
   <% end %>
   </ol>
 </div>
+
+
 <div class= "container">
 <div id="lists">
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
 
 <div class="options">
   <%= link_to lists_path do %>
@@ -39,6 +41,7 @@
   <br>
   <button class="options-btn ">Date Ideas</button>
   <%end%>
+
 
   <div class= "container mt-5">
 <%= form_with(url: "/lists", method: :post) do |f| %>
