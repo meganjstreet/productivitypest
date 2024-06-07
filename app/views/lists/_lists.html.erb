@@ -11,7 +11,7 @@
     <% checked = ""%>
   <%end%>
     <li>
-      <input type="checkbox" <%= checked %>><%= item.name %></input>
+      <input type="checkbox" <%= checked %>><%= item.name %>
     </li>
   <% end %>
 <%= form_with(url: list_list_items_path(list), method: :post) do |f| %>
@@ -31,23 +31,22 @@
 </div>
 
 
-<div class="options">
-  <%= link_to lists_path do %>
-  <%@lists.each do |list|%>
-  <button class="options-btn"><%= list.name %></button>
-  <br>
-  <% end %>
-  <button class="options-btn">Add list</button>
-  <br>
-  <button class="options-btn ">Date Ideas</button>
-  <%end%>
 
-
-  <div class= "container mt-5">
-<%= form_with(url: "/lists", method: :post) do |f| %>
-  <%= f.text_field :name, name: 'list[name]' %>
-  <%= f.submit 'Add List' %>
-<% end %>
-</div>
-</div>
     </div>
+
+<div class="container-list-outer">
+  <div class="options" data-controller="addlist" data-addlist-target="container">
+    <h3>All Lists</h3>
+    <ul>
+      <% lists.each do |list|%>
+        <li>
+          <button class="options-btn" data-action="addlist#showListItems"><%= list.name %></button>
+        </li>
+      <% end %>
+    </ul>
+  <%=  simple_form_for new_list, html: { data: { addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
+    <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
+    <%= f.button :submit, class: "btn btn-primary text-white" %>
+  <% end %>
+  </div>
+</div>

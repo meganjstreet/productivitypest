@@ -1,23 +1,23 @@
 
-.page-container {
-  position: relative;
-}
-
-.morning-routine {
-  position: absolute;
-  right: 10px;
-}
-
 .lists-container {
   display: flex;
 }
 
 .options {
   background-color: rgb(198, 198, 194);
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
-
+.water-tracker {
+  flex: 1;
+  padding: 20px;
+  // margin: ;
+}
+.morning-routine {
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
+}
 
 .head-container {
   display: flex;
@@ -33,10 +33,17 @@
   }
 }
 
+.btn-options {
+  display: flex;
+
+}
 .home-container {
+  display: flex;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   grid-gap: 12px;
+  height: 62vh;
+  padding: 8px;
 
 }
 

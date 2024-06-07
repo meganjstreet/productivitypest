@@ -19,12 +19,7 @@ class WaterTrackersController < ApplicationController
     end
   end
 
-  def reset
-    today = Time.now.beginning_of_day
-    yesterday = (today - 1.day).beginning_of_day
-    WaterTracker.where(created_at: yesterday...today).update_all(current_amount: 0)
-    head :no_content
-  end
+ 
 
   def update
     @water_tracker = WaterTracker.find(params[:id])
@@ -36,11 +31,6 @@ class WaterTrackersController < ApplicationController
     end
   end
 
-  def destroy
-    @water_tracker = WaterTracker.find(params[:id])
-    @water_tracker.destroy
-    head :no_content
-  end
 
   def take_glass_of_water
     @water_tracker = WaterTracker.find(params[:id])
