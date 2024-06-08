@@ -1,25 +1,29 @@
 .container-list-items {
-
   background-color: white;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: 100%;
+  .div-name-list {
+    overflow-y: auto;
+    height: 340px;
+  }
+
 }
 
-.list-list-items {
-  overflow-y: scroll;
-  height: 68vh;
-  flex-grow: 1;
-}
 
-.list-list-items::-webkit-scrollbar {
+
+.div-name-list::-webkit-scrollbar {
   width: 12px;               /* width of the entire scrollbar */
 }
 
-.list-list-items::-webkit-scrollbar-track {
-  background: orange;        /* color of the tracking area */
+.div-name-list::-webkit-scrollbar-track {
+  background: orange;
+  border-radius: 20px;         /* color of the tracking area */
 }
 
-.list-list-items::-webkit-scrollbar-thumb {
+.div-name-list::-webkit-scrollbar-thumb {
   background-color: blue;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid orange;  /* creates padding around scroll thumb */

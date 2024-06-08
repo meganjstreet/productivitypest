@@ -2,15 +2,13 @@
 .options {
   display: flex;
   flex-direction: column;
-
-
   background-color: white;
   border-radius: 8px;
-  height: 68vh;
+  height: 64vh;
   width: 100%;
+
   ul {
-    flex-grow: 1;
-    height: 68%;
+
     overflow-y: auto;
     overflow-x: hidden;
     list-style: none;
@@ -19,17 +17,31 @@
 
   li {
     border-bottom: 1px solid lightgray;
-    flex-grow: 1;
+
   }
+
+  .list {
+    width: 100%;
+  }
+
+  .div-list-items {
+    flex-grow:1;
+    height: 100%;
+  }
+
+
+
 
 
 
   ul::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
+    width: 12px;
+            /* width of the entire scrollbar */
   }
 
   ul::-webkit-scrollbar-track {
-    background: orange;        /* color of the tracking area */
+    background: orange;
+    border-radius: 20px;       /* color of the tracking area */
   }
 
   ul::-webkit-scrollbar-thumb {
