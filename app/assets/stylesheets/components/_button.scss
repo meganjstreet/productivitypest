@@ -1,0 +1,13 @@
+.btn-green {
+  background-color: $bright-green;
+  color: $beautiful-blue;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $beautiful-blue;
+    color: $bright-green;
+  }
+}

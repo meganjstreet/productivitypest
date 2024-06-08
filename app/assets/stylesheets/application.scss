@@ -12,12 +12,11 @@
 @import "components/index";
 @import "components/lists";
 @import "components/list_items";
+@import "components/button";
 @import "components/whitenoise";
 @import "components/schedule";
 @import "pages/index";
 
 body {
-  background-color: $secondary;
+  background-color: $beautiful-blue;
 }
-
-
