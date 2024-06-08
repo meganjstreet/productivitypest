@@ -18,12 +18,11 @@ class PagesController < ApplicationController
     @lists = @user.lists
     @new_list = List.new
     # LIST ITEMS
-
-    @list_item = ListItem.new
+    @new_list_item = ListItem.new
 
     #find schedule for the day
     @schedule = Schedule.find_by(day_id: @day.id)
-    
+
 
     #instantiate new task for task form
     @schedule_task = ScheduleTask.new

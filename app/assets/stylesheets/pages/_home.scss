@@ -1,11 +1,11 @@
 
-.lists-container {
-  display: flex;
-}
-
-.options {
-  background-color: rgb(198, 198, 194);
+.home-container-list-list-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: white;
+  padding: 8px;
   border-radius: 8px;
+  width: 100%;
 }
 
 .water-tracker {
@@ -13,11 +13,7 @@
   padding: 20px;
   // margin: ;
 }
-.morning-routine {
-  flex: 1;
-  padding: 20px;
-  margin: 5px;
-}
+
 
 .head-container {
   display: flex;
@@ -38,18 +34,9 @@
 
 }
 .home-container {
-  display: flex;
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-gap: 12px;
   height: 62vh;
   padding: 8px;
-
-}
-
-.list-container {
-  background-color:rgb(220, 215, 215);
-  margin-right: 40px;
-  border-radius: 8px;
-  width: 400px;
 }
