@@ -1,17 +1,21 @@
 <div class="container-list-items">
   <div data-controller="list-items" data-list-items-target="container">
-    <h3><%= list.name %></h3>
-    <ul class="list-list-items">
-      <% list.list_items.each do |item| %>
-        <% checked = item.status ? "checked" : "" %>
-        <li>
-          <input type="checkbox" <%= checked %>><%= item.name %>
-        </li>
+    <div class="div-name-list">
+      <h3><%= list.name %></h3>
+      <ul class="list-list-items">
+        <% list.list_items.each do |item| %>
+          <% checked = item.status ? "checked" : "" %>
+          <li>
+            <input type="checkbox" <%= checked %> class="m-3"><%= item.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="div-list-item-form mt-1">
+      <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
+        <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
+        <%= f.button :submit, class: "btn btn-primary text-white" %>
       <% end %>
-    </ul>
-    <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
-      <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
-    <%= f.button :submit, class: "btn btn-primary text-white" %>
-    <% end %>
+    </div>
   </div>
 </div>
