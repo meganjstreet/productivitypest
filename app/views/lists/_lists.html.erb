@@ -1,52 +1,21 @@
-<div class="container lists-container">
-<div class="list-container">
-  <div>
-  <ol>
-  <% @lists.each do |list| %>
-  <h4><%= list.name%></h4>
-  <% list.list_items.each do |item|%>
-    <% if item.status %>
-      <% checked = "checked"%>
-    <%else%>
-    <% checked = ""%>
-  <%end%>
-    <li>
-      <input type="checkbox" <%= checked %>><%= item.name %>
-    </li>
-  <% end %>
-<%= form_with(url: list_list_items_path(list), method: :post) do |f| %>
-  <%= f.text_field :name, name: 'list_item[name]' %>
-  <%= f.hidden_field :list_id, value: list.id%>
-  <%= f.submit 'ADD' %>
-<% end %>
-  <% end %>
-  </ol>
-</div>
-
-
-<div class= "container">
-<div id="lists">
-</div>
-</div>
-</div>
-
-
-
-    </div>
-
 <div class="container-list-outer">
-  <div class="options" data-controller="addlist" data-addlist-target="container">
+  <div class="options" data-controller="addlist toggle-list-items" data-addlist-target="container">
     <h3>All Lists</h3>
     <ul>
       <% lists.each do |list|%>
-        <li>
-          <button class="options-btn" data-action="addlist#showListItems"><%= list.name %></button>
+        <li class="d-flex row list">
+          <button class="options-btn col-5" data-action="toggle-list-items#toggleListItems">
+            <%= list.name %>
+          </button>
+          <div class="col-7 d-none" data-toggle-list-items-target="listitems">
+            <%= render "lists/list_items", list: list, new_list_item: new_list_item %>
+          </div>
         </li>
       <% end %>
     </ul>
-  <%=  simple_form_for new_list, html: { data: { addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
-    <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
-    <%= f.button :submit, class: "btn btn-primary text-white" %>
-  <% end %>
+    <%=  simple_form_for new_list, html: { data: { toggle_list_items_target: "form", addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
+      <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
+      <%= f.button :submit, class: "btn btn-primary text-white" %>
+    <% end %>
   </div>
 </div>

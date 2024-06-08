@@ -1,12 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
-
 // Connects to data-controller="addlist"
 export default class extends Controller {
-  static targets = ["form", "container"]
+  static targets = ["form", "container", "listitems"]
   connect() {
     console.log("Connected")
   }
+
 
   create(event){
     event.preventDefault();
@@ -19,10 +19,11 @@ export default class extends Controller {
     .then(response => response.text().then(text => ({ ok: response.ok, text })))
     .then(({ ok, text }) => {
       if (ok) {
-        this.containerTarget.outerHTML = text;
+        console.log(text)
+        this.containerTarget.innerHTML = text;
       } else {
         console.log(text)
-        this.containerTarget.outerHTML = text;
+        this.containerTarget.innerHTML = text;
       }
     })
     .catch(error => console.error('Error:', error));

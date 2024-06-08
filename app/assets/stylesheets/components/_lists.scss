@@ -1,3 +1,41 @@
-.lists-container {
-  margin-left: 0%;
+
+.options {
+  display: flex;
+  flex-direction: column;
+
+
+  background-color: white;
+  border-radius: 8px;
+  height: 68vh;
+  width: 100%;
+  ul {
+    flex-grow: 1;
+    height: 68%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    border-bottom: 1px solid lightgray;
+    flex-grow: 1;
+  }
+
+
+
+  ul::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+
+  ul::-webkit-scrollbar-track {
+    background: orange;        /* color of the tracking area */
+  }
+
+  ul::-webkit-scrollbar-thumb {
+    background-color: blue;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid orange;  /* creates padding around scroll thumb */
+  }
+
 }

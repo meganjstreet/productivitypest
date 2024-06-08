@@ -24,11 +24,11 @@ class ListsController < ApplicationController
     @list.user_id = user_id
     respond_to do |format|
       if @list.save
-        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new }, formats: [:html] }
-        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new }, formats: [:html] }
+        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new }, formats: [:html] }
+        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new }, formats: [:html] }
       else
-        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: @list }, formats: [:html], status: :unprocessable_entity }
-        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: @list }, formats: [:html], status: :unprocessable_entity }
+        format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: @list, new_list_item: ListItem.new }, formats: [:html], status: :unprocessable_entity }
+        format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: @list, new_list_item: ListItem.new }, formats: [:html], status: :unprocessable_entity }
       end
     end
   end

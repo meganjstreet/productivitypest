@@ -1,0 +1,26 @@
+.container-list-items {
+
+  background-color: white;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.list-list-items {
+  overflow-y: scroll;
+  height: 68vh;
+  flex-grow: 1;
+}
+
+.list-list-items::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.list-list-items::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+.list-list-items::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+}
