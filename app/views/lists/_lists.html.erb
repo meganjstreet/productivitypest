@@ -2,11 +2,17 @@
   <div class="options" data-controller="addlist toggle-list-items" data-addlist-target="container">
     <ul>
       <% lists.each do |list|%>
-        <li class="d-flex row list">
-          <button class="options-btn col-2" data-action="toggle-list-items#toggleListItems">
+        <li class="list">
+
+          <button class="options-btn" data-action="toggle-list-items#toggleListItems">
             <%= list.name %>
           </button>
-          <div class="col-7 d-none div-list-items" data-toggle-list-items-target="listitems">
+          <%= simple_form_for list, url: list_path(list), method: :delete, html: { data: { addlist_target: "deleteForm", action: "submit->addlist#deleteList" } } do |f| %>
+            <%= f.button :submit, "", class: "btn btn-close" %>
+          <% end %>
+
+
+          <div class="d-none div-list-items" data-toggle-list-items-target="listitems">
             <%= render "lists/list_items", list: list, new_list_item: new_list_item %>
           </div>
         </li>

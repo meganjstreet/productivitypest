@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :list_items, only: [:create]
   end
 
+  resources :list_items, only: [:update]
+
   resources :schedule do
     resources :schedule_tasks, only: [:create, :update]
   end
