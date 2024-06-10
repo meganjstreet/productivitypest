@@ -8,19 +8,21 @@
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
     <div class="btn-options">
+      <div class="water-tracker">
+        <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+      </div>
+      <div>
 
-    <div class="water-tracker">
-      <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
-    </div>
-
-      <div class="home-container-list-list-items me-3">
         <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item%>
+      </div>
+      <div>
+        <%= render "days/calendar", user: @user %>
       </div>
     </div>
   </div>
-  <div class="pomorodo mt-3">
-    <%= render 'pomodoros/pomodoro' %>
-  </div>
+    <div class="pomorodo mt-3">
+      <%= render 'pomodoros/pomodoro' %>
+    </div>
 <% end %>
 <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
 <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>

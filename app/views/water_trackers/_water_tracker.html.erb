@@ -5,6 +5,7 @@
   <div class='toggle-tracker-card d-none' data-edit-water-tracker-target="tracker">
   <div class="toggle-tracker-infos">
     <h1>Water tracker</h1>
+    <%= water_tracker.status %>
     <div class='water-tracker-card'>
       <div class="water-tracker-infos"<%= 'd-none' if water_tracker.errors.any? %> data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
