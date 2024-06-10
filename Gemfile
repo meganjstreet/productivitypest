@@ -54,6 +54,8 @@ gem 'requestjs-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem "simple_calendar"
+gem 'rspotify'
+gem 'omniauth-spotify'
 
 group :development, :test do
   gem "dotenv-rails"
