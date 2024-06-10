@@ -47,7 +47,7 @@ class WaterTrackersController < ApplicationController
       @water_tracker.status = 0
     end
 
-    if @water_tracker.current_amount > @water_tracker.goal_amount
+    if @water_tracker.current_amount >= @water_tracker.goal_amount
       respond_to do |format|
         format.html
         format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker, notice: 'You have drank enough, no more'}, formats: [:html] }
