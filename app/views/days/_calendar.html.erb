@@ -1,21 +1,13 @@
-<div data-controller="calendar">
-
-<button data-action="calendar#toggleCalendar" class="btn-green">Calendar</button>
-
-
-<div data-calendar-target="calendar" class="hidden">
-
-
-<%= month_calendar do |day| %>
-  <div>
-    <%= day.day %>
-    <% day_record = Day.find_by(date: day, user: user) %>
-    <% if day_record && day_record.water_trackers.any? %>
-      <% if day_record.water_trackers.last.status == "complete" %>
-      <%= "💧" %>
+<div >
+  <%= month_calendar do |day| %>
+    <div>
+      <%= day.day %>
+      <% day_record = Day.find_by(date: day, user: user) %>
+      <% if day_record && day_record.water_trackers.any? %>
+        <% if day_record.water_trackers.last.status == "complete" %>
+          <%= "💧" %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
-</div>
+    </div>
+  <% end %>
 </div>
