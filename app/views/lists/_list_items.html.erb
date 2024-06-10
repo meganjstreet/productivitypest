@@ -5,8 +5,10 @@
       <ul class="list-list-items">
         <% list.list_items.each do |item| %>
           <% checked = item.status ? "checked" : "" %>
+          <% selected =item.status ? "selected" : "" %>
           <li>
             <input type="checkbox" <%= checked %> class="m-3"><%= item.name %>
+             <%= link_to 'Delete', list_list_item_path(list, item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %></li>
           </li>
         <% end %>
       </ul>
@@ -14,7 +16,7 @@
     <div class="div-list-item-form mt-1">
       <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
         <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
-        <%= f.button :submit, class: "btn btn-green" %>
+        <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

@@ -19,9 +19,21 @@ class ListItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @list_item = @list.list_items.find(params[:id])
+    @list_item.destroy
+    respond_to do |format|
+      format.html
+      format.text { render partial: "lists/list", locals: { list: @list, list_item: ListItem.new}, formats: [:html] }
+    end
+    redirect_to root_path
+  end
+
   private
 
   def list_item_params
     params.require(:list_item).permit(:name, :list_id)
+
+    end
   end
-end
