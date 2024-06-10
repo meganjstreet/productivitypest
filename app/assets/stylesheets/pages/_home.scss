@@ -1,4 +1,7 @@
-
+.btn-options {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
 .home-container-list-list-items {
 
@@ -33,7 +36,7 @@
 
   .pest {
     color: rgb(145, 80, 102);
-    font-family:Georgia, serif;
+
   }
 }
 
@@ -65,10 +68,10 @@
   box-shadow: 10px 10px 5px rgb(145, 80, 102);
 
 }
-.container-schedule:hover {
-  background-color: rgb(186, 206, 203);
-  color: white;
-}
+// .container-schedule:hover {
+//   background-color: rgb(186, 206, 203);
+//   color: white;
+// }
 
 .container-list-items:hover {
   background-color: rgb(186, 206, 203);
@@ -91,7 +94,6 @@ input.btn.btn-success {
   margin-bottom: 5px;
 }
 .options {
-  font-family:fangsong;
   padding-left: 15px;
   font-size: 20px;
 }

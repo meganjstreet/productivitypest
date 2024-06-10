@@ -7,6 +7,8 @@ export default class extends Controller {
 
   toggleMeditations(){
     this.meditationsTarget.classList.toggle("hidden");
+
+
   }
 
   toggleLists(){
