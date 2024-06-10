@@ -8,7 +8,7 @@
     <div class='water-tracker-card'>
       <div class="water-tracker-infos"<%= 'd-none' if water_tracker.errors.any? %> data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
-        <div>You will drink in frequencies of <%= water_tracker.frequency%> minutes</div>
+        <div>You will drink in frequencies of <span  data-edit-water-tracker-target="frequency"><%= water_tracker.frequency%></span> minutes</div>
         <div>You increment amount is<%=water_tracker.increment_amount%></div>
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
         <div class="water-tracker-buttons d-flex ">
@@ -43,6 +43,7 @@
     } do |f| %>
       <%= f.input :goal_amount %>
       <%= f.input :frequency %>
+      <%= f.input :notification %>
       <%= f.input :increment_amount %>
       <%= f.submit 'submit'  %>
     <% end %>
