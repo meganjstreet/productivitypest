@@ -8,11 +8,11 @@
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
     <div class="btn-options">
-     <!--
-<div class="water-tracker">
-  <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
-</div>
--->
+
+    <div class="water-tracker">
+      <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+    </div>
+
       <div class="home-container-list-list-items me-3">
         <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item%>
       </div>
@@ -24,3 +24,5 @@
 <% end %>
 <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
 <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>
+<%= audio_tag "audio-notification-2489.wav", id: "notification-audio" %>
+<%= image_tag "notification-bell.png", id:"notification-image"%>
