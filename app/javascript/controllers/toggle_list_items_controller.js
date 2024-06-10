@@ -11,16 +11,16 @@ export default class extends Controller {
     const lists = document.querySelectorAll(".list");
 
     lists.forEach((list) => {
-      list.classList.toggle("d-none");
+      list.classList.toggle("hidden");
     })
     const button = event.currentTarget;
 
-    const list = button.parentNode;
-    list.classList.toggle("d-none");
+    const list = button.parentNode.parentNode;
+    list.classList.toggle("hidden");
     this.formTarget.classList.toggle("hidden");
 
-    const listItems = button.nextElementSibling.nextElementSibling;
-    listItems.classList.toggle("d-none");
+    const listItems = button.parentNode.nextElementSibling;
+    listItems.classList.toggle("hidden");
 
   }
 }

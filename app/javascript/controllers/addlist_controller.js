@@ -53,6 +53,6 @@ export default class extends Controller {
   }
 
   toggleLists(){
-    this.containerTarget.classList.toggle("hidden");
+    this.containerTarget.classList.toggle("d-none");
   }
 }
