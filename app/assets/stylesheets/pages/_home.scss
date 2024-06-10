@@ -1,12 +1,18 @@
 
 
 
+  background-color: rgb(254, 254, 255);
+  box-shadow: 10px 10px 5px rgb(145, 80, 102);
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+
+
 .water-tracker {
   flex: 1;
   padding: 20px;
   // margin: ;
 }
-
 
 .head-container {
   display: flex;
@@ -19,13 +25,14 @@
     margin-bottom: 0;
     padding-left: 8px;
     color: $white;
+
   }
 
   .pest {
-    color: $bright-green;
+    color: rgb(145, 80, 102);
+    font-family:Georgia, serif;
   }
 }
-
 
 
 .home-container {
@@ -36,4 +43,52 @@
   padding: 8px;
 
 
+}
+.btn{
+  font-weight: bold;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 15px
+}
+.btn:hover {
+  background-color: rgb(145, 80, 102);
+  color: white;
+}
+
+.container-whitenoise{
+  font-weight: bold;
+}
+
+.container-schedule {
+  box-shadow: 10px 10px 5px rgb(145, 80, 102);
+
+}
+.container-schedule:hover {
+  background-color: rgb(186, 206, 203);
+  color: white;
+}
+
+.container-list-items:hover {
+  background-color: rgb(186, 206, 203);
+  color:black
+}
+a.btn-success{
+margin-bottom: 15px;
+margin-top: 10px
+}
+input.btn-close {
+  background-color: rgb(255, 252, 252);
+}
+a.btn {
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+input.btn.btn-success {
+  margin-bottom: 5px;
+}
+.options {
+  font-family:fangsong;
+  padding-left: 15px;
+  font-size: 20px;
 }
