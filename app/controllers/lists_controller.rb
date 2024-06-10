@@ -33,22 +33,14 @@ class ListsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
- def update
-    @list_item = List.find(params[:id])
-
-    if @list_item.update(list_params)
-    redirect_to list_path(@list_item)
-    else
-      render "edit"
-    end
-  end
-
   def destroy
-    @task.destroy
-    redirect_to lists_path
+    @lists = List.all
+    @list = List.find(params[:id])
+    @list.destroy
+    respond_to do |format|
+      format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new }, formats: [:html] }
+      format.text { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new }, formats: [:html] }
+    end
   end
 
 private

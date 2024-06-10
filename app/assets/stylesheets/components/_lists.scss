@@ -2,13 +2,14 @@
 .options {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   border-radius: 8px;
   height: 64vh;
   width: 100%;
 
-  ul {
 
+  ul {
     overflow-y: auto;
     overflow-x: hidden;
     list-style: none;

@@ -1,12 +1,13 @@
 <div class="container-list-items">
   <div data-controller="list-items" data-list-items-target="container">
     <div class="div-name-list">
-      <h3><%= list.name %></h3>
       <ul class="list-list-items">
         <% list.list_items.each do |item| %>
           <% checked = item.status ? "checked" : "" %>
           <li>
-            <input type="checkbox" <%= checked %> class="m-3"><%= item.name %>
+            <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
+              <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
+            <% end %>
           </li>
         <% end %>
       </ul>

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="list-items"
 export default class extends Controller {
-  static targets = ["form", "container"]
+  static targets = ["form", "container", "checkbox"]
 
   connect() {
     console.log("connected")
@@ -24,5 +24,26 @@ export default class extends Controller {
       }
     })
     .catch(error => console.error('Error:', error));
+  }
+
+  update(event) {
+    event.preventDefault();
+
+    const form = event.target.closest('form');
+    const url = form.action;
+    const formData = new FormData(form);
+
+    if (!event.target.checked) {
+      formData.delete(event.target.name);
+      formData.append(event.target.name, '0');
+    }
+
+    fetch(url, {
+      method: "PATCH",
+      headers: { "Accept": "text/plain" },
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => console.log(data));
   }
 }
