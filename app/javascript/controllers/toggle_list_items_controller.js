@@ -19,7 +19,7 @@ export default class extends Controller {
     list.classList.toggle("d-none");
     this.formTarget.classList.toggle("hidden");
 
-    const listItems = button.nextElementSibling;
+    const listItems = button.nextElementSibling.nextElementSibling;
     listItems.classList.toggle("d-none");
 
   }

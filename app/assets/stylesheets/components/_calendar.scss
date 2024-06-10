@@ -1,0 +1,28 @@
+.simple-calendar {
+  position: absolute;
+  width: 40vw;
+  .day {
+    background-color: $bright-green;
+    border: solid 4px $beautiful-blue;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}

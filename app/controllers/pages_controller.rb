@@ -8,8 +8,9 @@ class PagesController < ApplicationController
     # find todays Day instance
     @day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
 
+
     # returns array of WT with this date
-    @water_tracker = WaterTracker.where(day_id: @day.id).first
+    @water_tracker = @day.water_trackers.first
 
     #find current user
     @user = current_user

@@ -1,0 +1,13 @@
+<div >
+  <%= month_calendar do |day| %>
+    <div>
+      <%= day.day %>
+      <% day_record = Day.find_by(date: day, user: user) %>
+      <% if day_record && day_record.water_trackers.any? %>
+        <% if day_record.water_trackers.last.status == "complete" %>
+          <%= "💧" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

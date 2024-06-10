@@ -37,7 +37,7 @@ days.each do |day|
     increment_amount: 250,
     frequency: 30,
     current_amount: 0,
-    status: 0,
+    status: [0, 1,1,1,1, 0, 0].sample.to_i,
     notification: false,
     day: day
   )

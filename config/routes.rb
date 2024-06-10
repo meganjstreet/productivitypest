@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
 
+  get 'spotify/callback', to: 'spotify#callback'
+  get 'spotify/auth', to: 'spotify#auth'
+
   get 'pages/home'
   resources :water_trackers, only: [:new, :create, :update ] do
     member do
@@ -32,6 +35,8 @@ Rails.application.routes.draw do
   resources :lists do
     resources :list_items, only: [:create, :destroy]
   end
+
+  resources :list_items, only: [:update]
 
   resources :schedule do
     resources :schedule_tasks, only: [:create, :update]

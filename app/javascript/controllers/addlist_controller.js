@@ -28,4 +28,31 @@ export default class extends Controller {
     })
     .catch(error => console.error('Error:', error));
   }
+
+  deleteList(event) {
+    event.preventDefault();
+    const form = event.target.closest('form');
+    const url = form.action;
+    fetch(url, {
+      method: "DELETE",
+      headers: {  "X-CSRF-Token": document.querySelector("[name='csrf-token']").content,
+        "Accept": "text/plain" },
+      body: new FormData(form)
+    })
+    .then(response => response.text().then(text => ({ ok: response.ok, text })))
+    .then(({ ok, text }) => {
+      if (ok) {
+        console.log(text)
+        this.containerTarget.innerHTML = text;
+      } else {
+        console.log(text)
+        this.containerTarget.innerHTML = text;
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  }
+
+  toggleLists(){
+    this.containerTarget.classList.toggle("hidden");
+  }
 }

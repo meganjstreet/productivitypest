@@ -5,4 +5,3 @@ import "@popperjs/core"
 import "bootstrap"
 import "@rails/request.js"
 
-
