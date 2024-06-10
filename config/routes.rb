@@ -33,10 +33,10 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
-    resources :list_items, only: [:create, :destroy]
+    resources :list_items, only: [:create]
   end
 
-  resources :list_items, only: [:update]
+  resources :list_items, only: [:update, :destroy]
 
   resources :schedule do
     resources :schedule_tasks, only: [:create, :update]

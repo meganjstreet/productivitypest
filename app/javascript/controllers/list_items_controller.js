@@ -26,6 +26,28 @@ export default class extends Controller {
     .catch(error => console.error('Error:', error));
   }
 
+  destroy(event) {
+    const itemId = event.currentTarget.dataset.itemId;
+
+    fetch(`/list_items/${itemId}`, {
+      method: "DELETE",
+
+      headers: { "X-CSRF-Token": document.querySelector("[name='csrf-token']").content,
+      "Accept": "application/json" } // Expecting JSON response
+    })
+    .then(response => response.json().then(data => ({ ok: response.ok, data })))
+    .then(({ ok, data }) => {
+      if (ok) {
+        this.containerTarget.innerHTML = data.partial_html;
+      } else {
+        console.log(data.errors); // Log errors if any
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  }
+
+
+
   update(event) {
     event.preventDefault();
 
@@ -46,5 +68,5 @@ export default class extends Controller {
     .then(response => response.text())
     .then(data => console.log(data));
   }
-}
 
+}
