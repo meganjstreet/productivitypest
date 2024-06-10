@@ -19,11 +19,16 @@ class WaterTrackersController < ApplicationController
     end
   end
 
- 
-
   def update
     @water_tracker = WaterTracker.find(params[:id])
     @water_tracker.update(water_tracker_params)
+    if @water_tracker.goal_amount == @water_tracker.current_amount
+      @water_tracker.status = 1
+    else
+      @water_tracker.status = 0
+    end
+
+    @water_tracker.save!
 
     respond_to do |format|
       format.html
@@ -35,6 +40,12 @@ class WaterTrackersController < ApplicationController
   def take_glass_of_water
     @water_tracker = WaterTracker.find(params[:id])
     @water_tracker.current_amount += @water_tracker.increment_amount
+    
+    if @water_tracker.goal_amount == @water_tracker.current_amount
+      @water_tracker.status = 1
+    else
+      @water_tracker.status = 0
+    end
 
     if @water_tracker.current_amount > @water_tracker.goal_amount
       respond_to do |format|
@@ -42,11 +53,12 @@ class WaterTrackersController < ApplicationController
         format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker, notice: 'You have drank enough, no more'}, formats: [:html] }
       end
     else
-      @water_tracker.save!
-      respond_to do |format|
-        format.html
-        format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker}, formats: [:html] }
+      if @water_tracker.save!
+        respond_to do |format|
+          format.html
+          format.text { render partial: "water_trackers/water_tracker", locals: {water_tracker: @water_tracker}, formats: [:html] }
       end
+    end
     end
   end
 

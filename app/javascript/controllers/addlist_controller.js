@@ -51,4 +51,8 @@ export default class extends Controller {
     })
     .catch(error => console.error('Error:', error));
   }
+
+  toggleLists(){
+    this.containerTarget.classList.toggle("hidden");
+  }
 }

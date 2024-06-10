@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :lists
 
   has_many :schedules, through: :days
-  has_many :water_trackers
+  has_many :water_trackers, through: :days
+  has_many :pomodoros, through: :days
 end

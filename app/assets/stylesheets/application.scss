@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import "simple_calendar";
 
 // Your CSS partials
 @import "components/pomodoro";
@@ -15,6 +16,7 @@
 @import "components/button";
 @import "components/whitenoise";
 @import "components/schedule";
+@import "components/calendar";
 @import "pages/index";
 
 body {
