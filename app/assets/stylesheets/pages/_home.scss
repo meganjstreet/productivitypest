@@ -35,7 +35,7 @@
   }
 
   .pest {
-    color: rgb(145, 80, 102);
+    color: $bright-green;
 
   }
 }
@@ -56,7 +56,7 @@
   border-radius: 15px
 }
 .btn:hover {
-  background-color: rgb(145, 80, 102);
+  background-color: $pink;
   color: white;
 }
 
@@ -68,18 +68,13 @@
   box-shadow: 10px 10px 5px rgb(145, 80, 102);
 
 }
-// .container-schedule:hover {
-//   background-color: rgb(186, 206, 203);
-//   color: white;
-// }
 
-.container-list-items:hover {
-  background-color: rgb(186, 206, 203);
-  color:black
-}
 a.btn-success{
+background-color: $bright-green;
+color: $beautiful-blue;
 margin-bottom: 15px;
-margin-top: 10px
+margin-top: 10px;
+border: none;
 }
 input.btn-close {
   background-color: rgb(255, 252, 252);
