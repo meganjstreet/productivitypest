@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/pomodoro";
 @import "components/index";
+@import "components/meditation";
+@import "components/challenge_form";
 @import "components/lists";
 @import "components/list_items";
 @import "components/button";
@@ -19,6 +21,7 @@
 @import "components/calendar";
 @import "pages/index";
 
+
 body {
-  background-color: $beautiful-blue;
+  background-color: #F5F5F5;
 }
