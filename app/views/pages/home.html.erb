@@ -8,15 +8,18 @@
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
     <div class="btn-options selections">
+
+      <p class="d-inline-flex gap-1">
       <div class="idk">
-        <button data-action="home#toggleWaterTracker" class="btn-blue"><i class="fa-solid fa-glass-water-droplet icons fa-lg"></i></button>
-        <div data-home-target="waterTracker" class="hidden">
+        <button class="btn-blue" data-bs-toggle="collapse" data-bs-target="#collapseWaterTracker"><i class="fa-solid fa-glass-water-droplet icons fa-lg"></i></button>
+        <div data-home-target="waterTracker" class="collapse "id="collapseWaterTracker">
           <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
         </div>
+
       </div>
       <div class="idk">
-        <button data-action="home#toggleLists" class="btn-green"><i class="fa-solid fa-list fa-lg icons"></i></button>
-        <div data-home-target="lists" class="hidden">
+        <button data-bs-toggle="collapse" data-bs-target="#collapseLists" class="btn-green"><i class="fa-solid fa-list fa-lg icons"></i></button>
+        <div data-home-target="lists" class="collapse" id="collapseLists">
           <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
         </div>
       </div>
@@ -39,6 +42,7 @@
         </div>
         </div>
       </div>
+      </p>
     </div>
   </div>
   <div class="pomorodo mt-3">
