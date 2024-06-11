@@ -20,10 +20,10 @@ export default class extends Controller {
     .then(({ ok, text }) => {
       if (ok) {
         console.log(text)
-        this.containerTarget.innerHTML = text;
+        this.containerTarget.outerHTML = text;
       } else {
         console.log(text)
-        this.containerTarget.innerHTML = text;
+        this.containerTarget.outerHTML = text;
       }
     })
     .catch(error => console.error('Error:', error));
@@ -43,10 +43,10 @@ export default class extends Controller {
     .then(({ ok, text }) => {
       if (ok) {
         console.log(text)
-        this.containerTarget.innerHTML = text;
+        this.containerTarget.outerHTML = text;
       } else {
         console.log(text)
-        this.containerTarget.innerHTML = text;
+        this.containerTarget.outerHTML = text;
       }
     })
     .catch(error => console.error('Error:', error));

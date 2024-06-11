@@ -23,7 +23,7 @@
     </ul>
     <%=  simple_form_for new_list, html: { data: { toggle_list_items_target: "form", addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
       <%= f.input :name, label: false, placeholder: "What is the name of your new list?" %>
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%= f.button :submit, class: "btn btn-green" %>
 
     <% end %>
   </div>
