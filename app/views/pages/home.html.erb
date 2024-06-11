@@ -8,46 +8,34 @@
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
     <div class="btn-options selections">
-
-      <p class="d-inline-flex gap-1">
-      <div class="idk">
+      <p class="d-inline-flex gap-5">
         <button class="btn-blue" data-bs-toggle="collapse" data-bs-target="#collapseWaterTracker"><i class="fa-solid fa-glass-water-droplet icons fa-lg"></i></button>
-        <div data-home-target="waterTracker" class="collapse "id="collapseWaterTracker">
-          <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
-        </div>
-
-      </div>
-      <div class="idk">
         <button data-bs-toggle="collapse" data-bs-target="#collapseLists" class="btn-green"><i class="fa-solid fa-list fa-lg icons"></i></button>
-        <div data-home-target="lists" class="collapse" id="collapseLists">
-          <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
-        </div>
-      </div>
-      <div class="idk">
-        <button data-action="home#toggleStreaks" class="btn-pink"><i class="fa-regular fa-calendar-days fa-lg icons"></i></button>
-        <div data-home-target="streaks" class="hidden">
-          <%= render "days/calendar", user: @user %>
-        </div>
-      </div>
-      <div class="idk">
-        <button data-action="home#toggleMeditations" class="btn-red"><i class="fa-brands fa-canadian-maple-leaf fa-lg icons"></i></button>
-        <div data-home-target="meditations" class="hidden">
-          <%= render "meditations/meditations" %>
-        </div>
-      </div>
-        <div>
-        <button data-action="home#toggleChallenges" class="btn-yellow"><i class="fa-solid fa-trophy icons"></i></button>
-        <div data-home-target="challenges" class="hidden">
-        <%= render "challenges/challenges", challenge: @challenge %>
-        </div>
-        </div>
-      </div>
+        <button data-bs-toggle="collapse" data-bs-target="#collapseStreaks" class="btn-pink"><i class="fa-regular fa-calendar-days fa-lg icons"></i></button>
+        <button data-bs-toggle="collapse" data-bs-target="#collapseMeditations" class="btn-red"><i class="fa-brands fa-canadian-maple-leaf fa-lg icons"></i></button>
+        <button data-bs-toggle="collapse" data-bs-target="#collapseChallenges" class="btn-yellow"><i class="fa-solid fa-trophy icons"></i></button>
       </p>
+      <div data-home-target="waterTracker" class="collapse" id="collapseWaterTracker">
+        <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+      </div>
+      <div data-home-target="lists" class="collapse" id="collapseLists">
+        <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
+      </div>
+      <div data-home-target="streaks" class="collapse" id="collapseStreaks">
+        <%= render "days/calendar", user: @user %>
+      </div>
+      <div data-home-target="meditations" class="collapse" id="collapseMeditations">
+        <%= render "meditations/meditations" %>
+      </div>
+      <div data-home-target="challenges" class="collapse" id="collapseChallenges">
+        <%= render "challenges/challenges", challenge: @challenge %>
+      </div>
     </div>
   </div>
-  <div class="pomorodo mt-3">
-    <%= render 'pomodoros/pomodoro' %>
-  </div>
+</div>
+<div class="pomorodo mt-3">
+  <%= render 'pomodoros/pomodoro' %>
+</div>
 <% end %>
 <%= audio_tag "dingdong.wav", id: "dingdong-audio" %>
 <%= audio_tag "whitenoise.mp3", id: "whitenoise-audio", loop: true %>
