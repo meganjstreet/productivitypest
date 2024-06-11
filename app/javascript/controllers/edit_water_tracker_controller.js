@@ -12,7 +12,13 @@ export default class extends Controller {
       this.setNotificationInterval(this.data.get("frequency"));
 
     }
+    window.addEventListener("beforeunload", this.preventPageRefresh.bind(this));
   }
+
+  disconnect() {
+    window.removeEventListener("beforeunload", this.preventPageRefresh.bind(this));
+  }
+
   displayForm() {
     this.infosTarget.classList.add("d-none")
     this.formTarget.classList.remove("d-none")
@@ -74,8 +80,14 @@ export default class extends Controller {
     document.getElementById('notification-audio').play();
   }
 
-  displayTracker() {
-    // event.preventDefault()
+  displayTracker(event) {
+    event.preventDefault()
     this.trackerTarget.classList.toggle("d-none")
+  }
+
+  preventPageRefresh(event) {
+    const message = "Are you sure you want to leave? Changes you made may not be saved.";
+    event.returnValue = message;
+    return message;
   }
 }
