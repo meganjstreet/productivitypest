@@ -81,7 +81,7 @@ input.btn-close {
 a.btn {
   margin-bottom: 5px;
   margin-left: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
   padding-left: 10px;
 }
 input.btn.btn-success {
@@ -99,4 +99,9 @@ input.btn.btn-success {
 .moved {
   position: absolute;
   left: 0px;
+}
+button.btn{
+height: 3vh;
+margin-top: 0;
+box-shadow: rgba(179, 176, 176, 0.35) 0px 5px 5px;
 }
