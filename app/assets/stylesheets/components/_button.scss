@@ -1,5 +1,5 @@
-.btn-green {
-  background-color: $bright-green;
+.btn-yellow {
+  background-color: $yellow;
   color: $beautiful-blue;
   font-weight: bold;
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
 
   &:hover {
-    background-color: $beautiful-blue;
-    color: $bright-green;
+    background-color: $pink;
+    color: $white;
   }
 }

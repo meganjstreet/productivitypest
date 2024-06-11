@@ -8,16 +8,15 @@
               <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
             <% end %>
             <button data-action="list-items#destroy" data-item-id="<%= item.id %>">Delete</button>
-
-        </li>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="div-list-item-form mt-1">
+      <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
+        <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
+        <%= f.button :submit, class: "btn btn-yellow" %>
       <% end %>
-    </ul>
+    </div>
   </div>
-  <div class="div-list-item-form mt-1">
-    <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
-      <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
-      <%= f.button :submit, class: "btn btn-green" %>
-    <% end %>
-  </div>
-</div>
 </div>
