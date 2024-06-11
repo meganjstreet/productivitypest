@@ -11,19 +11,16 @@ export default class extends Controller {
     fetch(url, {
       method: "POST",
       headers: {
-        "Accept": "application/json"
+        "Accept": "text/plain"
       },
       body: new FormData(this.formTarget)
     })
-    .then(response => response.json().then(data => ({ ok: response.ok, data })))
-    .then(({ ok, data }) => {
-      if (ok) {
-        this.containerTarget.innerHTML = data.partial;
-      } else {
-        this.containerTarget.innerHTML = data.partial;
-        console.error('Errors:', data.errors);
-      }
+    .then(response => response.text())
+    .then((data) => {
+      this.containerTarget.outerHTML = data;
+
     })
-    .catch(error => console.error('Error:', error));
+
   }
+
 }
