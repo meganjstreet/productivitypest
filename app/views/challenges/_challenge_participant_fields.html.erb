@@ -1,0 +1,8 @@
+
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :user_id, "Participant" %>
+    <%= f.select :user_id, User.all.map { |user| [user.username, user.id] }, { include_blank: "Select User" }, class: "form-control" %>
+    <%= link_to_remove_association "Remove", f, class: "btn btn-danger" %>
+  </div>
+</div>

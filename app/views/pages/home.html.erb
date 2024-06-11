@@ -29,7 +29,14 @@
       <div class="idk">
         <button data-action="home#toggleMeditations" class="btn-yellow"><i class="fa-brands fa-canadian-maple-leaf fa-lg icons"></i></button>
         <div data-home-target="meditations" class="hidden">
-          <%= render "meditations/meditation" %>
+          <%= render "meditations/meditations" %>
+        </div>
+      </div>
+        <div>
+        <button data-action="home#toggleChallenges" class="btn-yellow">Challenges</button>
+        <div data-home-target="challenges" class="hidden">
+        <%= render "challenges/challenges", challenge: @challenge %>
+        </div>
         </div>
       </div>
     </div>

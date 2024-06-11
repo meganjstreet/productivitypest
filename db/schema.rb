@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_094940) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_081829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenge_participants", force: :cascade do |t|
+    t.bigint "challenge_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_challenge_participants_on_challenge_id"
+    t.index ["user_id"], name: "index_challenge_participants_on_user_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "category"
+    t.string "stakes"
+    t.string "goal"
+    t.integer "duration"
+    t.date "start_date"
+    t.string "status"
+    t.bigint "creator_id", null: false
+    t.bigint "winner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_challenges_on_creator_id"
+    t.index ["winner_id"], name: "index_challenges_on_winner_id"
+  end
 
   create_table "days", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -102,6 +126,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_094940) do
     t.index ["day_id"], name: "index_water_trackers_on_day_id"
   end
 
+  add_foreign_key "challenge_participants", "challenges"
+  add_foreign_key "challenge_participants", "users"
+  add_foreign_key "challenges", "users", column: "creator_id"
+  add_foreign_key "challenges", "users", column: "winner_id"
   add_foreign_key "days", "users"
   add_foreign_key "list_items", "lists"
   add_foreign_key "lists", "users"

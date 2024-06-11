@@ -28,5 +28,8 @@ class PagesController < ApplicationController
     #instantiate new task for task form
     @schedule_task = ScheduleTask.new
 
+    @challenge = Challenge.new
+    @challenge.challenge_participants.build
+
   end
 end
