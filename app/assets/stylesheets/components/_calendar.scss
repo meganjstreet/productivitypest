@@ -2,11 +2,19 @@
   position: absolute;
   width: 40vw;
   .day {
-    background-color: $bright-green;
+    background-color: $white;
     border: solid 4px $beautiful-blue;
   }
 
-  .wday-0 {}
+  .weekdays {
+    background-color: $pink;
+    color: white;
+    border: solid 4px $beautiful-blue;
+
+  }
+
+  .wday-0 {
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
