@@ -49,6 +49,7 @@ export default class extends Controller {
       // update the display time
       this.updateDisplay();
       if (this.timeLeft <= 0) {
+        document.getElementById('whitenoise-audio').pause();
         document.getElementById('dingdong-audio').play();
         clearInterval(this.timer);
         this.timer = null;

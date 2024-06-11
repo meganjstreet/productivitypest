@@ -1,38 +1,38 @@
 <% if user_signed_in? %>
   <div class="head-container">
     <h1>Productivity<span class="pest " >PEST</span></h1>
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-success " %>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-yellow " %>
   </div>
   <div class="home-container" data-controller="home">
     <div class="schedule col-12" id="schedule-container">
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
     <div class="btn-options">
-  <div>
-    <button data-action="home#toggleWaterTracker" class="btn-green">Water Tracker</button>
-    <div data-home-target="waterTracker" class="hidden">
-      <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+      <div>
+        <button data-action="home#toggleWaterTracker" class="btn-yellow">Water Tracker</button>
+        <div data-home-target="waterTracker" class="hidden">
+          <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
+        </div>
+      </div>
+      <div>
+        <button data-action="home#toggleLists" class="btn-yellow">Lists</button>
+        <div data-home-target="lists" class="hidden">
+          <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
+        </div>
+      </div>
+      <div>
+        <button data-action="home#toggleStreaks" class="btn-yellow">Streaks</button>
+        <div data-home-target="streaks" class="hidden">
+          <%= render "days/calendar", user: @user %>
+        </div>
+      </div>
+      <div>
+        <button data-action="home#toggleMeditations" class="btn-yellow">Meditations</button>
+        <div data-home-target="meditations" class="hidden">
+          <%= render "meditations/meditation" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div>
-    <button data-action="home#toggleLists" class="btn-green">Lists</button>
-    <div data-home-target="lists" class="hidden">
-      <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
-    </div>
-  </div>
-  <div>
-    <button data-action="home#toggleStreaks" class="btn-green">Streaks</button>
-    <div data-home-target="streaks" class="hidden">
-      <%= render "days/calendar", user: @user %>
-    </div>
-  </div>
-  <div>
-    <button data-action="home#toggleMeditations" class="btn-green">Meditations</button>
-    <div data-home-target="meditations" class="hidden">
-      <%= render "meditations/meditation" %>
-    </div>
-  </div>
-</div>
   </div>
   <div class="pomorodo mt-3">
     <%= render 'pomodoros/pomodoro' %>

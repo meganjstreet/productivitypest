@@ -35,7 +35,7 @@
   }
 
   .pest {
-    color: $bright-green;
+    color: $yellow;
 
   }
 }
@@ -65,8 +65,7 @@
 }
 
 .container-schedule {
-  box-shadow: 10px 10px 5px rgb(145, 80, 102);
-
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 a.btn-success{
