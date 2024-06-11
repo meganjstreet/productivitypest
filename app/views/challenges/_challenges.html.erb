@@ -1,5 +1,6 @@
 <div data-controller="challenge" class="div-challenge-form">
-  <div data-challenge-target="container">
+  <div data-challenge-target="container" class="d-flex">
+  <div class="m-3">
     <%= simple_form_for challenge,  html: { data: { challenge_target: "form", action: "submit->challenge#create" } } do |f| %>
       <div class="field">
         <%= f.input :category, label: "Category" %>
@@ -13,12 +14,8 @@
       <div class="field">
         <%= f.input :duration, label: "Duration", as: :integer %>
       </div>
-      <div class="field">
-        <%= f.input :start_date, label: "Start Date", as: :date %>
       </div>
-      <div class="field">
-        <%= f.input :status, label: "Status" %>
-      </div>
+      <div class="m-3">
       <h3>Participants</h3>
       <div id="participants">
         <%= f.simple_fields_for :challenge_participants do |cp_form| %>
@@ -34,5 +31,6 @@
       <%= link_to_add_association "Add Participant", f, :challenge_participants, class: "btn btn-yellow", data: { association_insertion_node: '#participants', association_insertion_method: 'append' } %>
       <%= f.submit "Create Challenge", class: "btn btn-yellow" %>
     <% end %>
+    </div>
   </div>
 </div>
