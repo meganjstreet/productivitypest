@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "jquery" %>
+    <script src="https://cdn.jsdelivr.net/npm/@nathanvda/cocoon@1.2.14/app/assets/javascripts/cocoon.js"></script>
   </head>
   <body>
     <%= render "shared/flashes" %>

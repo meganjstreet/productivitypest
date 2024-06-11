@@ -1,0 +1,6 @@
+<!-- app/views/challenges/_challenge_participant_fields.html.erb -->
+<div class="nested-fields">
+  <%= f.input :user_id, collection: User.all, label_method: :username, value_method: :id, label: "Participant", include_blank: "Select User" %>
+  <%= f.input :_destroy, as: :boolean, label: "Remove" %>
+  <%= link_to_remove_association "Remove Participant", f %>
+</div>

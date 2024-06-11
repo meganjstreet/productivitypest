@@ -1,0 +1,35 @@
+<%= simple_form_for @challenge, remote: true, html: { data: { controller: "challenge", action: "challenge#create", target: "challenge.form" } } do |f| %>
+  <div class="field">
+    <%= f.input :category, label: "Category" %>
+  </div>
+
+  <div class="field">
+    <%= f.input :stakes, label: "Stakes" %>
+  </div>
+
+  <div class="field">
+    <%= f.input :goal, label: "Goal" %>
+  </div>
+
+  <div class="field">
+    <%= f.input :duration, label: "Duration", as: :integer %>
+  </div>
+
+  <div class="field">
+    <%= f.input :start_date, label: "Start Date", as: :date %>
+  </div>
+
+  <div class="field">
+    <%= f.input :status, label: "Status" %>
+  </div>
+
+  <h3>Participants</h3>
+  <div id="participants">
+    <%= f.simple_fields_for :challenge_participants do |cp_form| %>
+      <%= render 'challenges/challenge_participant_fields', f: cp_form %>
+    <% end %>
+    <%= link_to_add_association "Add Participant", f, :challenge_participants, class: "btn btn-secondary" %>
+  </div>
+
+  <%= f.submit "Create Challenge", class: "btn btn-primary" %>
+<% end %>

@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :days, only: [:create]
   end
 
+  resources :challenges, only: [:create, :update] do
+    resources :challenge_participants, only: [:create]
+  end
+
   resources :pomodoros, only: [:create] do
     member do
       patch :complete
