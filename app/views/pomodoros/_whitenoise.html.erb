@@ -1,8 +1,19 @@
 <div data-controller="whitenoise" class="container-whitenoise">
-  <p>White Noise</p>
-  <div class="toggle-switch">
-  <input class="toggle-input" id="toggle" type="checkbox" data-action="whitenoise#toggle" data-whitenoise-target="togglebutton">
+  <div class="dropdown">
+    <button data-action="whitenoise#toggleOptions" data-whitenoise-target="choosebutton">
+      White Noise
+    </button>
+    <div class="d-none" data-whitenoise-target="options">
+      <button data-action="click->whitenoise#chooseNoiseWhite">White Noise</button>
+      <button data-action="click->whitenoise#chooseNoiseWhite">Waves</button>
+      <button data-action="click->whitenoise#chooseNoiseWhite">Heater</button>
+      <button data-action="click->whitenoise#chooseNoiseWhite">Rain</button>
+      <button data-action="click->whitenoise#chooseNoiseWhite">Train</button>
+
+    </div>
+  </div>
+<div class="toggle-switch" data-whitenoise-target="switch1">
+  <input class="toggle-input" id="toggle" type="checkbox" data-action="whitenoise#toggle" data-whitenoise-target="togglebuttonWhite">
   <label class="toggle-label" for="toggle"></label>
 </div>
-
 </div>
