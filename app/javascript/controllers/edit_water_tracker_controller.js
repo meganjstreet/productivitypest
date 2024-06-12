@@ -2,31 +2,32 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-water-tracker"
 export default class extends Controller {
-  static targets = ["infos", "form", "card", "tracker","frequency"]
+  static targets = ["infos", "form", "card", "tracker", "frequency", "notification"]
 
   connect() {
-    this.setNotificationInterval(parseInt(this.frequencyTarget.innerText));
-    console.log(parseInt(this.frequencyTarget.innerText));
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-      this.setNotificationInterval(this.data.get("frequency"));
-
+    if (this.notificationTarget.innerText === "true") {
+      const frequency = parseInt(this.frequencyTarget.innerText, 10);
+      this.setNotificationInterval(frequency);
+      console.log(`Notification frequency set to ${frequency} minutes.`);
+      window.addEventListener("beforeunload", this.preventPageRefresh.bind(this));
     }
-    window.addEventListener("beforeunload", this.preventPageRefresh.bind(this));
   }
 
   disconnect() {
     window.removeEventListener("beforeunload", this.preventPageRefresh.bind(this));
+    this.stopNotificationTimer();
   }
 
   displayForm() {
-    this.infosTarget.classList.add("d-none")
-    this.formTarget.classList.remove("d-none")
+    this.infosTarget.classList.add("d-none");
+    this.formTarget.classList.remove("d-none");
   }
 
   update(event) {
-    event.preventDefault()
-    const url = this.formTarget.action
+    event.preventDefault();
+    this.stopNotificationTimer(); 
+
+    const url = this.formTarget.action;
     fetch(url, {
       method: "PATCH",
       headers: { "Accept": "text/plain" },
@@ -40,49 +41,56 @@ export default class extends Controller {
     })
     .then((data) => {
       this.cardTarget.outerHTML = data;
-      console.log(this.trackerTarget)
+      this.reinitializeNotificationTimer(); // Restart the timer after update
     })
     .catch(error => console.error('Error:', error));
   }
 
-  updateFrequency() {
-    const frequency = this.frequencyInputTarget.value;
-    this.setNotificationInterval(frequency);
-  }
-
   setNotificationInterval(frequency) {
-    console.log('interval set');
+    console.log('Setting notification interval.');
     const intervalMinutes = parseInt(frequency, 10);
-    if (!isNaN(intervalMinutes) && intervalMinutes > 0) {
-      this.notificationInterval = intervalMinutes * 60 * 1000;
-      this.startNotificationTimer();
-    } else {
-      console.log("Invalid frequency" );
-    }
 
+    if (!isNaN(intervalMinutes) && intervalMinutes > 0) {
+      this.startNotificationTimer(intervalMinutes * 60 * 1000);
+    } else {
+      console.log("Invalid frequency");
+    }
   }
 
-  startNotificationTimer() {
-    console.log('start timer')
+  startNotificationTimer(interval) {
+    console.log('Starting notification timer.');
     this.stopNotificationTimer();
-    this.notificationTimer = setInterval(this.notifyUser.bind(this), this.notificationInterval);
+    this.notificationTimer = setInterval(this.notifyUser.bind(this), interval);
+    console.log(`Notification timer set with interval ${interval} ms.`);
   }
 
   stopNotificationTimer() {
     if (this.notificationTimer) {
-      console.log('stop notications')
+      console.log('Stopping notification timer.');
       clearInterval(this.notificationTimer);
+      this.notificationTimer = null; // Ensure the timer reference is cleared
+    } else {
+      console.log('No notification timer to stop.');
+    }
+  }
+
+  reinitializeNotificationTimer() {
+    if (this.notificationTarget.innerText === "true") { // Corrected condition
+      const frequency = parseInt(this.frequencyTarget.innerText, 10);
+      if (!isNaN(frequency) && frequency > 0) {
+        this.startNotificationTimer(frequency * 60 * 1000);
+      }
     }
   }
 
   notifyUser() {
-    console.log('notify user')
-    document.getElementById('notification-audio').play();
-  }
-
-  displayTracker(event) {
-    event.preventDefault()
-    this.trackerTarget.classList.toggle("d-none")
+    console.log('Notifying user.');
+    const notificationAudio = document.getElementById('notification-audio');
+    if (notificationAudio) {
+      notificationAudio.play();
+    } else {
+      console.log('Notification audio element not found.');
+    }
   }
 
   preventPageRefresh(event) {
