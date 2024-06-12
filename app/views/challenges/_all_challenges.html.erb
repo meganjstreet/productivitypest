@@ -1,10 +1,8 @@
 <div>
-  <div class="container-challenges"  data-challenge-target="container">
-    <ul>
-      <% current_user.created_challenges.each do |challenge| %>
-        <li class="list-item-challenge"><%= challenge.category %>: <%= challenge.goal %> : <%= challenge.stakes %> : <%= challenge.participants.first.username %></li>
-      <% end %>
-    </ul>
+  <div class="container-challenges">
+    <div data-challenge-target="container" class="challenges-list">
+      <%= render "challenges/challenges_list" %>
+    </div>
     <div class="div-challenge-form" data-challenge-target="formContainer">
       <div class="d-flex">
         <div class="m-3">
@@ -43,6 +41,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
