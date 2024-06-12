@@ -33,6 +33,7 @@ export default class extends Controller {
     .then((data) => {
       console.log(data)
       this.containerTarget.innerHTML = data;
+      this.formContainerTarget.reset()
 
     })
 
