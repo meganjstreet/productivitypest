@@ -9,3 +9,14 @@
   margin: 4px;
   border-radius: 8px;
 }
+
+.challenge-modal {
+  z-index: 2;
+
+  width: 520px;
+
+  height: 480px;
+  position: absolute;
+  background-color: white;
+  border-radius: 15px;
+}

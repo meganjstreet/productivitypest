@@ -1,0 +1,6 @@
+  
+<ul>
+  <% current_user.created_challenges.each do |challenge| %>
+    <li class="list-item-challenge"><%= challenge.category %>: <%= challenge.goal %> : <%= challenge.stakes %> : <%= challenge.participants.first.username %></li>
+  <% end %>
+</ul>

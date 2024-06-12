@@ -19,9 +19,7 @@ class ListsController < ApplicationController
   def create
     @lists = List.all
     @list = List.new(list_params)
-    user_id = current_user.id
-
-    @list.user_id = user_id
+    @list.user = current_user
     respond_to do |format|
       if @list.save
         format.html { render partial: "lists/lists", locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new }, formats: [:html] }
