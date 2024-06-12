@@ -5,7 +5,9 @@ class ChallengesController < ApplicationController
     @challenge.start_date = Date.today
     @new_challenge = Challenge.new
     @new_challenge.challenge_participants.build
-    
+
+    # test
+
     respond_to do |format|
       if @challenge.save!
         format.html
