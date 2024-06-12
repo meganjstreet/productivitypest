@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_12_085008) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_081829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_12_085008) do
   create_table "challenges", force: :cascade do |t|
     t.string "category"
     t.string "stakes"
-    t.integer "goal"
+    t.string "goal"
     t.integer "duration"
     t.date "start_date"
     t.string "status"
