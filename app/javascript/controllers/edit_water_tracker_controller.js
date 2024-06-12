@@ -2,14 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-water-tracker"
 export default class extends Controller {
-  static targets = ["infos", "form", "card", "tracker", "frequency", "notification"]
 
-  connect() {
+  static targets = ["infos", "form", "card", "tracker", "frequency", "notification", "fill","tank","goalAmount","currentAmount"]
+
+  connect() { 
+    this.goalAmount = parseInt(this.goalAmountTarget.innerText);
+    this.currentAmount = parseInt(this.currentAmountTarget.innerText);
     if (this.notificationTarget.innerText === "true") {
       const frequency = parseInt(this.frequencyTarget.innerText, 10);
       this.setNotificationInterval(frequency);
       console.log(`Notification frequency set to ${frequency} minutes.`);
       window.addEventListener("beforeunload", this.preventPageRefresh.bind(this));
+
     }
   }
 
@@ -25,7 +29,9 @@ export default class extends Controller {
 
   update(event) {
     event.preventDefault();
+
     this.stopNotificationTimer(); 
+
 
     const url = this.formTarget.action;
     fetch(url, {
@@ -41,10 +47,25 @@ export default class extends Controller {
     })
     .then((data) => {
       this.cardTarget.outerHTML = data;
+
+      this.updateWaterFill();
+      console.log(this.trackerTarget)
+
       this.reinitializeNotificationTimer(); // Restart the timer after update
+
     })
     .catch(error => console.error('Error:', error));
   }
+
+
+  updateWaterFill() {
+    console.log("filling tank")
+    const fillHeight = (this.currentAmount / this.goalAmount) * 100;
+    this.fillTarget.style.height = `${fillHeight}%`;
+    console.log(fillHeight)
+  }
+
+
 
   setNotificationInterval(frequency) {
     console.log('Setting notification interval.');

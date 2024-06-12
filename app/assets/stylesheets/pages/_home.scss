@@ -2,24 +2,20 @@
 
 
 .icons {
+
   margin: 15px;
   width: 120px;
   height: 80px;
 
-
-
-
 }
 
 .home-container-list-list-items {
-
   background-color: white;
   background-color: rgb(254, 254, 255);
   box-shadow: 10px 10px 5px rgb(145, 80, 102);
   padding: 8px;
   border-radius: 8px;
   width: 100%;
-
 }
 
 .water-tracker {
@@ -107,8 +103,17 @@ input.btn.btn-success {
   position: absolute;
   left: 0px;
 }
+
+
+.btn-yellow {
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
 button.btn{
 height: 3vh;
 margin-top: 0;
 box-shadow: rgba(179, 176, 176, 0.35) 0px 5px 5px;
+
 }
