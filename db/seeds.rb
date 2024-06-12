@@ -11,6 +11,7 @@
 ListItem.destroy_all
 List.destroy_all
 
+Challenge.destroy_all
 Pomodoro.destroy_all
 ScheduleTask.destroy_all
 Schedule.destroy_all

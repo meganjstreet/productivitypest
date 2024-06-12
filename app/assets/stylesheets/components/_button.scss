@@ -9,7 +9,7 @@
 }
 
 .btn-blue {
-  background-color: $beautiful-blue;
+  background-color: $bright-blue;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -52,4 +52,14 @@
 .btn-main {
   background-color: $beautiful-blue;
   color: white;
+}
+
+.btn-orange {
+  background-color: $orange;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 28px;
 }

@@ -28,7 +28,7 @@
         <%= render "meditations/meditations" %>
       </div>
       <div data-home-target="challenges" class="collapse" id="collapseChallenges">
-        <%= render "challenges/challenges", challenge: @challenge %>
+        <%= render "challenges/all_challenges" %>
       </div>
     </div>
   </div>
@@ -43,4 +43,4 @@
 <%= audio_tag "whitenoise_heater.mp3", id: "whitenoise-heater-audio", loop: true %>
 <%= audio_tag "whitenoise_rain.mp3", id: "whitenoise-rain-audio", loop: true %>
 <%= audio_tag "whitenoise_train.mp3", id: "whitenoise-train-audio", loop: true %>
-<%= audio_tag "audio-notification-2489.wav", id: "notification-audio" %>
+<%= audio_tag "drink-water.wav", id: "notification-audio" %>
