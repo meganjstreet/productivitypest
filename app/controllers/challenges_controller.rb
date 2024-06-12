@@ -5,13 +5,13 @@ class ChallengesController < ApplicationController
     @challenge.start_date = Date.today
     @new_challenge = Challenge.new
     @new_challenge.challenge_participants.build
-    @challenge.save
-
+    
     respond_to do |format|
-      format.html
-      format.text { render partial: "challenges/challenges", locals: { challenge: @new_challenge }, formats: [:html]}
+      if @challenge.save!
+        format.html
+        format.text { render partial: "challenges/all_challenges", locals: { challenge: @new_challenge }, formats: [:html]}
+      end
     end
-
   end
 
   private
