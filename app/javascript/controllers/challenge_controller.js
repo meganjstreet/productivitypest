@@ -31,10 +31,8 @@ export default class extends Controller {
     })
     .then(response => response.text())
     .then((data) => {
-      console.log(data)
       this.containerTarget.innerHTML = data;
-      this.formContainerTarget.reset()
-
+      this.formTarget.reset()
     })
 
   }

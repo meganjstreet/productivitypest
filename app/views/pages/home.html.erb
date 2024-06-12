@@ -13,7 +13,7 @@
         <button data-bs-toggle="collapse" data-bs-target="#collapseLists" class="btn-green"><i class="fa-solid fa-list fa-lg icons"></i></button>
         <button data-bs-toggle="collapse" data-bs-target="#collapseStreaks" class="btn-pink"><i class="fa-regular fa-calendar-days fa-lg icons"></i></button>
         <button data-bs-toggle="collapse" data-bs-target="#collapseMeditations" class="btn-red"><i class="fa-brands fa-canadian-maple-leaf fa-lg icons"></i></button>
-        <button data-bs-toggle="collapse" data-bs-target="#collapseChallenges" class="btn-yellow"><i class="fa-solid fa-trophy icons"></i></button>
+       
       </p>
       <div data-home-target="waterTracker" class="collapse" id="collapseWaterTracker">
         <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
@@ -27,9 +27,7 @@
       <div data-home-target="meditations" class="collapse" id="collapseMeditations">
         <%= render "meditations/meditations" %>
       </div>
-      <div data-home-target="challenges" class="collapse" id="collapseChallenges" data-controller="challenge">
-        <%= render "challenges/all_challenges", challenge: @challenge %>
-      </div>
+
     </div>
   </div>
 </div>
