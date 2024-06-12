@@ -13,14 +13,7 @@ class Users::SessionsController < Devise::SessionsController
     super
     day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
     Schedule.find_or_create_by(day_id: day.id, date: Date.today)
-    WaterTracker.find_or_create_by(goal_amount: 2000,
-      increment_amount: 250,
-      frequency: 30,
-      current_amount: 0,
-      status: [0, 1,1,1,1, 0, 0].sample.to_i,
-      notification: false,
-      day: day)
-    
+    WaterTracker.find_or_create_by(day_id: day.id)
   end
 
   # DELETE /resource/sign_out

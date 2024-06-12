@@ -8,13 +8,15 @@ class PagesController < ApplicationController
     # find todays Day instance
     @day = Day.find_or_create_by(date: Date.today, user_id: current_user.id)
 
+
     # returns array of WT with this date
     @water_tracker = @day.water_trackers.first
 
     #find current user
+    @user = current_user
 
     # LISTS
-    @lists = current_user.lists
+    @lists = @user.lists
     @new_list = List.new
     # LIST ITEMS
     @new_list_item = ListItem.new
@@ -28,5 +30,6 @@ class PagesController < ApplicationController
 
     @challenge = Challenge.new
     @challenge.challenge_participants.build
+
   end
 end

@@ -1,20 +1,18 @@
-<div class="div-challenge-form" data-challenge-target="formContainer">
-  <div class="d-flex">
+<div data-controller="challenge" class="div-challenge-form">
+  <div data-challenge-target="container" class="d-flex">
   <div class="m-3">
-    <% challenge = Challenge.new %>
-    <% challenge.challenge_participants.build %>
     <%= simple_form_for challenge,  html: { data: { challenge_target: "form", action: "submit->challenge#create" } } do |f| %>
       <div class="field">
-        <%= f.select :category, ["Water", "Meditation", "Stretch", "Pomodoros"]  %>
+        <%= f.input :category, label: "Category" %>
       </div>
       <div class="field">
-        <%= f.input :stakes, label: "What are the stakes?" %>
+        <%= f.input :stakes, label: "Stakes" %>
       </div>
       <div class="field">
-        <%= f.input :goal, label: "What is the goal amount? (ml/times/pomodoros)", as: :integer %>
+        <%= f.input :goal, label: "Goal" %>
       </div>
       <div class="field">
-        <%= f.input :duration, label: "Challenge Duration", as: :integer %>
+        <%= f.input :duration, label: "Duration", as: :integer %>
       </div>
       </div>
       <div class="m-3">
