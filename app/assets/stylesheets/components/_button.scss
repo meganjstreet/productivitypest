@@ -1,5 +1,5 @@
-.btn-yellow {
-  background-color: $yellow;
+.btn-japan-yellow {
+  background-color: $japan-yellow;
   font-size: 28px;
   font-weight: bold;
   display: flex;
@@ -8,8 +8,8 @@
   border-radius: 8px;
 }
 
-.btn-blue {
-  background-color: $bright-blue;
+.btn-japan-blue-light {
+  background-color: $japan-blue-light;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -18,8 +18,8 @@
   border-radius: 8px;
 }
 
-.btn-pink {
-  background-color: $pink;
+.btn-japan-orange-light {
+  background-color: $japan-orange-light;
     font-weight: bold;
   display: flex;
   justify-content: center;
@@ -28,8 +28,8 @@
   border-radius: 8px;
 }
 
-.btn-red {
-  background-color: $red;
+.btn-japan-orange-dark {
+  background-color: $japan-orange-dark;
     font-weight: bold;
   display: flex;
   justify-content: center;
@@ -38,8 +38,8 @@
   border-radius: 8px;
 }
 
-.btn-green {
-  background-color: $bright-green;
+.btn-japan-blue-dark {
+  background-color: $japan-blue-dark;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -49,17 +49,4 @@
 
 }
 
-.btn-main {
-  background-color: $beautiful-blue;
-  color: white;
-}
 
-.btn-orange {
-  background-color: $orange;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  font-size: 28px;
-}
