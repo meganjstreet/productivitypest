@@ -7,7 +7,9 @@
             <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
               <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
             <% end %>
-            <button data-action="list-items#destroy" data-item-id="<%= item.id %>">Delete</button>
+            <div class="fas-trash d-flex justify-content-evenly">
+            <button class="btn btn-light" data-action="list-items#destroy" data-item-id="<%= item.id %>"><i class="fas fa-trash"></i></button>
+            </div>
           </li>
         <% end %>
       </ul>
