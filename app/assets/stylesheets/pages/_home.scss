@@ -1,17 +1,12 @@
-.selections {
-  display: flex;
-  width: 500px;
-}
 
-.idk {
-  margin: 20 auto;
-  padding: 5px;
-}
+
 
 .icons {
-  margin-top: 15px;
-  width: 50px;
-  height: 30px;
+
+  margin: 15px;
+  width: 120px;
+  height: 80px;
+
 }
 
 .home-container-list-list-items {
@@ -39,12 +34,12 @@
     font-weight: bold;
     margin-bottom: 0;
     padding-left: 8px;
-    color: $white;
+    color: #0188E1;
 
   }
 
   .pest {
-    color: $yellow;
+    color: #0188E1;
 
   }
 }
@@ -61,7 +56,6 @@
 }
 .btn{
   font-weight: bold;
-  box-shadow: 5px 5px 5px black;
   border-radius: 15px
 }
 .btn:hover {
@@ -78,7 +72,7 @@
 }
 
 a.btn-success{
-background-color: $bright-green;
+background-color: $bright-blue;
 color: $beautiful-blue;
 margin-bottom: 15px;
 margin-top: 10px;
@@ -90,7 +84,7 @@ input.btn-close {
 a.btn {
   margin-bottom: 5px;
   margin-left: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
   padding-left: 10px;
 }
 input.btn.btn-success {
@@ -110,8 +104,16 @@ input.btn.btn-success {
   left: 0px;
 }
 
+
 .btn-yellow {
   margin: 10px;
   border-radius: 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+button.btn{
+height: 3vh;
+margin-top: 0;
+box-shadow: rgba(179, 176, 176, 0.35) 0px 5px 5px;
+
 }

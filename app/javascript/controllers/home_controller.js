@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="home"
 export default class extends Controller {
 
-    static targets = ["waterTracker", "lists", "streaks", "meditations"]
+    static targets = ["waterTracker", "lists", "streaks", "meditations", "challenges"]
 
   hideAll(){
     this.meditationsTarget.classList.add("hidden");
@@ -21,18 +21,23 @@ export default class extends Controller {
   }
 
   toggleLists(){
-    
+
     this.listsTarget.classList.toggle("hidden");
 
   }
 
   toggleStreaks(){
-    
+
     this.streaksTarget.classList.toggle("hidden");
   }
 
   toggleWaterTracker(){
-    
+
     this.waterTrackerTarget.classList.toggle("hidden");
+  }
+
+  toggleChallenges(){
+
+    this.challengesTarget.classList.toggle("hidden");
   }
 }

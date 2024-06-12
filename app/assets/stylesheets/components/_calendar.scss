@@ -1,15 +1,15 @@
 .simple-calendar {
   position: absolute;
-  width: 40vw;
+  width: 48vw;
   .day {
     background-color: $white;
-    border: solid 4px $beautiful-blue;
+    border: solid 4px $pink;
   }
 
   .weekdays {
     background-color: $pink;
     color: white;
-    border: solid 4px $beautiful-blue;
+    border: solid 4px $white;
 
   }
 

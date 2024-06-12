@@ -56,6 +56,8 @@ gem 'momentjs-rails'
 gem "simple_calendar"
 gem 'rspotify'
 gem 'omniauth-spotify'
+gem 'jquery-rails'
+gem 'cocoon'
 
 group :development, :test do
   gem "dotenv-rails"
@@ -81,3 +83,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "rondo_form", "~> 0.2.6"

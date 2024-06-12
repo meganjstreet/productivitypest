@@ -6,7 +6,7 @@
   background-color: white;
   border-radius: 8px;
   height: 64vh;
-  width: 40vw;
+  width: 48vw;
   position: absolute;
 
 
@@ -36,9 +36,6 @@
 
 
 
-
-
-
   ul::-webkit-scrollbar {
     width: 12px;
             /* width of the entire scrollbar */
@@ -50,7 +47,7 @@
   }
 
   ul::-webkit-scrollbar-thumb {
-    background-color: $bright-green;    /* color of the scroll thumb */
+    background-color: $yellow;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
     border: 3px solid $beautiful-blue;  /* creates padding around scroll thumb */
   }
