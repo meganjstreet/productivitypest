@@ -2,9 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-water-tracker"
 export default class extends Controller {
-  static targets = ["infos", "form", "card", "tracker","frequency"]
+  static targets = ["infos", "form", "card", "tracker","frequency","fill","tank","goalAmount","currentAmount"]
 
   connect() {
+    this.goalAmount = parseInt(this.goalAmountTarget.innerText);
+    this.currentAmount = parseInt(this.currentAmountTarget.innerText);
+    console.log(parseInt(this.currentAmountTarget.innerText));
+    this.updateWaterFill();
     this.setNotificationInterval(parseInt(this.frequencyTarget.innerText));
     console.log(parseInt(this.frequencyTarget.innerText));
     if (Notification.permission !== "granted") {
@@ -25,8 +29,8 @@ export default class extends Controller {
   }
 
   update(event) {
-    event.preventDefault()
-    const url = this.formTarget.action
+    event.preventDefault();
+    const url = this.formTarget.action;
     fetch(url, {
       method: "PATCH",
       headers: { "Accept": "text/plain" },
@@ -40,14 +44,17 @@ export default class extends Controller {
     })
     .then((data) => {
       this.cardTarget.outerHTML = data;
+      this.updateWaterFill();
       console.log(this.trackerTarget)
     })
     .catch(error => console.error('Error:', error));
   }
 
-  updateFrequency() {
-    const frequency = this.frequencyInputTarget.value;
-    this.setNotificationInterval(frequency);
+  updateWaterFill() {
+    console.log("filling tank")
+    const fillHeight = (this.currentAmount / this.goalAmount) * 100;
+    this.fillTarget.style.height = `${fillHeight}%`;
+    console.log(fillHeight)
   }
 
   setNotificationInterval(frequency) {
