@@ -5,7 +5,7 @@ export default class extends Controller {
 
   static targets = ["infos", "form", "card", "tracker", "frequency", "notification", "fill","tank","goalAmount","currentAmount"]
 
-  connect() { 
+  connect() {
     this.goalAmount = parseInt(this.goalAmountTarget.innerText);
     this.currentAmount = parseInt(this.currentAmountTarget.innerText);
     if (this.notificationTarget.innerText === "true") {
@@ -30,7 +30,7 @@ export default class extends Controller {
   update(event) {
     event.preventDefault();
 
-    this.stopNotificationTimer(); 
+    this.stopNotificationTimer();
 
 
     const url = this.formTarget.action;
@@ -62,7 +62,8 @@ export default class extends Controller {
     console.log("filling tank")
     const fillHeight = (this.currentAmount / this.goalAmount) * 100;
     this.fillTarget.style.height = `${fillHeight}%`;
-    console.log(fillHeight)
+    this.fillTarget.setAttribute('data-percent', fillHeight.toFixed(1));
+    console.log(this.fillTarget.style.height)
   }
 
 

@@ -106,14 +106,16 @@ input.btn.btn-success {
 
 
 .btn-yellow {
-  margin: 10px;
+  margin-top: 0;
+  height: 3vh;
   border-radius: 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-button.btn{
-height: 3vh;
-margin-top: 0;
-box-shadow: rgba(179, 176, 176, 0.35) 0px 5px 5px;
+.pest-pic {
+  // display: flex;
+  // justify-content: center;
+  width: 100px;
+  height: 250px;
 
 }

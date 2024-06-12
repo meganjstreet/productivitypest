@@ -4,7 +4,7 @@
     <div class="toggle-tracker-infos">
       <h1>Water tracker</h1>
       <%= @water_tracker.status %>
-    <%= @water_tracker.notification %>
+    <span  data-edit-water-tracker-target="notification"><%= @water_tracker.notification %></span>
       <div class='water-tracker-card'>
         <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
           <div class="hiddenText d-none">
@@ -14,13 +14,12 @@
           </div>
 
 
-          <div class="tracker-display d-flex">
+          <div class="tracker-display d-flex justify-content-space-between">
             <div class="water-tank" data-edit-water-tracker-target="tank">
               <div class="water-fill" data-edit-water-tracker-target="fill" data-percent="<%= (water_tracker.current_amount.to_f / water_tracker.goal_amount * 100).round %>"></div>
             </div>
             <div class="d-text">
               <div >Your target = <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</div>
-
             </div>
           </div>
           <div class="water-tracker-buttons d-flex">
