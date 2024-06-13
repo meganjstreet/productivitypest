@@ -1,6 +1,7 @@
-.select {
+.feature-container {
   align-items: flex-start;
-  margin-right: 16px;
+  height: 62vh;
+
 }
 
 
@@ -11,7 +12,7 @@
   flex-direction: column;
   font-size: 20px;
   justify-content: center;
-  width: 180px;
+  width: 188px;
   height: 88px;
   align-items: center;
   box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
@@ -30,7 +31,7 @@
 
 .list-btn {
   color: #726512;
-  width: 180px;
+  width: 188px;
   height: 88px;
   display: flex;
   flex-direction: column;
@@ -51,8 +52,8 @@
 }
 
 .streaks-btn {
-  color: #693912;
-  width: 180px;
+  color: #6c2902;
+  width: 188px;
   height: 88px;
   display: flex;
   flex-direction: column;
@@ -75,8 +76,8 @@
 }
 
 .meditation-btn {
-  color:  #6c2902;
-  width: 180px;
+  color:  #693912;
+  width: 188px;
   height: 88px;
   display: flex;
   flex-direction: column;

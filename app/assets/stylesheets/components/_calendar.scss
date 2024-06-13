@@ -1,6 +1,6 @@
 .streaks-card {
-  height: 53vh;
-  width: 50vw;
+  height: 55vh;
+  width: 48vw;
   background-color: $japan-orange-dark;
   border-radius: 8px;
   display: flex;
@@ -11,7 +11,7 @@
 
 .simple-calendar {
   position: absolute;
-  width: 48vw;
+  width: 46vw;
   height: 53vh;
   border: none;
   .day {
@@ -27,7 +27,8 @@
   .calendar-heading {
     color: $japan-white;
     font-family: $headers-font;
-    margin: 4px;
+    margin: 16px;
+    font-size: 20px;
   }
   .weekdays {
     background-color: $japan-orange-dark;
