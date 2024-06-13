@@ -6,14 +6,14 @@
     <p data-edit-water-tracker-target="notification"><%= water_tracker.notification %></p>
 
     <div class='water-tracker-card'>
-      <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
+      <div class="water-tracker-infos transition" data-edit-water-tracker-target="infos">
         <div>Your target is <%= water_tracker.goal_amount %>ml</div>
         <div>You will drink in frequencies of <span  data-edit-water-tracker-target="frequency" class="frequency"><%= water_tracker.frequency%></span> minutes</div>
         <div>You increment amount is<%=water_tracker.increment_amount%></div>
         <div>So far u have consumed <%= water_tracker.current_amount %>ml</div>
         <div class="water-tracker-buttons d-flex ">
         <button aria-label="Edit tracker">
-          <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
+          <i class="fa-solid fa-pen ml-2" data-action="transition->edit-water-tracker#displayForm"></i>
         </button>
 
         <% if water_tracker.current_amount >= water_tracker.goal_amount %>

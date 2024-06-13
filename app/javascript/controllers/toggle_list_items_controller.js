@@ -9,6 +9,7 @@ export default class extends Controller {
 
   toggleListItems(event){
     const lists = document.querySelectorAll(".list");
+    
 
     lists.forEach((list) => {
       list.classList.toggle("hidden");
