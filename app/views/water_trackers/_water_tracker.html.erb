@@ -1,8 +1,8 @@
 <div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card" class="water">
   <div class='toggle-tracker-card' data-edit-water-tracker-target="tracker">
 
-    <div class="container toggle-tracker-infos">
-      <h1>Water tracker</h1>
+    <div class="toggle-tracker-infos">
+  
     <span class="notification-target d-none"  data-edit-water-tracker-target="notification"><%= @water_tracker.notification %></span>
       <div class='water-tracker-card'>
         <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-        <div class="container edit-form">
+        <div class="container">
           <%= simple_form_for water_tracker,          html: {
               class: water_tracker.errors.any? ? "" : "d-none",
               data: {

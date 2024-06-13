@@ -1,11 +1,14 @@
+.water {
+  height: 53vh;
+}
+
 .toggle-tracker-card {
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
-  margin: 5px;
   display: flex;
   position: absolute;
-  width: 48vw;
-  height: 50vh;
+  width: 50vw;
+  height: 53vh;
   box-shadow: 0 4px 6px rgba(0, 2, 2, 0.2);
 }
 
@@ -15,6 +18,11 @@
   justify-content: space-around;
   align-items: center;
 
+}
+
+.edit-form {
+  height: 50vh;
+  width: 100%;
 }
 
 .text-display {

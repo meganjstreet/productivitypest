@@ -8,10 +8,33 @@
   height: 68vh;
   background-color: white;
   border-radius: 8px;
+  position: relative;
 
   .container-tasks {
     align-self: center;
-    width: 80%;
+    width: 84%;
+  }
+
+  .btn-delete-task {
+    color: $japan-blue-light;
+    opacity: 0;
+    transition: all ease 0.3s;
+  }
+
+  .task-times {
+    background-color: $japan-blue-light;
+    color: $japan-white;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+
+  .all-tasks {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 54vh;
   }
 
   .div-task {
@@ -25,6 +48,12 @@
     width: 100%;
     height: fit-content;
     padding: 16px 24px;
+
+    &:hover {
+      .btn-delete-task {
+        opacity: 1;
+      }
+    }
   }
 
   .date {
@@ -37,17 +66,14 @@
     padding: 4px;
     line-height: 1.2;
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 200;
   }
 
 
 
-  .task-times {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+
+
 
 }
 
@@ -67,11 +93,13 @@
   padding: 1.3rem;
   height: fit-content;
   position: absolute;
-  top: 20vh;
-  left: 12vw;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
 }
 
 .task-modal .flex {
@@ -81,19 +109,49 @@
   justify-content: space-between;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  z-index: 1;
-}
 
 .hidden {
   display: none;
+}
+
+.btn-add-task{
+  font-weight: bold;
+  font-size: 54px;
+  color: #282d58;
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  transition: all ease 0.3s;
+}
+.btn-add-task:hover {
+
+  color: #373e7e ;
+}
+
+.btn-submit-task {
+  color: $japan-white;
+  background-color: #282d58;
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-color: #373e7e;
+    color: $japan-white
+  }
+}
+
+
+
+.all-tasks::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.all-tasks::-webkit-scrollbar-track {
+  background: $japan-white;
+  border-radius: 20px;         /* color of the tracking area */
+}
+
+.all-tasks::-webkit-scrollbar-thumb {
+  background-color: $japan-blue-light;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid $japan-white;  /* creates padding around scroll thumb */
 }
