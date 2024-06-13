@@ -48,8 +48,6 @@ export default class extends Controller {
     .then((data) => {
       this.cardTarget.outerHTML = data;
 
-      this.updateWaterFill();
-      console.log(this.trackerTarget)
 
       this.reinitializeNotificationTimer(); // Restart the timer after update
 
@@ -58,13 +56,7 @@ export default class extends Controller {
   }
 
 
-  updateWaterFill() {
-    console.log("filling tank")
-    const fillHeight = (this.currentAmount / this.goalAmount) * 100;
-    this.fillTarget.style.height = `${fillHeight}%`;
-    this.fillTarget.setAttribute('data-percent', fillHeight.toFixed(1));
-    console.log(this.fillTarget.style.height)
-  }
+
 
 
 

@@ -3,24 +3,26 @@
 
     <div class="container toggle-tracker-infos">
       <h1>Water tracker</h1>
-      <%= @water_tracker.status %>
     <span class="notification-target d-none"  data-edit-water-tracker-target="notification"><%= @water_tracker.notification %></span>
       <div class='water-tracker-card'>
         <div class="water-tracker-infos" data-edit-water-tracker-target="infos">
           <div class="hiddenText d-none">
+            <%= @water_tracker.status %>
             <div>You will drink in frequencies of <span  data-edit-water-tracker-target="frequency"><%= @water_tracker.frequency %></span> minutes</div>
             <div>Your increment amount is <%= @water_tracker.increment_amount %></div>
           </div>
 
-          <div class="tracker-display d-flex ">
-
-            <div class="water-tank" data-edit-water-tracker-target="tank">
-              <div class="water-fill" data-edit-water-tracker-target="fill" data-percent="<%= (water_tracker.current_amount.to_f / water_tracker.goal_amount * 100).round %>"></div>
-            </div>
-            <div class="tracker-info-display">
-              <div class="text-display">
+          <div class="tracker-display p-2 my-1">
+            <div class="row">
+            <div class="tracker-info-display my-1 col-9">
+              <div class="text-display container">
                 <div >Your target = <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</div>
                 <div>So far you have consumed <span  data-edit-water-tracker-target="currentAmount"><%= @water_tracker.current_amount %></span>ml</div>
+                <div class="edit d-flex justify-content-end">
+                  <button aria-label="Edit tracker">
+                    <i class="fa-solid fa-pen fa-lg ml-3" data-action="click->edit-water-tracker#displayForm"></i>
+                  </button>
+                </div>
               </div>
 
               <div>
@@ -38,30 +40,34 @@
                   <% end %>
                 <% end %>
               </div>
-              <div class="edit">
-                <button aria-label="Edit tracker">
-                  <i class="fa-solid fa-pen ml-2" data-action="click->edit-water-tracker#displayForm"></i>
-                </button>
-              </div>
+            </div>
+            <% percent = (@water_tracker.current_amount.to_f / @water_tracker.goal_amount * 100).round %>
+            <div class="col-3">
+            <div class="water-tank" data-edit-water-tracker-target="tank">
+              <div class="water-fill" data-edit-water-tracker-target="fill" data-percent="<%= percent %>"
+              style="height: <%= percent %>%"></div>
+            </div>
+
             </div>
           </div>
+          </div>
         </div>
-
-        <%= simple_form_for water_tracker,
-          html: {
-            class: water_tracker.errors.any? ? "" : "d-none",
-            data: {
-              edit_water_tracker_target: "form",
-              action: "submit->edit-water-tracker#update"
-            }
-          } do |f| %>
-          <%= f.input :goal_amount %>
-          <%= f.input :frequency %>
-          <%= f.input :notification %>
-          <%= f.input :increment_amount %>
-          <%= f.submit 'submit'%>
-        <% end %>
       </div>
+        <div class="container edit-form">
+          <%= simple_form_for water_tracker,          html: {
+              class: water_tracker.errors.any? ? "" : "d-none",
+              data: {
+                edit_water_tracker_target: "form",
+                action: "submit->edit-water-tracker#update"
+              }
+            } do |f| %>
+            <%= f.input :goal_amount %>
+            <%= f.input :frequency %>
+            <%= f.input :notification %>
+            <%= f.input :increment_amount %>
+            <%= f.submit 'submit'%>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
