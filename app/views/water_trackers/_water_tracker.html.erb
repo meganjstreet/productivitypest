@@ -1,8 +1,8 @@
 <div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card" class="water">
-  <div class='toggle-tracker-card' data-edit-water-tracker-target="tracker">
+  <div class='toggle-tracker-card d-flex justify-content-center' data-edit-water-tracker-target="tracker">
 
 
-    <div class="container toggle-tracker-infos ">
+    <div class="toggle-tracker-infos w-100">
 
 
     <span class="notification-target d-none"  data-edit-water-tracker-target="notification"><%= @water_tracker.notification %></span>
@@ -63,11 +63,13 @@
                 action: "submit->edit-water-tracker#update"
               }
             } do |f| %>
+
             <%= f.input :goal_amount %>
             <%= f.input :frequency %>
             <%= f.input :notification %>
             <%= f.input :increment_amount %>
             <%= f.submit 'submit'%>
+
           <% end %>
         </div>
     </div>
