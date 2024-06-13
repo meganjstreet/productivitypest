@@ -1,5 +1,5 @@
 .container-list-items {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -7,7 +7,6 @@
   .div-name-list {
     overflow-y: auto;
     height: 180px;
-    transition: all ease 0.3s;
   }
 
 }
