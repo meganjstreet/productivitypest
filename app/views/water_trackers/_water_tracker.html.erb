@@ -1,7 +1,7 @@
 <div data-controller="edit-water-tracker add-glass-water-tracker" data-edit-water-tracker-target="card" data-add-glass-water-tracker-target="card" class="water">
   <div class='toggle-tracker-card' data-edit-water-tracker-target="tracker">
 
-    <div class="container toggle-tracker-infos">
+    <div class="container toggle-tracker-infos m-3">
       <h1>Water tracker</h1>
     <span class="notification-target d-none"  data-edit-water-tracker-target="notification"><%= @water_tracker.notification %></span>
       <div class='water-tracker-card'>
@@ -36,7 +36,7 @@
                         action: "submit->add-glass-water-tracker#take_glass_of_water"
                       }
                     } do |f| %>
-                      <%= f.submit 'Finished a glass', class: 'btn btn-primary' %>
+                      <%= f.submit 'Finished a glass', class: 'btn btn-tracker' %>
                   <% end %>
                 <% end %>
               </div>

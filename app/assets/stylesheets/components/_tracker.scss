@@ -10,6 +10,7 @@
 }
 
 .tracker-info-display {
+  font-family: 'Roboto';
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -17,6 +18,19 @@
 
 }
 
+.btn-tracker {
+  color: #3e565e;
+  background-color: $japan-blue-light;
+  border-radius: 8px;
+  border-color: navy;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.btn-tracker:hover {
+  background-color: rgb(70, 70, 222);
+  box-shadow: rgba(118, 40, 92, 0.25) 0px 13px 27px -5px, rgba(13, 175, 80, 0.551) 0px 8px 16px -8px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
 .text-display {
   // font-style: ;
   border-radius: 10px;
