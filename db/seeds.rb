@@ -21,7 +21,7 @@ User.destroy_all
 
 user = User.create!(username: "Nolu", email: "nolu@gmail.com", password: "1234567")
 days = (0..7).map do |i|
-  Day.create!(date: Date.today + i.days, user_id: user.id)
+  Day.create!(date: Date.today + i.days, user_id: user.id, meditation_complete: [true, true, true, false, false].sample)
 end
 
 (1..7).map do |i|

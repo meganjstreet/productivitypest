@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :users, only: [] do
-    resources :days, only: [:create]
+    resources :days, only: [:create, :update]
   end
 
   resources :challenges, only: [:create, :update] do

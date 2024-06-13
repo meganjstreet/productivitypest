@@ -1,7 +1,26 @@
 .div-meditations {
-  width: 52vw;
+  width: 48vw;
   position: absolute;
   background-color: #9C6F23;
   border-radius: 8px;
-  height: 48vh;
+  height: 50vh;
+
+  .btn-meditation-add {
+    background-color: $japan-orange-light;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+
+  .btn-finished-meditation {
+    background-color: $japan-orange-light;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 16px;
+    width: fit-content;
+    margin-left: 12px;
+  }
 }

@@ -1,18 +1,29 @@
 
 .toggle-tracker-card {
-  background-color: rgb(255, 255, 255);
+  background-color: #d2d1e9;
   border-radius: 8px;
   display: flex;
   // position:inherit;
-  width: 50vw;
-  height: 53vh;
+  width: 48vw;
+  height: 55vh;
   box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  h3 {
+    color: #282D58;
+  }
+
+  .edit-tracker-btn {
+    color:  #282D58;
+
+    &:hover {
+      color: #65699b;
+    }
+  }
 }
 
 .tracker-info-display {
 
   display: flex;
-  padding-inline-start: 7%;
+  padding-inline-start: 20%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -20,17 +31,18 @@
 }
 
 .btn-tracker {
-  color: #3e565e;
+  color: #282D58;
   background-color: $japan-blue-light;
   border-radius: 8px;
-  border-color: navy;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  font-weight: bold;
+  width: 424px;
+  font-size: 24px;
+
 }
 .btn-tracker:hover {
-  background-color: rgb(70, 70, 222);
-  box-shadow: rgba(118, 40, 92, 0.25) 0px 13px 27px -5px, rgba(13, 175, 80, 0.551) 0px 8px 16px -8px;
+  background-color: $japan-blue-light;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: $japan-white;
 }
 
 
