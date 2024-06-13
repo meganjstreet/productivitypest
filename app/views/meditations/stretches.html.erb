@@ -1,0 +1,19 @@
+<div data-controller="stretch" class="container-stretch">
+  <div class="dropdown">
+    <button data-action="stretch#toggleOptions" data-stretch-target="choosebutton">
+      Stretches
+    </button>
+    <div class="d-none" data-stretch-target="options">
+      <button data-action="click->stretch#chooseStretch">White Noise</button>
+      <button data-action="click->stretch#chooseStretch">Waves</button>
+      <button data-action="click->stretch#chooseStretch">Heater</button>
+      <button data-action="click->stretch#chooseStretch">Rain</button>
+      <button data-action="click->stretch#chooseStretch">Train</button>
+
+    </div>
+  </div>
+<div class="toggle-switch" data-stretch-target="switch1">
+  <input class="toggle-input" id="toggle" type="checkbox" data-action="stretch#toggle" data-stretch-target="togglebuttonWhite">
+  <label class="toggle-label" for="toggle"></label>
+</div>
+</div>
