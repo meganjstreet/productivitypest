@@ -2,9 +2,6 @@
   align-items: flex-start;
 }
 
-.text-feature {
-  margin: none;
-}
 
 .water-btn {
   color: #282d58;
@@ -15,6 +12,18 @@
   width: 180px;
   height: 88px;
   align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  transition: all ease 0.3s;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    color: #e3e6fc;
+
+  }
+
 }
 
 .list-btn {
@@ -26,10 +35,21 @@
   font-size: 20px;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  transition: all ease 0.3s;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    color: #faf4cf;
+
+  }
 }
 
 .streaks-btn {
-  color: #693912 ;
+  color:  #6c2902;
   width: 180px;
   height: 88px;
   display: flex;
@@ -37,11 +57,23 @@
   font-size: 20px;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  transition: all ease 0.3s;
+
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    color: #fbc3a3;
+
+  }
 
 }
 
 .meditation-btn {
-  color: #6c2902;
+  color: #693912;
   width: 180px;
   height: 88px;
   display: flex;
@@ -49,22 +81,39 @@
   font-size: 20px;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  transition: all ease 0.3s;
+  p {
+    margin: 0;
+  }
+
+  svg {
+    transition: all ease 0.3s;
+  }
+
+  &:hover {
+    color: #ffd1ac;
+
+    svg {
+    fill: #ffd1ac;
+  }
+
+  }
+
 
 }
 
-// .icons {
-//   margin: 16px;
-//   width: 116px;
-//   height: 64px;
 
-// }
+
+
+
 
 
 
 .home-container-list-list-items {
   background-color: white;
   background-color: rgb(254, 254, 255);
-  box-shadow: 10px 10px 5px rgb(145, 80, 102);
+
   padding: 8px;
   border-radius: 8px;
   width: 100%;
@@ -106,13 +155,14 @@
 
 
 }
-.btn{
+.btn-add{
   font-weight: bold;
-  border-radius: 15px
+  font-size: 40px;
+  color: #282d58;
 }
-.btn:hover {
-  background-color: $pink;
-  color: white;
+.btn-add:hover {
+
+  color: $japan-blue-light;
 }
 
 .container-whitenoise{
@@ -120,7 +170,8 @@
 }
 
 .container-schedule {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+
 }
 
 a.btn-success{

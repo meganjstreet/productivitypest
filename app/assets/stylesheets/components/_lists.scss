@@ -5,9 +5,10 @@
   justify-content: space-between;
   background-color: white;
   border-radius: 8px;
-  height: 64vh;
+  height: 53vh;
   width: 48vw;
   position: absolute;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
 
   ul {
@@ -36,20 +37,46 @@
 
 
 
+
   ul::-webkit-scrollbar {
     width: 12px;
-            /* width of the entire scrollbar */
+    /* width of the entire scrollbar */
   }
 
   ul::-webkit-scrollbar-track {
-    background: $beautiful-blue;
+    background: $japan-white;
     border-radius: 20px;       /* color of the tracking area */
   }
 
   ul::-webkit-scrollbar-thumb {
-    background-color: $yellow;    /* color of the scroll thumb */
+    background-color: $japan-yellow;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid $beautiful-blue;  /* creates padding around scroll thumb */
+    border: 3px solid $japan-white;  /* creates padding around scroll thumb */
   }
 
 }
+
+
+.btn-list-add {
+  color: $japan-yellow;
+    font-size: 40px;
+    align-self: flex-end;
+    flex-grow: 0;
+  }
+
+  .form-list {
+    display: flex;
+    margin:auto;
+    margin: 0;
+
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    .form-control {
+      width: 648px;
+    }
+  }
