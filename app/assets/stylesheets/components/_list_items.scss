@@ -6,10 +6,42 @@
   height: 100%;
   .div-name-list {
     overflow-y: auto;
-    height: 300px;
+    height: 180px;
   }
 
 }
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+
+
+  &:hover {
+    .btn-delete-item {
+      opacity: 1;
+    }
+  }
+
+}
+.btn-delete-item {
+  color: $japan-yellow;
+  font-size: 16px;
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+
+.item-input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  .form-control {
+    width: 620px;
+
+  }
+}
+
 
 
 
@@ -18,12 +50,12 @@
 }
 
 .div-name-list::-webkit-scrollbar-track {
-  background: $beautiful-blue;
+  background: $japan-white;
   border-radius: 20px;         /* color of the tracking area */
 }
 
 .div-name-list::-webkit-scrollbar-thumb {
-  background-color: $yellow;    /* color of the scroll thumb */
+  background-color: $japan-yellow;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid $beautiful-blue;  /* creates padding around scroll thumb */
+  border: 3px solid $japan-white;  /* creates padding around scroll thumb */
 }

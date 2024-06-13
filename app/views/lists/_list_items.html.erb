@@ -3,21 +3,23 @@
     <div class="div-name-list">
       <ul class="list-list-items">
         <% list.list_items.each do |item| %>
-          <li>
+          <li class="list-item">
             <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
               <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
             <% end %>
             <div class="fas-trash d-flex justify-content-evenly">
-            <button class="btn btn-light" data-action="list-items#destroy" data-item-id="<%= item.id %>"><i class="fas fa-trash"></i></button>
+              <button class="btn-delete-item" data-action="list-items#destroy" data-item-id="<%= item.id %>"><i class="fas fa-trash"></i></button>
             </div>
           </li>
         <% end %>
       </ul>
     </div>
     <div class="div-list-item-form mt-1">
-      <%= simple_form_for [list, new_list_item], html: { data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
-        <%= f.input :name, label: false, placeholder: "What would you like to add to your list?" %>
-        <%= f.button :submit, class: "btn btn-green" %>
+      <%= simple_form_for [list, new_list_item], html: { class: "item-input-container", data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
+        <%= f.input :name, label: false, placeholder: "What would you like to add to your list?", class: "input-item-name form-list" %>
+        <%= button_tag type: 'submit', class: "btn-list-add mb-3" do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
