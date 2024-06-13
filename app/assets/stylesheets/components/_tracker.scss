@@ -12,8 +12,9 @@
 .tracker-info-display {
 
   display: flex;
+  padding-inline-start: 7%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
 }
@@ -34,7 +35,9 @@
 
 
 .text-display {
-  // font-style: ;
+  margin: 4px;
+  padding-left: 3px;
+
   border-radius: 10px;
   box-shadow: #3c7a8f;
   background-color: #d2d1e9;
@@ -88,4 +91,8 @@
   font-size: 14px;
   color: #3b2059;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  padding-top: 8%;
 }

@@ -15,8 +15,8 @@
           </div>
 
           <div class="tracker-display p-2 my-1">
-            <div class="row">
-            <div class="tracker-info-display my-1 col-9">
+            <div class="row ">
+            <div class="tracker-info-display m-2  col-9">
               <div class="text-display container">
                 <div >Your target = <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</div>
                 <div>So far you have consumed <span  data-edit-water-tracker-target="currentAmount"><%= @water_tracker.current_amount %></span>ml</div>
@@ -44,7 +44,7 @@
               </div>
             </div>
             <% percent = (@water_tracker.current_amount.to_f / @water_tracker.goal_amount * 100).round %>
-            <div class="col-3">
+            <div class="col-2">
             <div class="water-tank" data-edit-water-tracker-target="tank">
               <div class="water-fill" data-edit-water-tracker-target="fill" data-percent="<%= percent %>"
               style="height: <%= percent %>%"></div>
