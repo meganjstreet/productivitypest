@@ -1,16 +1,43 @@
+.streaks-card {
+  height: 53vh;
+  width: 50vw;
+  background-color: $japan-orange-dark;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+}
+
 .simple-calendar {
   position: absolute;
   width: 48vw;
+  height: 53vh;
+  border: none;
   .day {
     background-color: $white;
-    border: solid 4px $pink;
+    border: solid 4px $japan-orange-dark;
+    height: 56px;
   }
 
-  .weekdays {
-    background-color: $pink;
-    color: white;
-    border: solid 4px $white;
+  .table {
+    border: none;
+  }
 
+  .calendar-heading {
+    color: $japan-white;
+    font-family: $headers-font;
+    margin: 4px;
+  }
+  .weekdays {
+    background-color: $japan-orange-dark;
+    color: white;
+    border: none;
+
+  }
+
+  .streak-water {
+    color: $japan-blue-light;
   }
 
   .wday-0 {
