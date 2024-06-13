@@ -1,22 +1,21 @@
 <% if user_signed_in? %>
   <div class="head-container">
-    <h1>Productivity<span class="pest " >PEST</span></h1>
+    <h1>productivity<span class="pest " >PEST</span></h1>
     <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-main " %>
   </div>
   <div class="home-container" data-controller="home">
     <div class="schedule col-12" id="schedule-container">
       <%= render 'schedules/schedule', schedule: @schedule, schedule_task: @schedule_task, times: @times %>
     </div>
-
     <div class="selections btn-options">
-        <div class="select">
-          <p class="d-inline-flex gap-4">
-          <button class="btn-japan-blue-light" data-bs-toggle="collapse" data-bs-target="#collapseWaterTracker"><i class="fa-solid fa-glass-water-droplet icons fa-lg"></i></button>
-          <button data-bs-toggle="collapse" data-bs-target="#collapseLists" class="btn-japan-yellow"><i class="fa-solid fa-list fa-lg icons"></i></button>
-          <button data-bs-toggle="collapse" data-bs-target="#collapseStreaks" class="btn-japan-orange-light"><i class="fa-regular fa-calendar-days fa-lg icons"></i></button>
-          <button data-bs-toggle="collapse" data-bs-target="#collapseMeditations" class="btn-japan-orange-dark"><i class="fa-brands fa-canadian-maple-leaf fa-lg icons"></i></button>
-         <!-- <button data-bs-toggle="collapse" data-bs-target="#collapseChallenges" class="btn-yellow"><i class="fa-solid fa-trophy icons"></i></button>
-   -->     </p>
+      <div class="select">
+        <p class="d-inline-flex gap-4">
+          <button class="water-btn btn-japan-blue-light" data-bs-toggle="collapse" data-bs-target="#collapseWaterTracker"><i class="fa-solid fa-glass-water-droplet icons"></i><p class="text-feature">Water Tracker</p></button>
+          <button data-bs-toggle="collapse" data-bs-target="#collapseLists" class="list-btn btn-japan-yellow"><i class="fa-solid fa-list icons"></i><p class="text-feature">Lists</p></button>
+          <button data-bs-toggle="collapse" data-bs-target="#collapseStreaks" class="streaks-btn btn-japan-orange-light"><i class="fa-regular fa-calendar-days icons"></i><p class="text-feature">Streaks</p></button>
+          <button data-bs-toggle="collapse" data-bs-target="#collapseMeditations" class="meditation-btn btn-japan-orange-dark"><i class="fa-solid fa-heart icons"></i><p class="text-feature">Reset</p></button>
+        </p>
+
         <div data-home-target="waterTracker" class="collapse" id="collapseWaterTracker">
           <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
         </div>
@@ -29,13 +28,8 @@
         <div data-home-target="meditations" class="collapse" id="collapseMeditations">
           <%= render "meditations/meditations" %>
         </div>
-      <!--  <div data-home-target="challenges" class="collapse" id="collapseChallenges">-->
-          <%#= render "challenges/all_challenges" %>
-<!--        </div>-->
-
       </div>
     </div>
-
   </div>
 </div>
 <div class="pomorodo mt-3">
