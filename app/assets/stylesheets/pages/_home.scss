@@ -1,13 +1,65 @@
+.select {
+  align-items: flex-start;
+}
 
+.text-feature {
+  margin: none;
+}
 
+.water-btn {
+  color: #282d58;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: center;
+  width: 180px;
+  height: 88px;
+  align-items: center;
+}
 
-.icons {
+.list-btn {
+  color: #726512;
+  width: 180px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-  margin: 15px;
-  width: 120px;
-  height: 80px;
+.streaks-btn {
+  color: #693912 ;
+  width: 180px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
 
 }
+
+.meditation-btn {
+  color: #6c2902;
+  width: 180px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+// .icons {
+//   margin: 16px;
+//   width: 116px;
+//   height: 64px;
+
+// }
+
+
 
 .home-container-list-list-items {
   background-color: white;
@@ -34,12 +86,12 @@
     font-weight: bold;
     margin-bottom: 0;
     padding-left: 8px;
-    color: #0188E1;
+    color: $japan-blue-light;
 
   }
 
   .pest {
-    color: #0188E1;
+    color: $japan-orange-dark;
 
   }
 }
