@@ -25,7 +25,7 @@
   left: 0;
   width: 40px;
   height: 24px;
-  background-color: #2196F3;
+  background-color: $japan-blue-light;
   border-radius: 34px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -47,7 +47,7 @@
 
 /* Anahtarın etkin hale gelmesindeki stil değişiklikleri */
 .toggle-switch .toggle-input:checked + .toggle-label {
-  background-color: #4CAF50;
+  background-color: $japan-orange-dark;
 }
 
 .toggle-switch .toggle-input:checked + .toggle-label::before {

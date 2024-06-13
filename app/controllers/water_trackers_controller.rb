@@ -36,7 +36,6 @@ class WaterTrackersController < ApplicationController
     end
   end
 
-
   def take_glass_of_water
     @water_tracker = WaterTracker.find(params[:id])
     @water_tracker.current_amount += @water_tracker.increment_amount
