@@ -100,11 +100,7 @@
 
   }
 
-
 }
-
-
-
 
 
 
@@ -155,15 +151,7 @@
 
 
 }
-.btn-add{
-  font-weight: bold;
-  font-size: 40px;
-  color: #282d58;
-}
-.btn-add:hover {
 
-  color: $japan-blue-light;
-}
 
 .container-whitenoise{
   font-weight: bold;
@@ -205,20 +193,4 @@ input.btn.btn-success {
 .moved {
   position: absolute;
   left: 0px;
-}
-
-
-.btn-yellow {
-  margin-top: 0;
-  height: 3vh;
-  border-radius: 5px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-}
-
-.pest-pic {
-  // display: flex;
-  // justify-content: center;
-  width: 100px;
-  height: 250px;
-
 }
