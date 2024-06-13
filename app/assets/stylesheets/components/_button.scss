@@ -1,3 +1,17 @@
+.btn-log-out {
+  background-color: $japan-blue-light;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px ;
+  margin-right: 16px;
+}
+
 .btn-japan-yellow {
   background-color: $japan-yellow;
   font-size: 28px;

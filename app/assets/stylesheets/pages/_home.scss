@@ -1,5 +1,6 @@
 .select {
   align-items: flex-start;
+  margin-right: 16px;
 }
 
 
@@ -49,7 +50,7 @@
 }
 
 .streaks-btn {
-  color:  #6c2902;
+  color: #693912;
   width: 180px;
   height: 88px;
   display: flex;
@@ -66,14 +67,14 @@
   }
 
   &:hover {
-    color: #fbc3a3;
+    color: #ffd1ac ;
 
   }
 
 }
 
 .meditation-btn {
-  color: #693912;
+  color:  #6c2902;
   width: 180px;
   height: 88px;
   display: flex;
@@ -92,7 +93,7 @@
   }
 
   &:hover {
-    color: #ffd1ac;
+    color: #fbc3a3;
 
     svg {
     fill: #ffd1ac;
@@ -124,6 +125,7 @@
 .head-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   padding: 8px;
   h1 {

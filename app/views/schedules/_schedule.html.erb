@@ -4,8 +4,8 @@
     <div class="all-tasks">
       <% @schedule.schedule_tasks.order(:start_time).each do |task| %>
         <div class="div-task">
-          <div class="div-time-name">
-            <p class="task-times"><%= task.start_time.strftime("%H:%M") %> - <%= task.end_time.strftime("%H:%M") %></p>
+          <div class="div-time-name d-flex">
+            <p class="task-times me-3"><%= task.start_time.strftime("%H:%M") %> - <%= task.end_time.strftime("%H:%M") %></p>
             <p><%= task.name %></p>
           </div>
           <div class="m-1">
