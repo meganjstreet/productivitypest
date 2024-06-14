@@ -17,10 +17,10 @@ class Users::SessionsController < Devise::SessionsController
       increment_amount: 250,
       frequency: 30,
       current_amount: 0,
-      status: [0, 1,1,1,1, 0, 0].sample.to_i,
+      status: 0,
       notification: false,
       day: day)
-    
+
   end
 
   # DELETE /resource/sign_out
