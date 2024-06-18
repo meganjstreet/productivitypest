@@ -2,11 +2,10 @@
   <div class="div-meditations" data-controller="meditation" data-meditation-target="container">
     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3Q6ejDVzUBbznjCwTjbC4o?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <% if current_user.days.last.meditation_complete %>
-      <p class="btn-finished-meditation m-4">Well done! You have completed a meditation today!</p>
+      <p class="btn-finished-meditation">Well done! You have completed a meditation today!</p>
     <% else %>
       <%= simple_form_for [current_user, current_user.days.last], html: { data: { meditation_target: "form", action: "submit->meditation#update", turbo: "false" } } do |f| %>
-        <%= f.button :submit, 'I finished a meditation!', class: "btn-meditation-add m-4" %>
+        <%= f.button :submit, 'I finished a meditation!', class: "btn-meditation-add" %>
       <% end %>
     <% end %>
   </div>
-
