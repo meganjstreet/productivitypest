@@ -20,7 +20,6 @@ class Users::SessionsController < Devise::SessionsController
       status: 0,
       notification: false,
       day: day)
-
   end
 
   # DELETE /resource/sign_out

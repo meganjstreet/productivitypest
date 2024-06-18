@@ -52,6 +52,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'requestjs-rails'
 gem "simple_calendar"
+gem 'bullet', group: 'development'
 
 
 group :development, :test do

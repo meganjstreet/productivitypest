@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @lists = List.all
+    @lists = List.all.includes([:list_items])
     @list = List.new(list_params)
     @list.user = current_user
     respond_to do |format|
