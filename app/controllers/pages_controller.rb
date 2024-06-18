@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @new_list_item = ListItem.new
 
     #find schedule for the day
-    @schedule = Schedule.find_by(day_id: @day.id)
+    @schedule = Schedule.find_or_create_by(day_id: @day.id, date: Date.today)
 
 
     #instantiate new task for task form
