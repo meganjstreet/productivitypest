@@ -3,7 +3,7 @@
   background-color: #d2d1e9;
   border-radius: 8px;
   display: flex;
- 
+
   width: 97%;
   height: 55vh;
   box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
@@ -23,7 +23,6 @@
 .tracker-info-display {
 
   display: flex;
-  padding-inline-start: 20%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -34,8 +33,9 @@
   color: #282D58;
   background-color: $japan-blue-light;
   border-radius: 8px;
+  padding: 8px 16px;
   font-weight: bold;
-  width: 424px;
+  width: 100%;
   font-size: 24px;
 
 }
@@ -108,3 +108,48 @@
 .row {
   padding-top: 8%;
 }
+
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .water-tank {
+    width: 50px;
+    height: 140px;
+  }
+  .toggle-tracker-card {
+    height: fit-content;
+  }
+}
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .water_tank {
+//     width: 50px;
+//     height: 100px;
+//   }
+
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .water_tank {
+//     width: 100px;
+//     height: 200px;
+//   }
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .water_tank {
+//     width: 100px;
+//     height: 200px;
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .water_tank {
+//     width: 100px;
+//     height: 200px;
+//   }
+// }
