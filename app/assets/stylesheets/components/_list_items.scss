@@ -31,14 +31,14 @@
   transition: all ease 0.3s;
 }
 
-.item-input-container {
+#new_list_item {
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  .form-control {
-    width: 620px;
-
+  .list_item_name {
+    flex-grow: 1;
+    width: 100%;
   }
 }
 
