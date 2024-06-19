@@ -11,7 +11,7 @@
           </div>
           <div class="tracker-display p-2 my-1">
             <div class="row ">
-              <div class="tracker-info-display m-2  col-9">
+              <div class="tracker-info-display m-2 col-lg-9 col-md-8 col-sm-12">
                 <div class="text-display container">
                   <div class="d-flex justify-content-between">
                     <h3>Daily Water Intake</h3>
@@ -40,7 +40,7 @@
                 </div>
               </div>
               <% percent = (@water_tracker.current_amount.to_f / @water_tracker.goal_amount * 100).round %>
-              <div class="col-2">
+              <div class="col-lg-2 col-md-2 col-sm-0">
                 <div class="water-tank" data-edit-water-tracker-target="tank">
                   <div class="water-fill" data-edit-water-tracker-target="fill" data-percent="<%= percent %>"
               style="height: <%= percent %>%"></div>

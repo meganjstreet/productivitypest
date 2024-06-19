@@ -3,9 +3,9 @@
   background-color: #d2d1e9;
   border-radius: 8px;
   display: flex;
- 
+
   width: 97%;
-  height: 55vh;
+  min-height: 55vh;
   box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
   h3 {
     color: #282D58;
@@ -23,7 +23,6 @@
 .tracker-info-display {
 
   display: flex;
-  padding-inline-start: 20%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +34,7 @@
   background-color: $japan-blue-light;
   border-radius: 8px;
   font-weight: bold;
-  width: 424px;
+  width: 100%;
   font-size: 24px;
 
 }
@@ -59,6 +58,7 @@
 .display-tracker {
   display: flex;
   justify-content: space-between;
+
 }
 .water-tank {
   position: relative;
@@ -71,7 +71,8 @@
   box-shadow: 0 4px 6px rgba(0, 2, 2, 0.2);
   margin-top: 10px;
   display: flex;
-  align-items: flex-end;
+
+
 }
 
 .water-fill {
@@ -107,4 +108,40 @@
 
 .row {
   padding-top: 8%;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .home-container {
+    grid-template-columns: 1fr;
+  }
+  .head-container {
+    h1 {
+      font-size: 28px;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+
+@media (max-width: 576px) {
+  .water-tank, .water-fill {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }
