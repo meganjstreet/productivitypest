@@ -1,6 +1,7 @@
 .feature-container {
   align-items: flex-start;
-  height: 62vh;
+  height: 100%;
+  margin-bottom: auto;
 
 }
 
@@ -159,8 +160,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-gap: 12px;
-  height: 62vh;
+  height: 100%;
   padding: 8px;
+  margin-bottom: 120px;
 
 }
 
@@ -214,12 +216,23 @@ input.btn.btn-success {
   .home-container {
     grid-template-columns: 1fr;
   }
+  .head-container {
+    h1 {
+      font-size: 28px;
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .home-container {
     grid-template-columns: 1fr;
+    .head-container {
+
+      h1 {
+        font-size: 28px;
+      }
+    }
   }
 }
 
@@ -227,6 +240,12 @@ input.btn.btn-success {
 @media (min-width: 768px) {
   .home-container {
     grid-template-columns: 1fr;
+    .head-container {
+
+      h1 {
+        font-size: 28px;
+      }
+    }
   }
 }
 

@@ -73,12 +73,14 @@
 
   }
 
-  .input-container {
+  #new_list {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    .form-control {
-      width: 648px;
+    .list_name {
+      flex-grow: 1;
+      width: 100%;
     }
+
   }
