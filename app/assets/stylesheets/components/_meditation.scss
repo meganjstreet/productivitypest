@@ -1,25 +1,36 @@
 .div-meditations {
   width: 97%;
-  background-color: #9C6F23;
+  background-color: $japan-orange-light;
   border-radius: 8px;
-  height: 55vh;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px 32px;
+
+  h3 {
+    color: #9C4B0F;
+  }
 
   .btn-meditation-add {
-    background-color: $japan-orange-light;
+    background-color: #9C4B0F;
     color: white;
     font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
     margin-left: 4px;
+    padding: 8px 24px;
   }
 
   .btn-finished-meditation {
-    background-color: $japan-orange-light;
+    background-color: #9C4B0F;
     border-radius: 8px;
     color: white;
     font-size: 16px;
     font-weight: bold;
     width: fit-content;
     margin-left: 4px;
+    padding: 8px 24px;
   }
 }

@@ -22,16 +22,17 @@
           <p class="text-feature">Rest</p>
         </button>
       </div>
-      <div data-home-target="waterTracker" class="hidden">
+
+      <div data-home-target="waterTracker" class="hidden feature-card">
         <%= render 'water_trackers/water_tracker', water_tracker: @water_tracker %>
       </div>
-      <div data-home-target="lists" class="hidden">
+      <div data-home-target="lists" class="hidden feature-card">
         <%= render "lists/lists", lists: @lists, new_list: @new_list, new_list_item: @new_list_item, class: "home-container-list-list-items"%>
       </div>
-      <div data-home-target="streaks" class="hidden">
+      <div data-home-target="streaks" class="hidden feature-card">
         <%= render "days/calendar", user: @user %>
       </div>
-      <div data-home-target="meditations" class="hidden">
+      <div data-home-target="meditations" class="hidden feature-card">
         <%= render "meditations/meditations" %>
       </div>
     </div>
