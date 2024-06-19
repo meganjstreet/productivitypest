@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 340px;
+  height: 330px;
+  justify-content: space-between;
   .div-name-list {
     overflow-y: auto;
-    height: 280px;
+    height: 270px;
   }
 
 }

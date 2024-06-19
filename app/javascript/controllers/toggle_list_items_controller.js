@@ -18,6 +18,8 @@ export default class extends Controller {
     const list = button.parentNode.parentNode;
     list.classList.toggle("hidden");
     this.formTarget.classList.toggle("hidden");
+    console.log(this.formTarget.classList)
+    document.querySelector(".list-form").classList.toggle("hidden")
 
     const listItems = button.parentNode.nextElementSibling;
     listItems.classList.toggle("hidden");
