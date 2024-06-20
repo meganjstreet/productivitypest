@@ -10,7 +10,8 @@
   gap: 12px;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  justify-content: space-between;
 
 }
 
@@ -141,12 +142,11 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 8px;
+  padding: 16px;
   h1 {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 0;
-    padding-left: 16px;
     color: $japan-blue-light;
 
   }
@@ -161,9 +161,9 @@
 .home-container {
   display: grid;
   grid-template-columns: 1fr 1fr ;
-  grid-gap: 12px;
-  height: 100%;
-  padding: 8px;
+  grid-gap: 16px;
+  height: 80%;
+  padding: 16px;
   margin-bottom: 120px;
 
 }
@@ -223,11 +223,24 @@ input.btn.btn-success {
 @media (min-width: 100px) and (max-width: 575px) {
   .home-container {
     grid-template-columns: 1fr;
+    .water-btn {
+      width: 48%;
+    }
+    .list-btn {
+      width: 48%;
+    }
+    .meditation-btn {
+      width: 48%;
+    }
+    .streaks-btn {
+      width: 48%;
+    }
   }
   .head-container {
     h1 {
       font-size: 28px;
     }
+
   }
 }
 
@@ -241,6 +254,8 @@ input.btn.btn-success {
         font-size: 28px;
       }
     }
+
+
   }
 }
 
@@ -268,5 +283,6 @@ input.btn.btn-success {
 @media (min-width: 1200px) {
   .home-container {
     grid-template-columns: 1fr 1fr;
+    
   }
 }

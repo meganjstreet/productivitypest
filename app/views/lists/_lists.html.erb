@@ -1,5 +1,5 @@
-<div class="container-list-outer" data-controller="addlist toggle-list-items">
-  <div class="options p-3"  data-addlist-target="container">
+<div class="container-list-outer" data-controller="addlist toggle-list-items" data-addlist-target="container">
+  <div class="options p-3"  >
     <ul>
       <% current_user.lists.includes([:list_items]).each do |list|%>
         <li class="list">
