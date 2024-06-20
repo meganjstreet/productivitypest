@@ -23,6 +23,5 @@ export default class extends Controller {
 
     const listItems = button.parentNode.nextElementSibling;
     listItems.classList.toggle("hidden");
-
   }
 }

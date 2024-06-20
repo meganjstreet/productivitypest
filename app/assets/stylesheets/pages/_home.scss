@@ -1,6 +1,16 @@
+.application {
+  height: 100vh;
+}
+
+.home-schedule {
+  height: 100%;
+}
+
 .feature-container {
   align-items: flex-start;
   height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
   margin-bottom: auto;
 
 }
@@ -117,26 +127,6 @@
 }
 
 
-
-
-
-.home-container-list-list-items {
-  background-color: white;
-  background-color: rgb(254, 254, 255);
-
-  padding: 8px;
-  border-radius: 8px;
-  width: 100%;
-}
-
-.water-tracker {
-  flex: 1;
-  padding: 20px;
-  // margin: ;
-}
-
-
-
 .head-container {
   display: flex;
   justify-content: space-between;
@@ -162,7 +152,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-gap: 16px;
-  height: 80%;
+  height: 72%;
   padding: 16px;
   margin-bottom: 120px;
 
@@ -170,7 +160,7 @@
 
 .feature-card {
 
-  height:100%;
+  height: 80%;
 
 }
 
@@ -221,8 +211,16 @@ input.btn.btn-success {
 
 
 @media (min-width: 100px) and (max-width: 575px) {
+  .feature-card {
+    height: fit-content;
+  }
+
+  .feature-container {
+    margin-bottom: 140px;
+  }
   .home-container {
     grid-template-columns: 1fr;
+    height: fit-content;
     .water-btn {
       width: 48%;
     }
@@ -283,6 +281,6 @@ input.btn.btn-success {
 @media (min-width: 1200px) {
   .home-container {
     grid-template-columns: 1fr 1fr;
-    
+
   }
 }
