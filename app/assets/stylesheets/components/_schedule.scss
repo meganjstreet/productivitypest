@@ -1,11 +1,13 @@
 
+
+
 .container-schedule {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   align-items: start;
-  height: 68vh;
+  height: 100%;
   background-color: white;
   border-radius: 8px;
   position: relative;
@@ -13,6 +15,7 @@
   .container-tasks {
     align-self: center;
     width: 84%;
+    height: 100%
   }
 
   .btn-delete-task {
@@ -34,7 +37,7 @@
   .all-tasks {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 54vh;
+    height: 70%;
   }
 
   .div-task {
