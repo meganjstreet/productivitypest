@@ -20,5 +20,6 @@
   </div>
 
   <div id="display-pomodoro" data-pomodoro-target="display">25:00</div>
+  <div><%= current_user.days.last.pomodoros.where(status: 1).count %></div>
   <%= render "pomodoros/whitenoise" %>
 </div>
