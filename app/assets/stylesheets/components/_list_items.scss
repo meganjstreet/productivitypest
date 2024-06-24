@@ -19,23 +19,20 @@
 
 
   &:hover {
-    .btn-delete-item {
+    .btn-delete-item, .btn-edit-item {
       opacity: 1;
     }
   }
 
 }
-.btn-delete-item {
+.btn-delete-item, .btn-edit-item {
   color: $japan-yellow;
   font-size: 16px;
   opacity: 0;
   transition: all ease 0.3s;
 }
 
-.btn-edit-item {
-  color: $japan-yellow;
-  font-size: 16px;
-}
+
 
 #new_list_item {
   display: flex;
