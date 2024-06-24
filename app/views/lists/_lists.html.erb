@@ -12,12 +12,14 @@
                 <%= f.input :name,label: false, value: list.name %>
               <% end %>
             </div>
-            <button class="btn-edit-item" data-action="addlist#toggleEdit" data-list-id="<%= list.id %>"><i class="fa-solid fa-pen-to-square"></i></button>
-            <%= simple_form_for list, url: list_path(list), method: :delete, html: { data: { addlist_target: "deleteForm", action: "submit->addlist#deleteList" } } do |f| %>
-              <%= button_tag type: "submit", class: "btn" do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
-            <%end%>
+            <div class="d-flex">
+              <button class="btn-edit-item" data-action="addlist#toggleEdit" data-list-id="<%= list.id %>"><i class="fa-solid fa-pen-to-square"></i></button>
+              <%= simple_form_for list, url: list_path(list), method: :delete, html: { data: { addlist_target: "deleteForm", action: "submit->addlist#deleteList" } } do |f| %>
+                <%= button_tag type: "submit", class: "btn" do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+              <%end%>
+            </div>
           </div>
           <div class="hidden div-list-items" data-toggle-list-items-target="listitems">
             <%= render "lists/list_items", list: list, new_list_item: new_list_item %>
