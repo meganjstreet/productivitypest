@@ -1,7 +1,7 @@
 <div data-controller="list-items" data-list-items-target="container" class="container-list-items">
   <div class="div-name-list">
     <ul class="list-list-items">
-      <% list.list_items.each do |item| %>
+      <% list.list_items.order(:created_at).each do |item| %>
         <li class="list-item">
           <div>
             <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
