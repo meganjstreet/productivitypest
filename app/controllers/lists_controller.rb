@@ -41,6 +41,26 @@ class ListsController < ApplicationController
     end
   end
 
+  def update
+    @list = List.find(params[:id])
+    @list.update(list_params)
+    @lists = current_user.lists
+
+    respond_to do |format|
+      if @list.save
+        partial_html = render_to_string(partial: "lists/lists",
+                                        locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new },
+                                        formats: [:html])
+        format.json { render json: { partial_html: partial_html }, status: :ok }
+      else
+        partial_html = render_to_string(partial: "lists/lists",
+                                        locals: { lists: @lists, new_list: List.new, new_list_item: ListItem.new },
+                                        formats: [:html])
+        format.json { render json: { partial_html: partial_html, errors: @list.errors.full_messages }, status: :unprocessable_entity }
+      end
+    end
+  end
+
 private
 # def set_list
 #   @list = List.find(params[:id])

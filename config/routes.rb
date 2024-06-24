@@ -47,5 +47,4 @@ Rails.application.routes.draw do
   end
 
   resources :schedule_tasks, only: [:destroy]
-
 end
