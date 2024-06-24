@@ -32,6 +32,11 @@
   transition: all ease 0.3s;
 }
 
+.btn-edit-item {
+  color: $japan-yellow;
+  font-size: 16px;
+}
+
 #new_list_item {
   display: flex;
   justify-content: space-between;

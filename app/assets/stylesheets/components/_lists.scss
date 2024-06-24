@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.btn-delete-list, .btn-edit-list {
+  color: $japan-yellow;
+  font-size: 20px;
+}
+
 .options {
   display: flex;
   flex-direction: column;
