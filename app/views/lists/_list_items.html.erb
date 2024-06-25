@@ -23,7 +23,7 @@
   </div>
   <div class="div-list-item-form mt-1">
     <%= simple_form_for [list, new_list_item], html: { class: "item-input-container", data: { list_items_target: "form", action: "submit->list-items#create", turbo: "false" } } do |f| %>
-      <%= f.input :name, label: false, placeholder: "What would you like to add to your list?", class: "input-item-name form-list" %>
+      <%= f.input :name, label: false, placeholder: "Add a new item", class: "input-item-name form-list" %>
       <%= button_tag type: 'submit', class: "btn-list-add mb-3" do %>
         <i class="fa-solid fa-circle-plus"></i>
       <% end %>

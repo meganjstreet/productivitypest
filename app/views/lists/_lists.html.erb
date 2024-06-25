@@ -29,7 +29,7 @@
     </ul>
     <div class="list-form">
       <%= simple_form_for new_list, html: {class: "input-container", data: { toggle_list_items_target: "form", addlist_target: "form", action: "submit->addlist#create" } } do |f| %>
-        <%= f.input :name, label: false, placeholder: "What is the name of your new list?", class: "input-list-name form-list" %>
+        <%= f.input :name, label: false, placeholder: "Start a new list", class: "input-list-name form-list" %>
         <%= button_tag type: 'submit', class: "btn-list-add mb-3" do %>
           <i class="fa-solid fa-circle-plus"></i>
         <% end %>
