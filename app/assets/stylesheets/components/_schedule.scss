@@ -23,7 +23,7 @@
     align-items: center;
   }
 
-  .btn-delete-task {
+  .btn-delete-task, .btn-edit-task {
     color: $japan-blue-light;
     opacity: 0;
     transition: all ease 0.3s;
@@ -63,7 +63,7 @@
     padding: 12px 12px;
 
     &:hover {
-      .btn-delete-task {
+      .btn-delete-task, .btn-edit-task {
         opacity: 1;
       }
     }

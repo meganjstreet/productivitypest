@@ -12,7 +12,23 @@
             </div>
             <p><%= task.name %></p>
           </div>
+          <section class="task-modal hidden" data-schedule-target="editModal" data-task-id="<%= task.id %>">
+            <div class="flex">
+              <div class="btn btn-close" data-action="click->schedule#closeEdit" data-task-id="<%= task.id %>"></div>
+              <div class="form-task">
+                <%= simple_form_for [schedule, task], html: { data: { schedule_target: "editForm", action: "submit->schedule#update" } } do |f| %>
+                  <%= f.input :name, value: task.name, label: false %>
+                  <div class="time-inputs">
+                    <%= f.input :start_time, as: :time, value: task.start_time %>
+                    <%= f.input :end_time, as: :time, value: task.end_time %>
+                  </div>
+                  <%= f.button :submit, "Save Changes", class: "btn-submit-task" %>
+                <% end %>
+              </div>
+            </div>
+          </section>
           <div class="m-1">
+            <button class="btn-edit-task" data-action="schedule#openEdit" data-task-id="<%= task.id %>"><i class="fa-solid fa-pen-to-square"></i></button>
             <%= simple_form_for task, url: schedule_task_path(task), method: :delete, html: { data: { schedule_target: "deleteForm", action: "submit->schedule#deleteTask" } } do |f| %>
               <%= button_tag type: "submit", class: "btn-delete-task" do %>
                 <i class="fas fa-trash"></i>
