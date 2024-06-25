@@ -27,7 +27,7 @@
               </div>
             </div>
           </section>
-          <div class="m-1 d-flex">
+          <div class="m-1 schedule-buttons">
             <button class="btn-edit-task" data-action="schedule#openEdit" data-task-id="<%= task.id %>"><i class="fa-solid fa-pen-to-square"></i></button>
             <%= simple_form_for task, url: schedule_task_path(task), method: :delete, html: { data: { schedule_target: "deleteForm", action: "submit->schedule#deleteTask" } } do |f| %>
               <%= button_tag type: "submit", class: "btn-delete-task" do %>

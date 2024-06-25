@@ -1,6 +1,5 @@
 
 
-
 .container-schedule {
   display: flex;
   flex-direction: column;
@@ -27,6 +26,13 @@
     color: $japan-blue-light;
     opacity: 0;
     transition: all ease 0.3s;
+  }
+
+
+  .schedule-buttons {
+    display: flex;
+    align-items: start;
+
   }
 
   .task-times {
