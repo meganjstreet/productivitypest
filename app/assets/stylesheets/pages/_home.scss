@@ -2,9 +2,12 @@
   height: 100vh;
 }
 
+
 .home-schedule {
   height: 100%;
   overflow-y: hidden;
+  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
+  border-radius: 8px;
 }
 
 .feature-container {
@@ -164,9 +167,7 @@
 }
 
 .feature-card {
-
   height: 80%;
-
 }
 
 
@@ -176,10 +177,6 @@
   font-weight: bold;
 }
 
-.container-schedule {
-  box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
-
-}
 
 
 a.btn-success{
