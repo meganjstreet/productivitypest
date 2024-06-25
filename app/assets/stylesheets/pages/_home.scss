@@ -219,7 +219,7 @@ input.btn.btn-success {
 }
 
 
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 992px) {
   .feature-card {
     height: fit-content;
   }
@@ -268,46 +268,4 @@ input.btn.btn-success {
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .head-container {
-    h1 {
-      font-size: 28px;
-    }
-  }
-  .home-container {
-    grid-template-columns: 1fr;
 
-    }
-
-
-
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .home-container {
-    grid-template-columns: 1fr;
-    .head-container {
-
-      h1 {
-        font-size: 28px;
-      }
-    }
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .home-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .home-container {
-    grid-template-columns: 1fr 1fr;
-
-  }
-}
