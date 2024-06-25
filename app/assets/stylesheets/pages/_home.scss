@@ -30,7 +30,13 @@
 }
 
 .feature-active {
-  color:white;
+  p, i {
+    color:white;
+  }
+
+  svg {
+    fill: white;
+  }
 }
 
 
