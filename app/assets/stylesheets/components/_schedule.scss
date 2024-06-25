@@ -18,6 +18,11 @@
     height: 100%
   }
 
+  .div-time-name {
+    display: flex;
+    align-items: center;
+  }
+
   .btn-delete-task {
     color: $japan-blue-light;
     opacity: 0;
@@ -25,13 +30,18 @@
   }
 
   .task-times {
+    p {
+      font-size: 16px;
+    }
     background-color: $japan-blue-light;
     color: $japan-white;
-    font-size: 16px;
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 4px 8px;
-    margin-bottom: 8px;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+
   }
 
   .all-tasks {
@@ -50,7 +60,7 @@
     // box-shadow: rgba(38, 38, 145, 0.22) 0px 6px 12px -2px, rgba(47, 44, 135, 0.22) 0px 3px 7px -3px;
     width: 100%;
     height: fit-content;
-    padding: 16px 24px;
+    padding: 12px 12px;
 
     &:hover {
       .btn-delete-task {
@@ -72,6 +82,7 @@
     font-size: 20px;
     font-weight: 200;
   }
+
 
 
 
@@ -157,4 +168,24 @@
   background-color: $japan-blue-light;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid $japan-white;  /* creates padding around scroll thumb */
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .container-schedule {
+      .task-times {
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 12px;
+    }
+  }
+  }
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+
 }
