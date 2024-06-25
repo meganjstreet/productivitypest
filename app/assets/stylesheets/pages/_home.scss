@@ -224,12 +224,26 @@ input.btn.btn-success {
     height: fit-content;
   }
 
-  .feature-container {
-    margin-bottom: 140px;
-  }
+
   .home-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     height: fit-content;
+    margin-bottom: 140px;
+
+    .home-schedule {
+      margin-bottom: 140px;
+    }
+
+    .container-schedule {
+      padding-bottom: 16px;
+    }
+
+    .feature-buttons {
+      margin-bottom: 0px;
+    }
+
+
     .water-btn {
       width: 48%;
     }
@@ -256,17 +270,18 @@ input.btn.btn-success {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  .head-container {
+    h1 {
+      font-size: 28px;
+    }
+  }
   .home-container {
     grid-template-columns: 1fr;
-    .head-container {
 
-      h1 {
-        font-size: 28px;
-      }
     }
 
 
-  }
+
 }
 
 // Medium devices (tablets, 768px and up)
