@@ -173,12 +173,17 @@
 
 @media (min-width: 100px) and (max-width: 575px) {
   .container-schedule {
-      .task-times {
-    flex-direction: column;
-    align-items: center;
-    p {
-      font-size: 12px;
-    }
+    .task-times {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      p {
+        font-size: 12px;
+      }
+      .time-dash {
+        display: none;
+      }
   }
   }
 
