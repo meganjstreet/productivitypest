@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="pomodoro"
 export default class extends Controller {
 
-  static targets = ["display", "container"]
+  static targets = ["display", "container", "count", "session"]
   static values = { workTime: Number, shortBreakTime: Number, longBreakTime: Number}
 
   connect() {
@@ -23,7 +23,7 @@ export default class extends Controller {
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': token
-      },
+      }
     })
     .then((response) => response.json())
     .then((data) => {
@@ -34,6 +34,12 @@ export default class extends Controller {
   start() {
     if (this.timer) return;
     if (this.isWorkPeriod) this.containerTarget.classList.add('work-period');
+    if (this.sessionCount % 3 === 0) {
+      this.updateSessionDisplay("Long Break")
+    } else {
+      this.updateSessionDisplay("Short Break")
+    }
+
     this.startTime = Date.now();
     this.initialTimeLeft = this.timeLeft;
     this.timer = setInterval(() => {
@@ -81,6 +87,7 @@ export default class extends Controller {
     this.timeLeft = this.initialTimeLeft;
     this.updateDisplay();
     this.containerTarget.classList.add('work-period');
+    this.updateSessionDisplay("Work")
     this.containerTarget.classList.remove('short-break-period', 'long-break-period');
   }
 
@@ -99,6 +106,7 @@ export default class extends Controller {
       this.containerTarget.classList.add('long-break-period');
       this.pomodoroCount++;
       this.completeCycle();
+      this.updateCountDisplay();
     } else {
       this.initialTimeLeft = this.shortBreakTimeValue * 60;
       this.timeLeft = this.initialTimeLeft;
@@ -112,6 +120,14 @@ export default class extends Controller {
     const minutes = Math.floor(this.timeLeft / 60);
     const seconds = this.timeLeft % 60;
     this.displayTarget.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  updateCountDisplay(){
+    this.countTarget.textContent = this.pomodoroCount;
+  }
+
+  updateSessionDisplay(session){
+    this.sessionTarget.textContent = session;
   }
 
   completeCycle() {
