@@ -22,6 +22,7 @@
                     <%= f.input :start_time, as: :time, value: task.start_time %>
                     <%= f.input :end_time, as: :time, value: task.end_time %>
                   </div>
+                  <%= f.input :recurring %>
                   <%= f.button :submit, "Save Changes", class: "btn-submit-task" %>
                 <% end %>
               </div>

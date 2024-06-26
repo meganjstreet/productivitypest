@@ -1,9 +1,9 @@
-
-  <%= simple_form_for [schedule, schedule_task], html: { data: { schedule_target: "form", action: "submit->schedule#create" } } do |f| %>
-    <%= f.input :name, placeholder: "What's up next?", label: false %>
-    <div class="time-inputs">
-      <%= f.input :start_time, as: :time %>
-      <%= f.input :end_time, as: :time %>
-    </div>
-    <%= f.button :submit, "Add to Schedule", class: "btn-submit-task" %>
-  <% end %>
+<%= simple_form_for [schedule, schedule_task], html: { data: { schedule_target: "form", action: "submit->schedule#create" } } do |f| %>
+  <%= f.input :name, placeholder: "What's up next?", label: false %>
+  <div class="time-inputs">
+    <%= f.input :start_time, as: :time %>
+    <%= f.input :end_time, as: :time %>
+  </div>
+  <%= f.input :recurring %>
+  <%= f.button :submit, "Add to Schedule", class: "btn-submit-task" %>
+<% end %>

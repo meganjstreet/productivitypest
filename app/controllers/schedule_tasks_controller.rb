@@ -42,6 +42,6 @@ class ScheduleTasksController < ApplicationController
   private
 
   def schedule_task_params
-    params.require(:schedule_task).permit(:name, :start_time, :end_time)
+    params.require(:schedule_task).permit(:name, :start_time, :end_time, :recurring)
   end
 end
