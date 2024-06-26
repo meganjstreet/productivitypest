@@ -32,7 +32,6 @@ export default class extends Controller {
   }
 
   start() {
-    console.log(this.pomodoroCount)
     if (this.timer) return;
     if (this.isWorkPeriod) {
       this.containerTarget.classList.add('work-period');

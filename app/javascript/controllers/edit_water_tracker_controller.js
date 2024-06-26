@@ -11,7 +11,6 @@ export default class extends Controller {
     if (this.notificationTarget.innerText === "true") {
       const frequency = parseInt(this.frequencyTarget.innerText, 10);
       this.setNotificationInterval(frequency);
-      console.log(`Notification frequency set to ${frequency} minutes.`);
       window.addEventListener("beforeunload", this.preventPageRefresh.bind(this));
 
     }
@@ -61,7 +60,7 @@ export default class extends Controller {
 
 
   setNotificationInterval(frequency) {
-    console.log('Setting notification interval.');
+
     const intervalMinutes = parseInt(frequency, 10);
 
     if (!isNaN(intervalMinutes) && intervalMinutes > 0) {
@@ -72,15 +71,12 @@ export default class extends Controller {
   }
 
   startNotificationTimer(interval) {
-    console.log('Starting notification timer.');
     this.stopNotificationTimer();
     this.notificationTimer = setInterval(this.notifyUser.bind(this), interval);
-    console.log(`Notification timer set with interval ${interval} ms.`);
   }
 
   stopNotificationTimer() {
     if (this.notificationTimer) {
-      console.log('Stopping notification timer.');
       clearInterval(this.notificationTimer);
       this.notificationTimer = null; // Ensure the timer reference is cleared
     } else {
@@ -98,7 +94,6 @@ export default class extends Controller {
   }
 
   notifyUser() {
-    console.log('Notifying user.');
     const notificationAudio = document.getElementById('notification-audio');
     if (notificationAudio) {
       notificationAudio.play();
