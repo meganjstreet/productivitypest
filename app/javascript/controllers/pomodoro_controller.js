@@ -12,7 +12,7 @@ export default class extends Controller {
     this.initialTimeLeft = this.workTimeValue * 60;
     this.timeLeft = this.initialTimeLeft;
     this.sessionCount = 0;
-    this.pomodoroCount = 0;
+    this.pomodoroCount = this.countTarget.textContent;
     this.updateDisplay();
   }
 
@@ -32,14 +32,16 @@ export default class extends Controller {
   }
 
   start() {
+    console.log(this.pomodoroCount)
     if (this.timer) return;
-    if (this.isWorkPeriod) this.containerTarget.classList.add('work-period');
-    if (this.sessionCount % 3 === 0) {
-      this.updateSessionDisplay("Long Break")
-    } else {
-      this.updateSessionDisplay("Short Break")
+    if (this.isWorkPeriod) {
+      this.containerTarget.classList.add('work-period');
+      if (this.sessionCount === 3) {
+        this.updateSessionDisplay("Long Break")
+      } else {
+        this.updateSessionDisplay("Short Break")
+      }
     }
-
     this.startTime = Date.now();
     this.initialTimeLeft = this.timeLeft;
     this.timer = setInterval(() => {
@@ -68,6 +70,12 @@ export default class extends Controller {
         this.timeLeft = this.initialTimeLeft;
         this.containerTarget.classList.remove('short-break-period', 'long-break-period');
         this.containerTarget.classList.add('work-period');
+        if (this.sessionCount === 3) {
+          this.updateSessionDisplay("Long Break")
+        } else {
+          this.updateSessionDisplay("Short Break")
+        }
+
         this.updateDisplay();
       }
     }
@@ -113,6 +121,7 @@ export default class extends Controller {
       this.containerTarget.classList.remove('work-period', 'long-break-period');
       this.containerTarget.classList.add('short-break-period');
     }
+    this.updateSessionDisplay("Work")
     this.updateDisplay();
   }
 
