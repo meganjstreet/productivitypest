@@ -19,7 +19,7 @@ class PagesController < ApplicationController
       recurring_tasks = previous_schedule.schedule_tasks.where(recurring: true)
 
       recurring_tasks.each do |task|
-        ScheduleTask.create(
+        ScheduleTask.find_or_create_by(
           name: task.name,
           start_time: task.start_time,
           end_time: task.end_time,

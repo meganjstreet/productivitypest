@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="pomodoro"
 export default class extends Controller {
 
-  static targets = ["display", "container", "count", "session"]
+  static targets = ["display", "container", "count", "nextSession", "currentSession"]
   static values = { workTime: Number, shortBreakTime: Number, longBreakTime: Number}
 
   connect() {
@@ -34,11 +34,12 @@ export default class extends Controller {
   start() {
     if (this.timer) return;
     if (this.isWorkPeriod) {
+      this.updateCurrentSessionDisplay("Work " + (this.sessionCount + 1));
       this.containerTarget.classList.add('work-period');
       if (this.sessionCount === 3) {
-        this.updateSessionDisplay("Long Break")
+        this.updateNextSessionDisplay("Long Break")
       } else {
-        this.updateSessionDisplay("Short Break")
+        this.updateNextSessionDisplay("Short Break")
       }
     }
     this.startTime = Date.now();
@@ -69,10 +70,11 @@ export default class extends Controller {
         this.timeLeft = this.initialTimeLeft;
         this.containerTarget.classList.remove('short-break-period', 'long-break-period');
         this.containerTarget.classList.add('work-period');
+        this.updateCurrentSessionDisplay("Work " + (this.sessionCount + 1));
         if (this.sessionCount === 3) {
-          this.updateSessionDisplay("Long Break")
+          this.updateNextSessionDisplay("Long Break")
         } else {
-          this.updateSessionDisplay("Short Break")
+          this.updateNextSessionDisplay("Short Break")
         }
 
         this.updateDisplay();
@@ -94,7 +96,7 @@ export default class extends Controller {
     this.timeLeft = this.initialTimeLeft;
     this.updateDisplay();
     this.containerTarget.classList.add('work-period');
-    this.updateSessionDisplay("Work")
+    this.updateNextSessionDisplay("Short Break")
     this.containerTarget.classList.remove('short-break-period', 'long-break-period');
   }
 
@@ -111,6 +113,7 @@ export default class extends Controller {
       this.timeLeft = this.initialTimeLeft;
       this.containerTarget.classList.remove('work-period', 'short-break-period');
       this.containerTarget.classList.add('long-break-period');
+      this.updateCurrentSessionDisplay("Long Break")
       this.pomodoroCount++;
       this.completeCycle();
       this.updateCountDisplay();
@@ -119,8 +122,9 @@ export default class extends Controller {
       this.timeLeft = this.initialTimeLeft;
       this.containerTarget.classList.remove('work-period', 'long-break-period');
       this.containerTarget.classList.add('short-break-period');
+      this.updateCurrentSessionDisplay("Short Break")
     }
-    this.updateSessionDisplay("Work")
+    this.updateNextSessionDisplay("Work " + (this.sessionCount + 1))
     this.updateDisplay();
   }
 
@@ -134,8 +138,12 @@ export default class extends Controller {
     this.countTarget.textContent = this.pomodoroCount;
   }
 
-  updateSessionDisplay(session){
-    this.sessionTarget.textContent = session;
+  updateNextSessionDisplay(session){
+    this.nextSessionTarget.textContent = session;
+  }
+
+  updateCurrentSessionDisplay(currentSession){
+    this.currentSessionTarget.textContent = currentSession;
   }
 
   completeCycle() {

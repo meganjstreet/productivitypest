@@ -1,4 +1,4 @@
-<div class="container-pomodoro" data-controller="pomodoro" data-pomodoro-work-time-value="25" data-pomodoro-short-break-time-value="5" data-pomodoro-long-break-time-value="15" data-pomodoro-target="container">
+<div class="container-pomodoro" data-controller="pomodoro" data-pomodoro-work-time-value="0.05" data-pomodoro-short-break-time-value="0.05" data-pomodoro-long-break-time-value="0.05" data-pomodoro-target="container">
   <div class="buttons-container">
     <div id="button-tomato">
       <button data-action="pomodoro#start"><i class="fa-solid fa-play"></i></button>
@@ -15,10 +15,11 @@
       </div>
     </div>
   </div>
+  <div data-pomodoro-target="currentSession"></div>
   <div id="display-pomodoro" data-pomodoro-target="display">25:00</div>
   <div>
     <div>Complete Pomodoros: <span data-pomodoro-target="count"><%= current_user.days.last.pomodoros.where(status: 1).count %></span></div>
-    <div>Next Up: <span data-pomodoro-target="session">Work</span></div>
+    <div>Next Up: <span data-pomodoro-target="nextSession">Work</span></div>
   </div>
   <%= render "pomodoros/whitenoise" %>
 </div>
