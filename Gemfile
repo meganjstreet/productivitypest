@@ -81,3 +81,4 @@ group :test do
 end
 
 gem "rondo_form", "~> 0.2.6"
+gem 'acts_as_list'

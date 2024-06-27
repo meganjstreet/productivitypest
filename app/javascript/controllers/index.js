@@ -11,3 +11,6 @@ eagerLoadControllersFrom("controllers", application)
 // lazyLoadControllersFrom("controllers", application)
 import NestedRondoController from "./nested_rondo_controller"
 application.register("nested-rondo", NestedRondoController)
+
+import Sortable from '@stimulus-components/sortable'
+application.register('sortable', Sortable)
