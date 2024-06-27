@@ -1,8 +1,8 @@
 <div data-controller="list-items" data-list-items-target="container" class="container-list-items">
   <div class="div-name-list">
-    <ul class="list-list-items">
-      <% list.list_items.order(:created_at).each do |item| %>
-        <li class="list-item">
+    <ul class="list-list-items" data-controller="sortable" data-sortable-resource-name-value="list_item" data-sortable-response-kind-value="json">
+      <% list.list_items.order(:position).each do |item| %>
+        <li class="list-item" data-sortable-update-url="<%= list_item_path(item) %>">
           <div>
             <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
               <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
