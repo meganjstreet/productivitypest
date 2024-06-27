@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
 
-  get 'spotify/callback', to: 'spotify#callback'
-  get 'spotify/auth', to: 'spotify#auth'
+  get '/login', to: 'spotify#login'
+  get '/callback', to: 'spotify#callback'
 
   get 'pages/home'
   resources :water_trackers, only: [:new, :create, :update ] do

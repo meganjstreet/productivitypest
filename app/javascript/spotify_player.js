@@ -1,34 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const token = '<YOUR_SPOTIFY_ACCESS_TOKEN>';
+// app/javascript/controllers/spotify_controller.js
+import { Controller } from "stimulus"
 
-  window.onSpotifyWebPlaybackSDKReady = () => {
-    const player = new Spotify.Player({
-      name: 'Spotify Web Player',
-      getOAuthToken: cb => { cb(token); },
-      volume: 0.5
-    });
+export default class extends Controller {
+  connect() {
+    const playlistId = '3Q6ejDVzUBbznjCwTjbC4o'; // Replace with your specific playlist ID
+    const token = this.element.dataset.token;
 
-    player.addListener('ready', ({ device_id }) => {
-      console.log('Ready with Device ID', device_id);
+    window.onSpotifyWebPlaybackSDKReady = () => {
+      const player = new Spotify.Player({
+        name: 'Web Playback SDK Player',
+        getOAuthToken: cb => { cb(token); }
+      });
 
-      // Add click event listener to the play button
-      document.getElementById('play-button').addEventListener('click', () => {
-        // Play a track
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
+      // Error handling
+      player.addListener('initialization_error', ({ message }) => { console.error(message); });
+      player.addListener('authentication_error', ({ message }) => { console.error(message); });
+      player.addListener('account_error', ({ message }) => { console.error(message); });
+      player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+      // Playback status updates
+      player.addListener('player_state_changed', state => { console.log(state); });
+
+      // Ready
+      player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+
+        // Play a specific playlist
+        fetch(`https://api.spotify.com/v1/me/player/play`, {
           method: 'PUT',
-          body: JSON.stringify({ uris: ['spotify:track:1ZUjVHrZWEg5a9j89QL5aE'] }),
           headers: {
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
           },
+          body: JSON.stringify({
+            context_uri: `spotify:playlist:${playlistId}`
+          }),
         });
       });
-    });
 
-    player.addListener('not_ready', ({ device_id }) => {
-      console.log('Device ID has gone offline', device_id);
-    });
+      // Not Ready
+      player.addListener('not_ready', ({ device_id }) => {
+        console.log('Device ID has gone offline', device_id);
+      });
 
-    player.connect();
-  };
-});
+      // Connect to the player!
+      player.connect();
+    };
+  }
+}
