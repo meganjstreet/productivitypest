@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="pomodoro"
 export default class extends Controller {
 
-  static targets = ["display", "container", "count", "nextSession", "currentSession"]
+  static targets = ["display", "container", "count", "nextSession", "currentSession", "pause", "play"]
   static values = { workTime: Number, shortBreakTime: Number, longBreakTime: Number}
 
   connect() {
@@ -34,7 +34,7 @@ export default class extends Controller {
   start() {
     if (this.timer) return;
     if (this.isWorkPeriod) {
-      this.updateCurrentSessionDisplay("Work " + (this.sessionCount + 1));
+      this.updateCurrentSessionDisplay("WORK " + (this.sessionCount + 1));
       this.containerTarget.classList.add('work-period');
       if (this.sessionCount === 3) {
         this.updateNextSessionDisplay("Long Break")
@@ -47,6 +47,9 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       this.tick();
     }, 1000);
+    this.playTarget.classList.toggle("hidden");
+    this.pauseTarget.classList.toggle("hidden");
+
   }
 
   tick() {
@@ -86,6 +89,8 @@ export default class extends Controller {
     this.containerTarget.classList.remove('work-period');
     clearInterval(this.timer);
     this.timer = null;
+    this.playTarget.classList.toggle("hidden");
+    this.pauseTarget.classList.toggle("hidden");
   }
 
   reset() {
@@ -113,7 +118,7 @@ export default class extends Controller {
       this.timeLeft = this.initialTimeLeft;
       this.containerTarget.classList.remove('work-period', 'short-break-period');
       this.containerTarget.classList.add('long-break-period');
-      this.updateCurrentSessionDisplay("Long Break")
+      this.updateCurrentSessionDisplay("LONG BREAK")
       this.pomodoroCount++;
       this.completeCycle();
       this.updateCountDisplay();
@@ -122,7 +127,7 @@ export default class extends Controller {
       this.timeLeft = this.initialTimeLeft;
       this.containerTarget.classList.remove('work-period', 'long-break-period');
       this.containerTarget.classList.add('short-break-period');
-      this.updateCurrentSessionDisplay("Short Break")
+      this.updateCurrentSessionDisplay("SHORT BREAK")
     }
     this.updateNextSessionDisplay("Work " + (this.sessionCount + 1))
     this.updateDisplay();

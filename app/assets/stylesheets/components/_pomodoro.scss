@@ -4,7 +4,7 @@
   position: fixed;
   margin-top: 16px;
   bottom: 0;
-  padding: 16px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,6 +13,10 @@
   height:fit-content;
   box-shadow: rgba(50, 50, 93, 0.21) 0px 50px 100px -20px, rgba(0, 0, 0, 0.21) 0px 30px 60px -30px;
 
+}
+
+.current-session {
+  margin-bottom: 0px;
 }
 
 .long-break-period {
@@ -50,6 +54,12 @@ button {
   background-position: center;
   width: 80px;
   height: 8vh;
+  align-items: center;
+  button {
+    height: fit-content;
+    padding-top: 12px;
+    padding-left: 8px;
+  }
 }
 
 #button-play {
@@ -59,28 +69,28 @@ button {
   color: white;
 }
 
-#button-pause {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#button-reset {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#button-start-break {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #display-pomodoro {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 48px;
   font-weight: bold;
+  padding: 0px 8px;
+  line-height: 36px;
+}
+
+.pomodoro-info {
+  padding-left: 16px;
+  width: fit-content;
+}
+
+
+@media (min-width: 100px) and (max-width: 992px) {
+  #display-pomodoro {
+    font-size: 20px;
+  }
+
+  .pomodoro-info {
+    font-size: 14px;
+  }
 }
