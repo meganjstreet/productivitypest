@@ -2,7 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="meditation"
 export default class extends Controller {
-  static targets = ["form", "container"]
+  static targets = ["form", "container", "NSDR", "yoga"]
+
+  toggleNSDR(event){
+    this.NSDRTarget.classList.toggle("hidden");
+  }
+
+  toggleYoga(event){
+    this.yogaTarget.classList.toggle("hidden");
+  }
 
   update(event){
     event.preventDefault();

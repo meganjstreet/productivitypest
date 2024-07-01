@@ -1,38 +1,8 @@
-<div class="div-meditations" data-controller="meditation spotify" data-meditation-target="container"data-token="<%= session[:spotify_access_token] %>">
-  <!-- In the view where you want to embed the player -->
+<div class="div-meditations" data-controller="meditation" data-meditation-target="container">
   <h3>Give your mind a break!</h3>
-  <div class="episodes">
-    <button class="episode" data-spotify-id="spotify:episode:2J0paJ92gOTtLEOSGe2saY">
-      10 Minute Mindful Stretch Routine
-    </button>
-    <button class="episode" data-spotify-id="spotify:episode:56LIpGED9ax1ZwXvmbQ5aP">
-      5 Minute Guided Meditation
-    </button>
-    <button class="episode" data-spotify-id="spotify:track:1ZUjVHrZWEg5a9j89QL5aE">
-      10 Minute NSDR 
-    </button>
+  <div class="playlist">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?si=jbC_DUZDwIeulKG5&amp;list=PLP13bibiyk_-29luUA7GQwlHuJH-8uswt" title="YouTube video player" frameborder="0" allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-  <div id="embed-iframe"></div>
-  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-  <script type="text/javascript">
-    window.onSpotifyIframeApiReady = (IFrameAPI) => {
-      const element = document.getElementById('embed-iframe');
-      const options = {
-        width: '100%',
-        height: '160',
-        uri: 'spotify:track:1ZUjVHrZWEg5a9j89QL5aE'
-      };
-      const callback = (EmbedController) => {
-        document.querySelectorAll('.episode').forEach(
-          episode => {
-            episode.addEventListener('click', () => {
-              EmbedController.loadUri(episode.dataset.spotifyId)
-            });
-          })
-      };
-      IFrameAPI.createController(element, options, callback);
-    };
-  </script>
   <% if current_user.days.last.meditation_complete %>
     <p class="btn-finished-meditation">Well done! You have completed a meditation today!</p>
   <% else %>
