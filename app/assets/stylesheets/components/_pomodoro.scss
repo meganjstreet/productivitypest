@@ -4,7 +4,7 @@
   position: fixed;
   margin-top: 16px;
   bottom: 0;
-  padding: 8px;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,23 +79,30 @@ button {
   line-height: 36px;
 }
 
-.pomodoro-info {
-  padding-left: 16px;
-  width: fit-content;
+.next-up {
+  font-size: 12px;
+  text-align: center;
 }
 
 
 @media (min-width: 100px) and (max-width: 992px) {
+  .container-pomodoro {
+    padding: 8px;
+  }
   #display-pomodoro {
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 20px;
   }
 
-  .pomodoro-info {
-    font-size: 8px;
-    padding-left: 0px;
+  .next-up {
+    font-size: 10px;
+  }
+
+  .current-session {
+    font-size: 10px;
   }
 
   .container-whitenoise {
-    font-size: 8px;
+    font-size: 10px;
   }
 }
