@@ -17,6 +17,16 @@
   border-radius: 8px;
   height: 100%;
 
+  .options-btn {
+    text-align: start;
+  }
+
+  .list-content {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
 
   ul {
     height: 100%;
@@ -33,6 +43,8 @@
     padding: 4px;
 
   }
+
+
 
   .list {
     width: 100%;

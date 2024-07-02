@@ -3,7 +3,7 @@
     <ul data-controller="sortable" data-sortable-resource-name-value="list" data-sortable-response-kind-value="json">
       <% current_user.lists.order(:position).each do |list|%>
         <li class="list" data-sortable-update-url="<%= list_path(list) %>">
-          <div class="d-flex justify-content-between">
+          <div class="list-content">
             <button class="options-btn" data-action="toggle-list-items#toggleListItems">
               <%= list.name %>
             </button>
