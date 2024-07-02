@@ -59,6 +59,7 @@ export default class extends Controller {
 
     if (this.timeLeft <= 0) {
       document.getElementById('whitenoise-audio').pause();
+
       document.getElementById('dingdong-audio').play();
       clearInterval(this.timer);
       this.timer = null;
@@ -80,6 +81,9 @@ export default class extends Controller {
         }
 
         this.updateDisplay();
+        this.playTarget.classList.toggle("hidden");
+        this.pauseTarget.classList.toggle("hidden");
+
       }
     }
   }
@@ -92,22 +96,6 @@ export default class extends Controller {
     this.pauseTarget.classList.toggle("hidden");
   }
 
-  reset() {
-    this.stop();
-    this.isWorkPeriod = true;
-    this.sessionCount = 0;
-    this.initialTimeLeft = this.workTimeValue * 60;
-    this.timeLeft = this.initialTimeLeft;
-    this.updateDisplay();
-    this.containerTarget.classList.add('work-period');
-    this.updateNextSessionDisplay("Short Break")
-    this.containerTarget.classList.remove('short-break-period', 'long-break-period');
-  }
-
-  startBreak() {
-    if (this.isWorkPeriod) return;
-    this.start();
-  }
 
   showBreakPrompt() {
     this.stop();
