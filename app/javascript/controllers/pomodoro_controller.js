@@ -35,7 +35,7 @@ export default class extends Controller {
     if (this.isWorkPeriod) {
       this.updateCurrentSessionDisplay("WORK " + (this.sessionCount + 1));
       this.containerTarget.classList.add('work-period');
-      if (this.sessionCount === 3) {
+      if ((this.sessionCount + 1) % 4 === 0 && this.sessionCount !== 0) {
         this.updateNextSessionDisplay("Long Break")
       } else {
         this.updateNextSessionDisplay("Short Break")
@@ -74,7 +74,7 @@ export default class extends Controller {
         this.containerTarget.classList.remove('short-break-period', 'long-break-period');
         this.containerTarget.classList.add('work-period');
         this.updateCurrentSessionDisplay("Work " + (this.sessionCount + 1));
-        if (this.sessionCount === 3) {
+        if ((this.sessionCount + 1) % 4 === 0 && this.sessionCount !== 0) {
           this.updateNextSessionDisplay("Long Break")
         } else {
           this.updateNextSessionDisplay("Short Break")
