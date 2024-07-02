@@ -30,6 +30,7 @@
   justify-content: space-between;
   align-items: center;
 
+
 }
 
 .btn-tracker {
@@ -51,12 +52,11 @@
 
 
 .text-display {
+  p {
+    margin-bottom: 0px;
+  }
   margin: 4px;
-  padding-left: 3px;
-
-  border-radius: 10px;
-  box-shadow: #3c7a8f;
-  background-color: #d2d1e9;
+  font-size: 20px;
 }
 
 
@@ -122,6 +122,18 @@
   }
   .toggle-tracker-card {
     height: fit-content;
+  }
+
+  .text-display {
+    font-size: 12px;
+  }
+
+  .btn-tracker {
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 16px;
   }
 }
 

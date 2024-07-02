@@ -10,17 +10,17 @@
             <div>Your increment amount is <%= @water_tracker.increment_amount %></div>
           </div>
           <div class="tracker-display p-2 my-1">
-            <div class="row d-flex justify-content-center">
-              <div class="tracker-info-display m-2  col-7">
-                <div class="text-display container ps-4">
+            <div class="row d-flex justify-content-evenly">
+              <div class="tracker-info-display m-2  col-6">
+                <div class="text-display">
                   <div class="d-flex justify-content-between">
                     <h3>Daily Water Intake</h3>
                     <button aria-label="Edit tracker">
                       <i class="edit-tracker-btn fa-solid fa-pen fa-lg ml-3" data-action="click->edit-water-tracker#displayForm"></i>
                     </button>
                   </div>
-                  <div >My Goal: <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</div>
-                  <div>To Go: <span  data-edit-water-tracker-target="currentAmount"><%= @water_tracker.goal_amount - @water_tracker.current_amount %></span>ml</div>
+                  <p>My Goal: <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</p>
+                  <p>To Go: <span  data-edit-water-tracker-target="currentAmount"><%= @water_tracker.goal_amount - @water_tracker.current_amount %></span>ml</p>
                 </div>
                 <div class="w-100">
                   <% if water_tracker.current_amount >= water_tracker.goal_amount %>
