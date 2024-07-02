@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
 
-  get '/login', to: 'spotify#login'
-  get '/callback', to: 'spotify#callback'
+  get "/service-worker.js" => "service_worker#service_worker"
+  get "/manifest.json" => "service_worker#manifest"
 
   get 'pages/home'
   resources :water_trackers, only: [:new, :create, :update ] do
