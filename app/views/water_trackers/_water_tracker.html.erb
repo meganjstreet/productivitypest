@@ -10,9 +10,9 @@
             <div>Your increment amount is <%= @water_tracker.increment_amount %></div>
           </div>
           <div class="tracker-display p-2 my-1">
-            <div class="row ">
-              <div class="tracker-info-display m-2  col-9">
-                <div class="text-display container">
+            <div class="row d-flex justify-content-center">
+              <div class="tracker-info-display m-2  col-7">
+                <div class="text-display container ps-4">
                   <div class="d-flex justify-content-between">
                     <h3>Daily Water Intake</h3>
                     <button aria-label="Edit tracker">
@@ -22,7 +22,7 @@
                   <div >My Goal: <span  data-edit-water-tracker-target="goalAmount"><%= @water_tracker.goal_amount %></span>ml</div>
                   <div>To Go: <span  data-edit-water-tracker-target="currentAmount"><%= @water_tracker.goal_amount - @water_tracker.current_amount %></span>ml</div>
                 </div>
-                <div>
+                <div class="w-100">
                   <% if water_tracker.current_amount >= water_tracker.goal_amount %>
                     <%= render "shared/flashes", notice: "You have reached your water goal for the day! Increase your goal if you want to keep going!" %>
                     <button class="btn-tracker disabled">I reached my goal!</button>
@@ -34,7 +34,7 @@
                         action: "submit->add-glass-water-tracker#take_glass_of_water"
                       }
                     } do |f| %>
-                      <%= f.submit 'I finished a glass!', class: 'btn btn-tracker' %>
+                      <%= f.submit 'I finished a glass!', class: 'btn-tracker' %>
                     <% end %>
                   <% end %>
                 </div>
@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container p-3">
         <%= simple_form_for water_tracker,          html: {
               class: water_tracker.errors.any? ? "" : "d-none",
               data: {
@@ -58,7 +58,6 @@
                 action: "submit->edit-water-tracker#update"
               }
             } do |f| %>
-            <h3 class="my-2">Edit my Tracker</h3>
           <%= f.input :goal_amount %>
           <%= f.input :frequency %>
           <%= f.input :notification %>
