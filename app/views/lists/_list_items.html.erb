@@ -1,8 +1,8 @@
 <div data-controller="list-items" data-list-items-target="container" class="container-list-items">
   <div class="div-name-list">
-    <ul class="list-list-items" data-controller="sortable" data-sortable-resource-name-value="list_item" data-sortable-response-kind-value="json">
+    <ul data-controller="sortable" data-sortable-resource-name-value="list_item" data-sortable-response-kind-value="json">
       <% list.list_items.order(:position).each do |item| %>
-        <li class="list-item" data-sortable-update-url="<%= list_item_path(item) %>">
+        <li class="list-item" data-sortable-update-url="<%= list_item_path(item) %>" data-id="<%= item.id %>">
           <div>
             <%= simple_form_for item, html: { data: { list_items_target: "checkbox", action: "change->list-items#update", turbo: "false" } } do |f| %>
               <%= f.input :status, as: :boolean, label: item.name, input_html: { checked: item.status } %>
@@ -10,7 +10,7 @@
           </div>
           <div data-list-items-target="editForm" data-item-id="<%= item.id %>" class="hidden">
             <%= simple_form_for item, html: { data: { action: "submit->list-items#update", turbo: "false" } } do |f| %>
-              <%= f.input :name,label: false, value: item.name %>
+              <%= f.input :name, label: false, value: item.name %>
             <% end %>
           </div>
           <div class="fas-trash d-flex justify-content-evenly">

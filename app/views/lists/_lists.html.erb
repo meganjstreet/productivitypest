@@ -1,13 +1,13 @@
-<div class="container-list-outer" data-controller="addlist toggle-list-items" data-addlist-target="container" data-sortable-animation-value="150">
+<div class="container-list-outer" data-controller="addlist toggle-list-items" data-addlist-target="container">
   <div class="options p-3"  >
-    <ul data-controller="sortable" data-sortable-resource-name-value="list" data-sortable-response-kind-value="json">
-      <% current_user.lists.order(:position).each do |list|%>
-        <li class="list" data-sortable-update-url="<%= list_path(list) %>">
+    <ul>
+      <% current_user.lists.order(created_at: :desc).each do |list|%>
+        <li class="list" >
           <div class="list-content">
             <button class="options-btn" data-action="toggle-list-items#toggleListItems">
               <%= list.name %>
             </button>
-            <div data-addlist-target="editForm" data-list-id="<%= list.id %>" class="hidden">
+            <div data-addlist-target="editForm" data-list-id="<%= list.id %>" class="hidden w-100">
               <%= simple_form_for list, html: { data: { action: "submit->addlist#update", turbo: "false" } } do |f| %>
                 <%= f.input :name,label: false, value: list.name %>
               <% end %>

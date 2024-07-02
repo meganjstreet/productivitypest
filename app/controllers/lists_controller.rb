@@ -1,21 +1,6 @@
 class ListsController < ApplicationController
   # before_action :set_list, only: [ :new, :create, :update, :destroy]
 
-  def lists
-    @lists = @lists
-  end
-
-  def index
-    @lists = List.all
-  end
-
-  def show
-  end
-
-  def new
-    @list = List.new
-  end
-
   def create
     @lists = List.all.includes([:list_items])
     @list = List.new(list_params)
@@ -41,11 +26,8 @@ class ListsController < ApplicationController
     end
   end
 
-
-
     def update
       @list = List.find(params[:id])
-
       respond_to do |format|
         if @list.update(list_params)
           @lists = current_user.lists

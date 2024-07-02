@@ -12,7 +12,6 @@ export default class extends Controller {
     this.initialTimeLeft = this.workTimeValue * 60;
     this.timeLeft = this.initialTimeLeft;
     this.sessionCount = 0;
-    this.pomodoroCount = this.countTarget.textContent;
     this.updateDisplay();
   }
 
@@ -119,9 +118,7 @@ export default class extends Controller {
       this.containerTarget.classList.remove('work-period', 'short-break-period');
       this.containerTarget.classList.add('long-break-period');
       this.updateCurrentSessionDisplay("LONG BREAK")
-      this.pomodoroCount++;
       this.completeCycle();
-      this.updateCountDisplay();
     } else {
       this.initialTimeLeft = this.shortBreakTimeValue * 60;
       this.timeLeft = this.initialTimeLeft;
@@ -139,9 +136,6 @@ export default class extends Controller {
     this.displayTarget.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 
-  updateCountDisplay(){
-    this.countTarget.textContent = this.pomodoroCount;
-  }
 
   updateNextSessionDisplay(session){
     this.nextSessionTarget.textContent = session;
