@@ -3,8 +3,6 @@ self.addEventListener('install', event => {
     caches.open('my-cache').then(cache => {
       return cache.addAll([
         '/',
-        '/index.html',
-        // Add other assets you want to cache
       ]);
     })
   );
