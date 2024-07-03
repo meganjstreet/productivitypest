@@ -10,8 +10,8 @@
   "orientation": "any",
   "icons": [
       {
-          "src": "/public/favicon.ico",
-          "sizes": "144x144"
+          "src": "rat.png",
+          "sizes": "96x96"
       }
   ]
 }
