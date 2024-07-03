@@ -1,3 +1,23 @@
+.btn-sign-up {
+  background-color: $japan-blue-light;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px ;
+  width: 100%;
+
+  &:hover {
+    background-color: #959ee2;
+    color: white;
+  }
+
+}
+
 .btn-log-out {
   background-color: $japan-blue-light;
   font-weight: bold;
