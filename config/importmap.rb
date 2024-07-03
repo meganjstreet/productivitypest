@@ -12,5 +12,5 @@ pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.8
 pin "@stimulus-components/sortable", to: "@stimulus-components--sortable.js" # @5.0.1
 pin "sortablejs" # @1.15.2
 pin "spotify-web-playback-sdk", to: "https://sdk.scdn.co/spotify-player.js"
-pin_all_from "app/javascript/custom", under: "custom"
+
 # config/importmap.rb

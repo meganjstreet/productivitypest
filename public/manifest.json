@@ -1,0 +1,17 @@
+{
+  "name": "productivityPEST",
+  "short_name": "pP",
+  "theme_color": "#00000",
+  "background_color": "#00000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "description": "Your productivity helper",
+  "orientation": "any",
+  "icons": [
+      {
+          "src": "/public/favicon.ico",
+          "sizes": "144x144"
+      }
+  ]
+}
