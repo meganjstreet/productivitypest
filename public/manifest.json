@@ -1,8 +1,8 @@
 {
   "name": "productivityPEST",
   "short_name": "pP",
-  "theme_color": "#00000",
-  "background_color": "#00000",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

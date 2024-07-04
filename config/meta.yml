@@ -1,6 +1,4 @@
-# config/meta.yml
- meta_product_name: "productivityPEST"
- meta_title: "productivityPEST"
- meta_description: "Your all-in-one productivity helper. Stay healthy and productive with customizable daily goals and reminders. Take breaks, drink water, and stretch to be your best self!"
- meta_image: "cover.png" # should exist in `app/assets/images/`
-
+meta_product_name: "productivityPEST"
+meta_title: "productivityPEST"
+meta_description: "Your all-in-one productivity helper. Stay healthy and productive with customizable daily goals and reminders. Take breaks, drink water, and stretch to be your best self!"
+meta_image: "cover.png"
