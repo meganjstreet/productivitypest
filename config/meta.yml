@@ -3,4 +3,4 @@ meta_product_name: "productivityPEST"
 meta_title: "productivityPest"
 meta_description: "Your all-in-one productivity helper. Stay healthy and productive with customizable daily goals and reminders. Take breaks, drink water, andstretch to be your best self!
 "
-meta_image: "rat.png" 
+meta_image: "favicon.ico" # should exist in `app/assets/images/`
