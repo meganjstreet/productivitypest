@@ -53,7 +53,7 @@
   .all-tasks {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 70%;
+    height: 72%;
   }
 
   .div-task {
@@ -78,7 +78,7 @@
   .date {
     align-self: center;
     margin-bottom: 16px;
-    margin-top: 16px;
+    margin-top: 24px;
     color: #282d58;
   }
   p {
@@ -88,12 +88,6 @@
     font-size: 20px;
     font-weight: 200;
   }
-
-
-
-
-
-
 
 }
 
@@ -164,24 +158,25 @@
 
 
 .all-tasks::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 20px;
+        /* width of the entire scrollbar */
 }
 
 .all-tasks::-webkit-scrollbar-track {
-  background: $japan-white;
+  background: white;
   border-radius: 20px;         /* color of the tracking area */
 }
 
 .all-tasks::-webkit-scrollbar-thumb {
   background-color: $japan-blue-light;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid $japan-white;  /* creates padding around scroll thumb */
+  border: 5px solid white;  /* creates padding around scroll thumb */
 }
 
 
 @media (min-width: 100px) and (max-width: 575px) {
   .container-schedule {
-    
+
     .task-times {
       flex-direction: column;
       align-items: center;
@@ -194,7 +189,17 @@
         display: none;
       }
   }
+
+  .all-tasks {
+    height: 74%;
   }
+  }
+
+  .btn-add-task {
+    font-size: 44px;
+  }
+
+
 
 }
 
