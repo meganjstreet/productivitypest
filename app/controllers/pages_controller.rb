@@ -26,7 +26,9 @@ class PagesController < ApplicationController
           recurring: true,
           schedule_id: @schedule.id
         )
+        task.update(recurring: false)
       end
+
     end
 
     #instantiate new task for task form
