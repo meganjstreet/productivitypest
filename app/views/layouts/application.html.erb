@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/app/assets/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/app/assets/images/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag %>
@@ -29,7 +30,7 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
   </head>
   <body>
     <%= render "shared/flashes" %>
