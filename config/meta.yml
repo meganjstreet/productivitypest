@@ -3,5 +3,4 @@ meta_product_name: "productivityPEST"
 meta_title: "productivityPest"
 meta_description: "Your all-in-one productivity helper. Stay healthy and productive with customizable daily goals and reminders. Take breaks, drink water, andstretch to be your best self!
 "
- meta_image: "cover.png" # should exist in `app/assets/images/`
- twitter_account: "@product_twitter_account" # required for Twitter Cards
+meta_image: "cover.png" # should exist in `app/assets/images/`
